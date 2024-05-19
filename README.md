@@ -2,6 +2,9 @@
 
 ## Requirements
 - GNU Stow `brew install stow`
+- Starship `brew install starship`
+- FZF `brew install fzf`
+- Zoxide `brew install zoxide`
 - WezTerm `brew install wezterm` _(optional)_
 - Tmux `brew install tmux` _(optional)_
 
