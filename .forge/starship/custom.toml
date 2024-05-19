@@ -1,0 +1,75 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Insert a blank line between shell prompts
+add_newline = true
+
+
+format = """\
+[┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics$fill $all\
+[└─](fg:242) $character"""
+
+right_format=""
+
+[fill]
+symbol = "/"
+
+[line_break]
+disabled = false
+
+[character]
+success_symbol = "[](bold green) "
+error_symbol = "[✗](bold red) "
+
+[time]
+disabled = true
+format = "[ $time]($style)"
+time_format = "%l:%M %p"
+style = "fg:254"
+use_12hr = true
+utc_time_offset = "local"
+
+[directory]
+truncate_to_repo = true
+repo_root_style = "cyan bold"
+style = "bold cyan dimmed"
+format = "  [$path ]($style)"
+repo_root_format = '  [$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+
+[git_branch]
+symbol = " "
+style = "bold fg:213"
+format = "[|](fg:244)[ $symbol$branch(:$remote_branch)]($style) "
+
+[git_metrics]
+disabled = false
+
+[php]
+symbol = " "
+
+[nodejs]
+format = '[$symbol($version)]($style) '
+version_format = "${major}.${minor}"
+
+[python]
+format = '[$symbol($version)]($style) '
+version_format = "${major}.${minor}"
+symbol = ' '
+
+[golang]
+format = '[$symbol($version)]($style) '
+version_format = "${major}.${minor}"
+symbol = ' '
+
+[package]
+format = '[$symbol($version)]($style) '
+symbol = ' '
+
+[lua]
+format = '[$symbol($version)]($style)'
+symbol = ' '
+
+[docker_context]
+disabled = true
+
+[localip]
+disabled = false
