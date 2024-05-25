@@ -6,6 +6,10 @@ export DOTFILES="${XDG_CONFIG_HOME:-FORGE}"
 export ZSH_CONFIG="${DOTFILES}/zsh"
 export WEZTERM_CONFIG_FILE="${DOTFILES}/wezterm/wezterm.lua"
 
+# True color configuration
+export TERM=xterm-256color
+export COLORTERM=truecolor
+
 # macOS Homebrew
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   eval "$(/opt/homebrew/bin/brew shellenv)"
