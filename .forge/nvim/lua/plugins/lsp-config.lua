@@ -65,18 +65,15 @@ return { -- LSP Configuration & Plugins
       gopls = {},
       pyright = {
         disableOrganizeImports = true,
-      },
-      ruff_lsp = {
-        init_options = {
-          settings = {
-            args = {},
-          },
+        analysis = {
+          -- Ignore all files and let Ruff do the linting
+          ignore = { '*' },
         },
       },
+      ruff = {},
       tsserver = {},
       tailwindcss = {},
       ltex = {},
-
       lua_ls = {
         settings = {
           Lua = {
