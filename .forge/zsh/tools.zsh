@@ -1,17 +1,5 @@
-# Lazy NVM
-nvm() {
-  unset -f nvm
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm "$@"
-}
-
-node() {
-  unset -f node
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  node "$@"
-}
+# NodeJS
+eval "$(fnm env --use-on-cd)"
 
 # PyEnv
 # Try to find pyenv, if it's not on the path
