@@ -51,7 +51,7 @@ format = '[$symbol($version)]($style) '
 version_format = "${major}.${minor}"
 
 [python]
-format = '[$symbol($version)]($style) '
+format = '[$symbol($version)]($style)( \($virtualenv\)) '
 version_format = "${major}.${minor}"
 symbol = ' '
 
