@@ -21,9 +21,14 @@ if type pyenv > /dev/null; then
     }
 fi
 
-#Tmuxifier
+# Tmuxifier
+# -> Lazy loaded when calling the `tmuxifier` command/alias
 export PATH="$FORGE/tmux/plugins/tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
+function tmuxifier() {
+  unset -f tmuxifier
+  eval "$(command tmuxifier init -)"
+  tmuxifier $@
+}
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
@@ -33,7 +38,18 @@ case ":$PATH:" in
 esac
 
 # bun
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH=$PATH:$HOME/bin
+# -> Lazy loaded when calling the `bun` command
+function bun() {
+  unset -f bun
+  if [ -s "$HOME/.bun/_bun" ]; then
+    source "$HOME/.bun/_bun"
+  fi
+  bun $@
+}
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"

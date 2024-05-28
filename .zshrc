@@ -50,16 +50,12 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+# Load tools
+source "${ZSH_CONFIG}/tools.zsh"
+
 # Load Aliases
 for file in ${ZSH_CONFIG}/aliases/*.zsh; do
   if [ -f "$file" ]; then
     source "$file"
   fi
 done
-
-# Load tools
-source "${ZSH_CONFIG}/tools.zsh"
-
-# Shell integrations
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
