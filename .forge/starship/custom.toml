@@ -5,7 +5,7 @@ add_newline = true
 
 
 format = """\
-[┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics$fill $all\
+[┌─](fg:242) $container$directory$git_branch$git_status$git_state$git_metrics$fill $all\
 [└─](fg:242) $character"""
 
 right_format=""
