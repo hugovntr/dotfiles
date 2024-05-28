@@ -32,3 +32,6 @@ alias tx="tmuxifier"
 
 # Debug ZSH startup time
 alias debugzsh="time zsh -i -c exit"
+
+# Hyperfine
+alias bench="hyperfine"

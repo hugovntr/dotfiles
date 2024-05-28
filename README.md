@@ -7,6 +7,7 @@
 - Zoxide `brew install zoxide`
 - WezTerm `brew install wezterm` _(optional)_
 - Tmux `brew install tmux` _(optional)_
+- Hyperfine `brew install hyperfine` *(optional)*
 
 
 ## Installation
