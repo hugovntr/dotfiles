@@ -28,7 +28,7 @@ Because of the way my brain is set up, I don't use **vim** default navigation ke
 Instead, I use `jklm` (Left, Up, Down, Right).
 This configuration is the same to switch between panes in tmux, or to resize panes.
 
-### Nvim
+### Neovim
 - The leader key is mapped to `Space`
 
 ### Tmux
