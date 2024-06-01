@@ -9,6 +9,12 @@ oil.setup {
       return vim.startswith(name, '.')
     end,
   },
+  preview = {
+    win_options = {
+      winblend = 0,
+    },
+    update_on_cursor_moved = true,
+  },
   float = {
     -- Padding around the floating window
     padding = 2,
@@ -25,7 +31,27 @@ oil.setup {
     end,
   },
 }
--- vim.keymap.set('n', '<M-e>', '<cmd>lua require("oil").toggle_float()<cr>')
+
+local function is_oil()
+  local bufname = vim.fn.bufname ''
+  return bufname:find '^oil://(.*)$'
+end
+
+-- Toggle oil with Meta + E
 vim.keymap.set('n', '<M-e>', function()
-  oil.toggle_float()
+  if is_oil() ~= nil then
+    oil.close()
+  else
+    oil.open()
+    require('oil.util').run_after_load(0, function()
+      oil.open_preview()
+    end)
+  end
+end)
+
+-- Close oil with Esc only if Oil is openned
+vim.keymap.set('n', '<Esc>', function()
+  if is_oil() ~= nil then
+    oil.close()
+  end
 end)
