@@ -34,24 +34,35 @@ oil.setup {
 
 local function is_oil()
   local bufname = vim.fn.bufname ''
-  return bufname:find '^oil://(.*)$'
+  return vim.startswith(bufname, 'oil://')
 end
 
 -- Toggle oil with Meta + E
 vim.keymap.set('n', '<M-e>', function()
-  if is_oil() ~= nil then
+  if is_oil() then
     oil.close()
   else
-    oil.open()
-    require('oil.util').run_after_load(0, function()
-      oil.open_preview()
-    end)
+    oil.open_float()
   end
 end)
 
+-- Autocmd to enable preview
+-- vim.api.nvim_create_autocmd('User', {
+--   pattern = 'OilEnter',
+--   callback = vim.schedule_wrap(function(args)
+--     if vim.api.nvim_get_current_buf() == args.data.buf and oil.get_cursor_entry() then
+--       local pw = require('oil.util').get_preview_win()
+--       if pw then
+--         vim.api.nvim_win_close(pw, true)
+--       end
+--       oil.open_preview()
+--     end
+--   end),
+-- })
+
 -- Close oil with Esc only if Oil is openned
 vim.keymap.set('n', '<Esc>', function()
-  if is_oil() ~= nil then
+  if is_oil() then
     oil.close()
   end
 end)
