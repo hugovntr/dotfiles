@@ -62,3 +62,6 @@ inoremap('<M-BS>', '<C-W>', { desc = 'Delete previous word' })
 -- Move lines
 nnoremap('<M-k>', '<cmd>m .-2<cr>', { desc = 'Move line up (1)' })
 nnoremap('<M-l>', '<cmd>m .+1<cr>', { desc = 'Move line down (1)' })
+
+-- Reload current file
+nnoremap('<C-r>', '<cmd>source %<cr>', { desc = '[R]eload current file' })
