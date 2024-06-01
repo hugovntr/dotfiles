@@ -6,18 +6,21 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-wezterm.on("gui-startup", function(cmd)
-	local mux = wezterm.mux
-	local _, build_pane, _ = mux.spawn_window(cmd or {})
-	build_pane:send_text("tmux\n")
-end)
+-- Automatically start tmux
+-- wezterm.on("gui-startup", function(cmd)
+-- 	local mux = wezterm.mux
+-- 	local _, build_pane, _ = mux.spawn_window(cmd or {})
+-- 	build_pane:send_text("tmux\n")
+-- end)
 
 -- Automagically reload the configuration
 config.automatically_reload_config = true
 
--- Disable quit confirmation
+-- Quit confirmation
 config.window_close_confirmation = "NeverPrompt"
-config.pane_focus_follows_mouse = true
+
+-- Focus follows mouse
+config.pane_focus_follows_mouse = false
 
 -- Max FPS
 config.max_fps = 120
@@ -25,7 +28,7 @@ config.animation_fps = 120
 
 -- Keybindings
 config.enable_kitty_keyboard = true
--- config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = require("keys")
 
 -- Font size / Term size
@@ -41,10 +44,14 @@ config.show_new_tab_button_in_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 24
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 0,
+	left = 4,
+	right = 4,
+	top = 6,
 	bottom = 0,
+}
+config.inactive_pane_hsb = {
+	brightness = 0.7,
+	saturation = 0.9,
 }
 
 -- Transparency and Colors
