@@ -1,5 +1,35 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+
+local function is_nvim(pane)
+	local process_name = string.gsub(pane:get_foreground_process_name(), "(.*[/\\])(.*)", "%2")
+	print(process_name)
+	return process_name == "nvim" or process_name == "vim"
+end
+
+local direction_keys = {
+	Left = "j",
+	Up = "k",
+	Down = "l",
+	Right = "m",
+}
+
+local function pane_navigation(key, mods, action)
+	return {
+		key = key,
+		mods = mods,
+		action = wezterm.action_callback(function(win, pane)
+			if is_nvim(pane) then
+				win:perform_action({
+					SendKey = { key = key, mods = mods },
+				}, pane)
+			else
+				win:perform_action(action, pane)
+			end
+		end),
+	}
+end
+
 return {
 	-- {
 	-- 	key = "m",
@@ -40,8 +70,12 @@ return {
 	{ key = "l", mods = "LEADER", action = act.AdjustPaneSize({ "Down", 5 }) },
 
 	-- Move between panes
-	{ key = "m", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
-	{ key = "j", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
-	{ key = "k", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
-	{ key = "l", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
+	-- { key = "m", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
+	-- { key = "j", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
+	-- { key = "k", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
+	-- { key = "l", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
+	pane_navigation(direction_keys["Left"], "CTRL", act.ActivatePaneDirection("Left")),
+	pane_navigation(direction_keys["Up"], "CTRL", act.ActivatePaneDirection("Up")),
+	pane_navigation(direction_keys["Down"], "CTRL", act.ActivatePaneDirection("Down")),
+	pane_navigation(direction_keys["Right"], "CTRL", act.ActivatePaneDirection("Right")),
 }

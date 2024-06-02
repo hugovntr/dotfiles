@@ -1,4 +1,4 @@
 return {
   -- 'christoomey/vim-tmux-navigator',
-  'sunaku/tmux-navigate',
+  -- 'sunaku/tmux-navigate',
 }
