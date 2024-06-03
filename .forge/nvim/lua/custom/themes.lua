@@ -4,11 +4,12 @@
 local color_overrides = {
   base = '#171717',
   green = '#5eff6c',
-  red = '#FF6E5E',
+  red = '#fd5e3a',
   yellow = '#f1ff5e',
   blue = '#5ea1ff',
   mauve = '#bd5eff',
   sky = '#5ef1ff',
+  maroon = '#fa7a61',
 }
 
 ---@param colors CtpColors<string>
