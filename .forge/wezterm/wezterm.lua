@@ -50,7 +50,7 @@ config.window_padding = {
 	bottom = 0,
 }
 config.inactive_pane_hsb = {
-	brightness = 0.7,
+	brightness = 0.6,
 	saturation = 0.9,
 }
 
@@ -76,26 +76,26 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cf, hover, max_width)
 	title = wezterm.truncate_left(title, max_width)
 	local i = tab.tab_index + 1
 
-	title = string.format(" %d %s ", i, title)
+	local icon = tab.is_active and " " or " "
+	title = string.format(" %s %s ", icon, title)
 
-	local background = "rgb(22, 24, 26 / 20%)"
+	local background = config.colors.tab_bar.background
 	local foreground = "white"
 
+	if hover then
+		background = "rgb(22, 24, 26 / 60%)"
+		foreground = "White"
+	end
+
 	if tab.is_active then
-		background = "rgb(22, 24, 26 / 90%)"
-		foreground = "white"
+		background = "#fa7a61"
+		foreground = "Black"
 	end
 
 	return {
-		{ Background = { Color = "black" } },
-		{ Foreground = { Color = "black" } },
-		{ Text = "" },
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
 		{ Text = title },
-		{ Background = { Color = "black" } },
-		{ Foreground = { Color = "black" } },
-		{ Text = "" },
 	}
 end)
 
