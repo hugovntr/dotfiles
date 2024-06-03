@@ -13,5 +13,5 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Load completions
 # autoload -Uz compinit && compinit
 # zinit cdreplay -q
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+# autoload -Uz _zinit
+# (( ${+_comps} )) && _comps[zinit]=_zinit
