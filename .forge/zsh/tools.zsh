@@ -50,6 +50,10 @@ function bun() {
   bun $@
 }
 
+# GoLang
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
