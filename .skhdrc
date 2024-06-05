@@ -14,6 +14,7 @@ windows < j : yabai -m window --focus west && skhd -k "escape"
 windows < m : yabai -m window --focus east && skhd -k "escape"
 windows < k : yabai -m window --focus north && skhd -k "escape"
 windows < l : yabai -m window --focus south && skhd -k "escape"
+windows < f : yabai -m window --toggle float && skhd -k "escape"
 windows < return : yabai -m window --toggle zoom-fullscreen && skhd -k "escape"
 
 # Resizing windows
