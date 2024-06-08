@@ -4,7 +4,7 @@ local inoremap = require('keymaps_utils').inoremap
 local ninoremap = require('keymaps_utils').ninoremap
 
 -- Clear highlights when pressing <Esc>
-nnoremap('<Esc>', '<cmd>nohlsearch<CR>')
+nnoremap('<esc>', '<cmd>nohlsearch<cr>')
 
 -- inlay hints
 nnoremap('<leader>i', vim.lsp.inlay_hint.enable, { desc = 'Show [I]nlay Hints' })
@@ -37,9 +37,6 @@ nvnoremap('xx', 'dd')
 -- Delete without copy
 nvnoremap('d', '"_d')
 nvnoremap('dd', '"_dd')
-
--- Open terminal
-nnoremap('', '<cmd>split | terminal<cr>')
 
 -- Buffer management
 nnoremap('<C-p>', '<cmd>bprev<cr>', { desc = 'Previous buffer' })

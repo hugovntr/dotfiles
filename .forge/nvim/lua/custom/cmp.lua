@@ -6,6 +6,7 @@ luasnip.config.set_config {
   history = false,
   updateevents = 'TextChanged,TextChangedI',
 }
+require('luasnip.loaders.from_vscode').lazy_load()
 
 vim.keymap.set({ 'i', 'n', 's' }, '<C-s>', function()
   if luasnip.expand_or_jumpable() then
@@ -22,6 +23,7 @@ end, { silent = true })
 cmp.setup {
   enabled = true,
   sources = {
+    { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'buffer' },
