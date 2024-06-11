@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
@@ -40,6 +41,13 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^OrbStack$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
 
-borders active_color="0x44171717" style=round inactive_color=0x00FF2013 width=24.0 hidpi=off blur_radius=16.0 &
+# Always on top
+yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
 
+borders ax_focus=off active_color="0x44171717" style=round inactive_color=0x00FF2013 width=24.0 hidpi=on blur_radius=16.0 &
+
+# Refresh ubersicht
+yabai -m signal --add event=space_changed \
+    action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"spaces-widget\"'"
