@@ -1,0 +1,171 @@
+{
+    "title": "NuPhy Halo 65 AZERTY",
+    "rules": [
+        {
+            "description": "[NuPhy Halo 65] Caps lock to escape",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 591
+                                }
+                            ]
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    },
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": {
+                        "key_code": "left_control",
+                        "lazy": true
+                    },
+                    "to_if_alone": {
+                        "key_code": "escape"
+                    },
+                    "to_if_held_down": {
+                        "key_code": "left_control"
+                    }
+                }
+            ]
+        },
+        {
+            "description": "[NuPhy Halo 65] Escape to @",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 591
+                                }
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "escape",
+                        "modifiers": {
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": {
+                        "key_code": "non_us_backslash"
+                    }
+                }
+            ]
+        },
+        {
+            "description": "[NuPhy Halo 65] Right CMD + n to tilde",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 591
+                                }
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "n",
+                        "modifiers": {
+                            "mandatory": ["right_command"]
+                        }
+                    },
+                    "to": {
+                        "key_code": "n",
+                        "modifiers": ["right_option"]
+                    }
+                }
+            ]
+        },
+        {
+            "description": "[NuPhy Halo 65] Backtick and chevrons",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 591
+                                }
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": {
+                            "optional": ["left_shift"]
+                        }
+                    },
+                    "to": {
+                        "key_code": "grave_accent_and_tilde"
+                    }
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 591
+                                }
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": {
+                            "mandatory": ["option"]
+                        }
+                    },
+                    "to": {
+                        "key_code": "backslash"
+                    }
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 591
+                                }
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "quote",
+                        "modifiers": {
+                            "mandatory": ["fn"]
+                        }
+                    },
+                    "to": {
+                        "key_code": "backslash"
+                    }
+                }
+            ]
+        }
+    ]
+}
