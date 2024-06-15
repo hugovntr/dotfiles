@@ -1,6 +1,6 @@
 # Path configurations
 export PATH="$HOME/.local/bin:$PATH"
-export FORGE="$HOME/.forge"
+export FORGE="$HOME/.config"
 export XDG_CONFIG_HOME="$FORGE"
 export DOTFILES="${XDG_CONFIG_HOME:-FORGE}"
 export ZSH_CONFIG="${DOTFILES}/zsh"

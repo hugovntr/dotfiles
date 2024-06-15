@@ -24,7 +24,8 @@ nnoremap('<leader>sq', '<cmd>wqa<cr>', { silent = true })
 
 -- Switch 'j' and 'k'
 nvnoremap('j', 'h')
-nvnoremap('l', 'j')
+nvnoremap('k', 'gk') -- Remap to display line navigation
+nvnoremap('l', 'gj') -- Remap to display line navigation
 nvnoremap('m', 'l')
 
 -- 'U' to redo
