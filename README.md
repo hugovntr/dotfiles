@@ -18,9 +18,22 @@
 # Clone the repository
 git clone https://github.com/hugovntr/dotfiles.git ~/.dotfiles
 
-# Run stow to link all the files
-cd ~/.dotfiles/ && stow .
+# Navigate to the dotfiles folder
+cd ~/.dotfiles/
 ```
+Once you are in the dotfiles folder, you may install the desired package(s).
+
+For example, if you only want to install **neovim** you can do it like so:
+```bash
+stow nvim
+```
+And all the configuration will be symlinked to the appropriate folder in the system.
+
+But, you can also install multiple packages at once:
+```bash
+stow nvim wezterm zsh
+```
+
 Restart your shell once that's done
 
 ## Before you try
