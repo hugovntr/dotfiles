@@ -8,7 +8,22 @@ return {
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'python', 'javascript', 'typescript', 'tsx', 'json', 'dockerfile' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'html',
+        'lua',
+        'markdown',
+        'vim',
+        'vimdoc',
+        'python',
+        'javascript',
+        'typescript',
+        'tsx',
+        'json',
+        'dockerfile',
+        'htmldjango',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -22,7 +37,7 @@ return {
           init_selection = '<C-d>',
           node_incremental = '<C-d>',
           scope_incremental = false,
-          node_decremental = '<bs>',
+          node_decremental = '-',
         },
       },
       textobjects = {
@@ -35,14 +50,14 @@ return {
           keymaps = {
             ['a='] = { query = '@assignment.outer', desc = 'Select outer part of assignment' },
             ['i='] = { query = '@assignment.inner', desc = 'Select inner part of assignment' },
-            ['m='] = { query = '@assignment.lhs', desc = 'Select left part of assignment' },
-            ['h='] = { query = '@assignment.rhs', desc = 'Select right part of assignment' },
+            ['j='] = { query = '@assignment.lhs', desc = 'Select left part of assignment' },
+            ['m='] = { query = '@assignment.rhs', desc = 'Select right part of assignment' },
 
             ['aa'] = { query = '@parameter.outer', desc = 'Select outer part of a parameter/argument' },
             ['ia'] = { query = '@parameter.inner', desc = 'Select inner part of a parameter/argument' },
 
-            ['ai'] = { query = '@conditional.outer', desc = 'Select the outer part of a conditional' },
-            ['ii'] = { query = '@conditional.inner', desc = 'Select inner part of a conditional' },
+            ['ac'] = { query = '@conditional.outer', desc = 'Select the outer part of a conditional' },
+            ['ic'] = { query = '@conditional.inner', desc = 'Select inner part of a conditional' },
           },
         },
         swap = {
@@ -65,23 +80,16 @@ return {
       require('nvim-treesitter.configs').setup(opts)
 
       local r = require 'nvim-treesitter.textobjects.repeatable_move'
-      --
+
       -- vim , and ; repeat last command
       vim.keymap.set({ 'n', 'x', 'o' }, ';', r.repeat_last_move)
       vim.keymap.set({ 'n', 'x', 'o' }, ',', r.repeat_last_move_opposite)
 
       -- make f, F, t, T also repeatable
-      vim.keymap.set({ 'n', 'x', 'o' }, 'f', r.builtin_f)
-      vim.keymap.set({ 'n', 'x', 'o' }, 'F', r.builtin_F)
-      vim.keymap.set({ 'n', 'x', 'o' }, 't', r.builtin_t)
-      vim.keymap.set({ 'n', 'x', 'o' }, 'T', r.builtin_T)
-
-      -- There are additional nvim-treesitter modules that you can use to interact
-      -- with nvim-treesitter. You should go explore a few and see what interests you:
-      --
-      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-      --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-      --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      -- vim.keymap.set({ 'n', 'x', 'o' }, 'f', r.builtin_f)
+      -- vim.keymap.set({ 'n', 'x', 'o' }, 'F', r.builtin_F)
+      -- vim.keymap.set({ 'n', 'x', 'o' }, 't', r.builtin_t)
+      -- vim.keymap.set({ 'n', 'x', 'o' }, 'T', r.builtin_T)
     end,
   },
 }
