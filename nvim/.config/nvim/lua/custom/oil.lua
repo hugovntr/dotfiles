@@ -3,10 +3,14 @@ oil.setup {
   columns = {
     'icon',
   },
+  delete_to_trash = true,
   view_options = {
     show_hidden = true,
     if_hidden_file = function(name, _)
       return vim.startswith(name, '.')
+    end,
+    is_always_hidden = function(name, _)
+      return name == '.git' or name == 'node_modules'
     end,
   },
   preview = {
