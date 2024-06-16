@@ -40,7 +40,7 @@ require('lualine').setup {
         'buffers',
         mode = 0,
         show_filename_only = true,
-        use_mode_colors = true,
+        use_mode_colors = false,
         symbols = { alternate_file = '' },
         buffers_color = {
           inactive = 'lualine_a_normal',
@@ -68,7 +68,24 @@ require('lualine').setup {
       },
     },
     lualine_b = { 'branch' },
-    lualine_c = { 'diagnostics' },
+    lualine_c = {
+      'diagnostics',
+      -- function()
+      --   local entries = require('barbecue.ui.state').get_entries(vim.current.window)
+      --   local winbar = '%#BarbecueNormal# '
+      --   if entries == nil then
+      --     return 'Nothing'
+      --   end
+      --   for i, entry in ipairs(entries) do
+      --     winbar = winbar .. entry:to_string()
+      --     if i < #entries then
+      --       winbar = winbar .. '%#BarbecueNormal# %#BarbecueSeparator#' .. '%#BarbecueNormal# '
+      --     end
+      --   end
+      --   print(winbar)
+      --   return winbar
+      -- end,
+    },
     lualine_d = { '%=' },
     lualine_x = { 'filetype' },
     lualine_y = {
