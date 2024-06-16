@@ -4,7 +4,7 @@ local inoremap = require('keymaps_utils').inoremap
 local ninoremap = require('keymaps_utils').ninoremap
 
 -- Clear highlights when pressing <Esc>
-nnoremap('<esc>', '<cmd>nohlsearch<cr>')
+nnoremap('<esc><esc>', '<cmd>nohlsearch<cr>')
 
 -- inlay hints
 nnoremap('<leader>i', vim.lsp.inlay_hint.enable, { desc = 'Show [I]nlay Hints' })
