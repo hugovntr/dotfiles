@@ -32,7 +32,7 @@ function tmuxifier() {
 
 # pnpm
 if [ -f "$HOME/.local/share/pnpm/pnpm" ]; then
-  export PNPM_HOME="$HOME/.local/share/pnpm/pnm"
+  export PNPM_HOME="$HOME/.local/share/pnpm/pnpm"
 else
   export PNPM_HOME="$HOME/Library/pnpm"
 fi
