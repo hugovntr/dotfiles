@@ -31,7 +31,11 @@ function tmuxifier() {
 }
 
 # pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
+if [ -f "$HOME/.local/share/pnpm/pnpm" ]; then
+  export PNPM_HOME="$HOME/.local/share/pnpm/pnm"
+else
+  export PNPM_HOME="$HOME/Library/pnpm"
+fi
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
