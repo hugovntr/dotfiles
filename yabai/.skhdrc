@@ -5,11 +5,13 @@
 :: resize
 :: swap
 :: mode
-ctrl - a ; windows
+:: move
+ctrl - s ; windows
 ctrl - e ; resize
-ctrl - s ; swap
+ctrl - b ; swap
 ctrl - t ; mode
-mode, swap, resize, windows < escape ; default
+ctrl - a ; move
+move, mode, swap, resize, windows < escape ; default
 
 # Navigation between windows
 windows < j : yabai -m window --focus west && skhd -k "escape"
@@ -38,6 +40,9 @@ mode < b : yabai -m space --layout bsp && skhd -k "escape"
 mode < f : yabai -m space --layout float && skhd -k "escape"
 
 # Move between spaces
+move < u : yabai -m window --space 1 --focus && skhd -k "escape"
+move < i : yabai -m window --space 2 --focus && skhd -k "escape"
+move < o : yabai -m window --space 3 --focus && skhd -k "escape"
 
 # Fast access
 ctrl - return : /Applications/WezTerm.app/Contents/MacOS/wezterm
