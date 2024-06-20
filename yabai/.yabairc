@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 
 osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+# sudo yabai --load-sa
 
 yabai -m config                                 \
     external_bar                 all:28:0       \
     menubar_opacity              1.0            \
-    mouse_follows_focus          on            \
-    focus_follows_mouse          on            \
+    mouse_follows_focus          on             \
+    focus_follows_mouse          on             \
     display_arrangement_order    default        \
     window_origin_display        default        \
     window_placement             second_child   \
@@ -17,23 +17,22 @@ yabai -m config                                 \
     window_opacity_duration      1.0            \
     active_window_opacity        1.0            \
     normal_window_opacity        0.40           \
-    window_opacity               on             \
+    window_opacity               off            \
     insert_feedback_color        0xffff2013     \
     split_ratio                  0.50           \
     split_type                   auto           \
     auto_balance                 off            \
-    top_padding                  24             \
-    bottom_padding               24             \
-    left_padding                 24             \
-    right_padding                24             \
+    top_padding                  48             \
+    bottom_padding               48             \
+    left_padding                 48             \
+    right_padding                48             \
     window_gap                   24             \
     layout                       bsp            \
-    mouse_modifier               fn            \
+    mouse_modifier               fn             \
     mouse_action1                move           \
     mouse_action2                resize         \
     mouse_drop_action            swap
 
-echo "yabai configuration loaded.."
 
 # Blacklist
 yabai -m rule --add app="^System Settings$" manage=off
@@ -42,11 +41,14 @@ yabai -m rule --add app="^OrbStack$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Mail$" manage=off
 
 # Always on top
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
 
-borders ax_focus=off active_color="0x44171717" style=round inactive_color=0x00FF2013 width=24.0 hidpi=on blur_radius=16.0 &
+# borders ax_focus=off active_color="0x44171717" style=round inactive_color=00FFFFFF width=16.0 hidpi=on blur_radius=16.0 &
+borders ax_focus=off active_color="0x26FFFFFF" style=round inactive_color=00FFFFFF width=24.0 hidpi=on blur_radius=16.0 &
 
 # Refresh ubersicht
 yabai -m signal --add event=space_changed \
