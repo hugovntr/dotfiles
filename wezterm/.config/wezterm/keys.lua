@@ -79,8 +79,8 @@ return {
 	{ key = "r", mods = "LEADER", action = act.ReloadConfiguration },
 
 	-- Adjust Pane size
-	{ key = "m", mods = "LEADER", action = act.AdjustPaneSize({ "Right", 10 }) },
-	{ key = "j", mods = "LEADER", action = act.AdjustPaneSize({ "Left", 10 }) },
+	{ key = "m", mods = "LEADER", action = act.AdjustPaneSize({ "Right", 20 }) },
+	{ key = "j", mods = "LEADER", action = act.AdjustPaneSize({ "Left", 20 }) },
 	{ key = "k", mods = "LEADER", action = act.AdjustPaneSize({ "Up", 5 }) },
 	{ key = "l", mods = "LEADER", action = act.AdjustPaneSize({ "Down", 5 }) },
 
