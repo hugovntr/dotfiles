@@ -30,7 +30,8 @@ local theme = {
 
 require('lualine').setup {
   options = {
-    component_separators = '',
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     icons_enabled = true,
     theme = theme,
   },
@@ -42,9 +43,10 @@ require('lualine').setup {
         show_filename_only = true,
         use_mode_colors = false,
         symbols = { alternate_file = '' },
+        filetype_names = { oil = 'File Explorer' },
         buffers_color = {
-          inactive = 'lualine_a_normal',
-          active = 'lualine_a_insert',
+          inactive = { fg = 'Gray', bg = '' },
+          active = { fg = '#FF4F00', gui = 'bold' },
         },
       },
     },
@@ -53,15 +55,21 @@ require('lualine').setup {
     lualine_x = {},
     lualine_y = {},
     lualine_z = {
-      'datetime',
+      {
+        'datetime',
+        style = '%H:%M',
+        color = { fg = 'Yellow' },
+        fmt = function(string)
+          return '  ' .. string
+        end,
+      },
     },
   },
   sections = {
     lualine_a = {
       {
         'mode',
-        separator = { --[[ left = '' ]]
-        },
+        separator = nil,
         right_padding = 2,
         icons_enabled = true,
         icon = '󰧚 ',
