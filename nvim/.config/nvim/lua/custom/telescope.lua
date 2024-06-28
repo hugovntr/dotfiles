@@ -50,6 +50,7 @@ vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iag
 -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>sr', builtin.oldfiles, { desc = '[S]earch [R]ecent Files' })
 vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>ws', builtin.lsp_workspace_symbols, { desc = '[W]orkspace [S]ymbols' })
 
 -- Match Intellij IDE
 vim.keymap.set('n', '<M-p>', builtin.find_files)
