@@ -21,4 +21,13 @@ return {
       require 'custom.navigation'
     end,
   },
+  {
+    'nanotee/zoxide.vim',
+    event = 'VeryLazy',
+    dependencies = {
+      {
+        'junegunn/fzf',
+      },
+    },
+  },
 }
