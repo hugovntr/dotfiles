@@ -48,7 +48,7 @@
             }
           },
           "to_if_held_down": {
-            "key_code": "left_alt",
+            "key_code": "right_alt",
             "halt": true
           },
           "to_if_alone": {
