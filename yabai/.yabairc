@@ -7,7 +7,7 @@ osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 yabai -m config                                 \
     external_bar                 all:28:0       \
     menubar_opacity              1.0            \
-    mouse_follows_focus          on             \
+    mouse_follows_focus          off            \
     focus_follows_mouse          on             \
     display_arrangement_order    default        \
     window_origin_display        default        \
