@@ -92,4 +92,8 @@ return {
       -- vim.keymap.set({ 'n', 'x', 'o' }, 'T', r.builtin_T)
     end,
   },
+  {
+    'lukas-reineke/headlines.nvim',
+    opts = {},
+  },
 }
