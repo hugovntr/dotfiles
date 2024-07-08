@@ -15,7 +15,6 @@ local theme = {
     c = { fg = 'Cyan' },
     x = { fg = 'LightGray' },
     y = { fg = colors.red },
-    z = { fg = 'Yellow' },
   },
   insert = {
     a = { fg = 'LightGreen', gui = 'bold' },
@@ -27,6 +26,21 @@ local theme = {
     z = { fg = 'Gray' },
   },
 }
+
+local function ollama_status()
+  if package.loaded['ollama'] == nil then
+    return nil
+  end
+  if require('ollama').status() == nil then
+    return nil
+  end
+
+  if vim.g.ollama_started == nil or vim.g.ollama_started == false then
+    return '  Ollama'
+  else
+    return '  Ollama'
+  end
+end
 
 require('lualine').setup {
   options = {
@@ -104,7 +118,13 @@ require('lualine').setup {
         left_padding = 2,
       },
     },
-    lualine_z = {},
+    lualine_z = {
+      {
+        ollama_status,
+        cond = nil,
+        color = { fg = 'Gray' },
+      },
+    },
   },
   inactive_sections = {
     lualine_a = { 'filename' },
