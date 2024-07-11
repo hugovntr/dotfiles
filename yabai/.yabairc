@@ -4,6 +4,16 @@ osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 # yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 # sudo yabai --load-sa
 
+# Blacklist
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^OrbStack$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Mail$" manage=off
+
 yabai -m config                                 \
     external_bar                 all:28:0       \
     menubar_opacity              1.0            \
@@ -32,17 +42,6 @@ yabai -m config                                 \
     mouse_action1                move           \
     mouse_action2                resize         \
     mouse_drop_action            swap
-
-
-# Blacklist
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add app="^OrbStack$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
-yabai -m rule --add app="^Music$" manage=off
-yabai -m rule --add app="^Preview$" manage=off
-yabai -m rule --add app="^Messages$" manage=off
-yabai -m rule --add app="^Mail$" manage=off
 
 # Always on top
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
