@@ -1,6 +1,7 @@
 return {
   {
     'rcarriga/nvim-notify',
+    opts = {},
   },
   {
     'mrded/nvim-lsp-notify',
