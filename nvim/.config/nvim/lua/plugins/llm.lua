@@ -1,6 +1,17 @@
 return {
+  -- {
+  --   'huggingface/llm.nvim',
+  --   dependencies = {
+  --     'nomnivore/ollama.nvim',
+  --   },
+  --   event = 'VeryLazy',
+  --   config = function()
+  --     require 'custom.llm'
+  --   end,
+  -- },
   {
-    'huggingface/llm.nvim',
+    'hugovntr/llm.nvim',
+    branch = 'fix-keymaps',
     dependencies = {
       'nomnivore/ollama.nvim',
     },
@@ -14,9 +25,11 @@ return {
     event = 'VeryLazy',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'rcarriga/nvim-notify',
     },
     config = function()
       local ollama = require 'ollama'
+      local notify = require 'notify'
       ollama.setup {
         model = 'codeqwen',
         serve = {
@@ -40,11 +53,17 @@ return {
         if vim.g.ollama_started == true then
           ollama.stop_serve()
           vim.api.nvim_command 'LLMToggleAutoSuggest'
+          notify('Server Stopped', 'info', {
+            title = 'Ollama',
+          })
           vim.g.ollama_started = false
           return
         end
         ollama.run_serve()
         vim.api.nvim_command 'LLMToggleAutoSuggest'
+        notify('Server Started', 'info', {
+          title = 'Ollama',
+        })
         vim.g.ollama_started = true
       end, { desc = 'Toggle the AI inference' })
 
