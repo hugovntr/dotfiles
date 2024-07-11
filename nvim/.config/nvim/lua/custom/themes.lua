@@ -2,6 +2,7 @@
 
 ---@type CtpColors<string>
 local color_overrides = {
+  brand = '#FF4F00',
   base = '#171717',
   green = '#5eff6c',
   red = '#fd5e3a',
@@ -15,10 +16,9 @@ local color_overrides = {
 ---@param colors CtpColors<string>
 local custom_highlights = function(colors)
   return {
-    FloatBorder = { fg = colors.surface2, bg = colors.none },
-    CmpItemMenu = { style = { 'bold' } },
+    FloatBorder = { fg = colors.surface1, bg = colors.none },
     TelescopeBorder = {
-      fg = colors.surface2,
+      fg = colors.surface1,
       bg = colors.none,
     },
     TelescopeMatching = { fg = colors.yellow },
@@ -62,6 +62,37 @@ local custom_highlights = function(colors)
       style = { 'bold' },
     },
     TelescopeSelectionCaret = { fg = colors.flamingo, style = { 'bold' } },
+
+    CursorLineBG = { bg = colors.surface0 },
+    CmpItemMenu = { fg = colors.overlay2, style = { 'italic' } },
+    CmpItemAbbrDeprecated = { style = { 'strikethrough' } },
+    -- cmp item kind
+    CmpItemKindSnippet = { fg = colors.mauve },
+    CmpItemKindKeyword = { fg = colors.red },
+    CmpItemKindText = { fg = colors.teal },
+    CmpItemKindMethod = { fg = colors.blue },
+    CmpItemKindConstructor = { fg = colors.blue },
+    CmpItemKindFunction = { fg = colors.blue },
+    CmpItemKindFolder = { fg = colors.blue },
+    CmpItemKindModule = { fg = colors.blue },
+    CmpItemKindConstant = { fg = colors.peach },
+    CmpItemKindField = { fg = colors.green },
+    CmpItemKindProperty = { fg = colors.green },
+    CmpItemKindEnum = { fg = colors.green },
+    CmpItemKindUnit = { fg = colors.green },
+    CmpItemKindClass = { fg = colors.yellow },
+    CmpItemKindVariable = { fg = colors.flamingo },
+    CmpItemKindFile = { fg = colors.blue },
+    CmpItemKindInterface = { fg = colors.yellow },
+    CmpItemKindColor = { fg = colors.red },
+    CmpItemKindReference = { fg = colors.red },
+    CmpItemKindEnumMember = { fg = colors.red },
+    CmpItemKindStruct = { fg = colors.blue },
+    CmpItemKindValue = { fg = colors.peach },
+    CmpItemKindEvent = { fg = colors.blue },
+    CmpItemKindOperator = { fg = colors.blue },
+    CmpItemKindTypeParameter = { fg = colors.blue },
+    CmpItemKindCopilot = { fg = colors.teal },
   }
 end
 require('catppuccin').setup {
