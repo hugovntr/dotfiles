@@ -35,9 +35,10 @@ require('llm').setup {
 --
 -- local function accept_suggestion()
 --   if not completion.suggestion or not completion.shown_suggestion then
---     return '<Tab>'
+--     return [[<Tab>]]
+--   else
+--     vim.schedule(completion.complete)
 --   end
---   vim.schedule(completion.complete)
 -- end
 --
--- vim.keymap.set('i', '<Tab>', accept_suggestion, { expr = true })
+-- vim.keymap.set('i', '<Tab>', accept_suggestion, { expr = true, noremap = true })
