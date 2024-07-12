@@ -16,11 +16,11 @@ return {
     end,
   },
   {
-    'xiyaowong/transparent.nvim',
-    config = function()
-      require('transparent').setup {
-        enabled = false,
-      }
-    end,
+    'mvllow/modes.nvim',
+    event = 'BufEnter',
+    opts = {},
   },
+  -- {
+  --   'xiyaowong/transparent.nvim',
+  -- },
 }

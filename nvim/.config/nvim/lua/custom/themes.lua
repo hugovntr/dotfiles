@@ -63,7 +63,9 @@ local custom_highlights = function(colors)
     },
     TelescopeSelectionCaret = { fg = colors.flamingo, style = { 'bold' } },
 
-    CursorLineBG = { bg = colors.surface0 },
+    CursorLine = { bg = colors.base },
+    CursorLineBG = { bg = colors.base },
+
     CmpItemMenu = { fg = colors.overlay2, style = { 'italic' } },
     CmpItemAbbrDeprecated = { style = { 'strikethrough' } },
     -- cmp item kind
@@ -108,7 +110,6 @@ require('catppuccin').setup {
     fidget = true,
     telescope = {
       enabled = true,
-      -- style = 'nvchad',
     },
     native_lsp = {
       enabled = true,
