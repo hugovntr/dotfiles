@@ -59,8 +59,8 @@ require('lualine').setup {
         symbols = { alternate_file = '' },
         filetype_names = { oil = 'File Explorer' },
         buffers_color = {
-          inactive = { fg = 'Gray', bg = '' },
-          active = { fg = '#FF4F00', gui = 'bold' },
+          inactive = { fg = '#777777', bg = '' },
+          active = { fg = 'White', gui = 'bold' },
         },
       },
     },
@@ -72,7 +72,7 @@ require('lualine').setup {
       {
         'datetime',
         style = '%H:%M',
-        color = { fg = 'Yellow' },
+        color = { fg = '#FF4F00' },
         fmt = function(string)
           return '  ' .. string
         end,
