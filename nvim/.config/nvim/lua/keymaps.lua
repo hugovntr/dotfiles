@@ -14,6 +14,8 @@ nnoremap('<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rr
 
 -- Save with CMD+S
 ninoremap('<M-s>', '<cmd>w<cr><esc><esc>')
+-- Save with sd
+ninoremap('sd', '<cmd>w<cr><esc><esc>')
 
 -- Exit insert mode with jk
 inoremap('jk', '<esc><esc>')
