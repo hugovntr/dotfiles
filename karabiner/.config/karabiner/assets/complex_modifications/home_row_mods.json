@@ -31,6 +31,97 @@
           }
         }
       ]
+    },
+    {
+      "description": "[Code Fast] RShift + QS = ()",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "to": {
+            "key_code": "5"
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "to": {
+            "key_code": "hyphen"
+          }
+        }
+      ]
+    },
+    {
+      "description": "[Code Fast] RShift + DF = {}",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "to": {
+            "key_code": "5",
+            "modifiers": ["right_option"]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "to": {
+            "key_code": "hyphen",
+            "modifiers": ["right_option"]
+          }
+        }
+      ]
+    },
+    {
+      "description": "[Code Fast] RShift + GH = []",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "to": {
+            "key_code": "5",
+            "modifiers": ["right_option", "left_shift"]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "to": {
+            "key_code": "hyphen",
+            "modifiers": ["right_option", "left_shift"]
+          }
+        }
+      ]
     }
   ]
 }
