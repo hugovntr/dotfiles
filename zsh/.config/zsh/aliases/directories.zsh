@@ -35,7 +35,21 @@ function d () {
 # compdef _dirs d
 
 # List directory contents
-alias lsa='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
+
+if (( $+commands[eza] )); then
+  typeset -ag eza_params
+
+  eza_params=('--git' '--icons' '--group' '--group-directories-first' '--color=always' '--color-scale=size' '--color-scale-mode=gradient')
+  alias l='eza -lo --no-user --no-permissions $eza_params'
+  alias lsa='eza -lah --total-size $eza_params'
+  alias ll='eza --all -l --time-style=relative $eza_params'
+  alias la='eza -lbhHigUmuSa --total-size $eza_params'
+  alias tree='eza --tree $eza_params'
+
+else
+  alias lsa='ls -lah'
+  alias l='ls -lah'
+  alias ll='ls -lh'
+  alias la='ls -lAh'
+
+fi
