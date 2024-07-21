@@ -44,7 +44,6 @@ if (( $+commands[eza] )); then
   alias lsa='eza -lah --total-size $eza_params'
   alias ll='eza --all -l --time-style=relative $eza_params'
   alias la='eza -lbhHigUmuSa --total-size $eza_params'
-  alias tree='eza --tree -L 1 $eza_params'
   alias lt='eza --tree -L 1 $eza_params'
   alias lt2='eza --tree -L 2 $eza_params'
   alias lt3='eza --tree -L 3 $eza_params'
