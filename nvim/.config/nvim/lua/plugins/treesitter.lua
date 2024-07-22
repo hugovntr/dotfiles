@@ -93,7 +93,8 @@ return {
     end,
   },
   {
-    'lukas-reineke/headlines.nvim',
+    'MeanderingProgrammer/markdown.nvim',
+    event = 'BufEnter',
     opts = {},
   },
 }
