@@ -44,5 +44,3 @@ move < u : yabai -m window --space 1 --focus && skhd -k "escape"
 move < i : yabai -m window --space 2 --focus && skhd -k "escape"
 move < o : yabai -m window --space 3 --focus && skhd -k "escape"
 
-# Fast access
-ctrl - return : /Applications/WezTerm.app/Contents/MacOS/wezterm
