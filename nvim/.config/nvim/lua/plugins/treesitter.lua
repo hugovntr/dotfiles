@@ -90,6 +90,14 @@ return {
       -- vim.keymap.set({ 'n', 'x', 'o' }, 'F', r.builtin_F)
       -- vim.keymap.set({ 'n', 'x', 'o' }, 't', r.builtin_t)
       -- vim.keymap.set({ 'n', 'x', 'o' }, 'T', r.builtin_T)
+
+      -- Languages aliases
+      vim.treesitter.language.register('markdown', 'mdx')
+      vim.filetype.add {
+        extension = {
+          mdx = 'markdown',
+        },
+      }
     end,
   },
   {
