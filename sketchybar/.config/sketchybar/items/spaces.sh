@@ -21,7 +21,8 @@ do
     icon.padding_left=16
     icon.padding_right=8
     icon.font="$FONT:Semibold:16:0"
-    label.padding_right=16
+    label.padding_left=4
+    label.padding_right=10
     label.font="sketchybar-app-font:Regular:13:0"
     label.background.height=20
     label.background.drawing=on
@@ -32,7 +33,7 @@ do
     background.color=$BACKGROUND
     background.corner_radius=8
     background.border_width=0
-    background.drawing=off
+    background.drawing=false
   )
 
   sketchybar --add space space.$sid left    \

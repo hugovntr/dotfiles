@@ -3,7 +3,7 @@
 update() {
   WIDTH="dynamic"
   if [ "$SELECTED" = "true" ]; then
-    WIDTH="0"
+    WIDTH="0" # Current space doesn't display app icons
   fi
 
   sketchybar --animate tanh 20 --set $NAME icon.highlight=$SELECTED label.width=$WIDTH
