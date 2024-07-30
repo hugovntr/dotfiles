@@ -49,15 +49,19 @@ windows_on_spaces () {
   do
     for space in $line
     do
-      icon_strip=" "
+      icon_strip=""
+      space_args=(--set space.$space)
       apps=$(yabai -m query --windows --space $space | jq -r ".[].app")
       if [ "$apps" != "" ]; then
         while IFS= read -r app; do
           __icon_map "${app}"
           icon_strip+=" ${icon_result}"
         done <<< "$apps"
+        space_args+=(label="$icon_strip" label.drawing=true)
+      else
+        space_args+=(label.drawing=false)
       fi
-      args+=(--set space.$space label="$icon_strip" label.drawing=on)
+      args+=("${space_args[@]}")
     done
   done <<< "$CURRENT_SPACES"
 
