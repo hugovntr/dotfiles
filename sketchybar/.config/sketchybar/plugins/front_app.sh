@@ -12,10 +12,10 @@ if [ "$SENDER" = "front_app_switched" ]; then
   args=(
     label="$INFO"
     icon=${icon_result}
-    icon.font="sketchybar-app-font:Regular:13:0"
+    icon.font="sketchybar-app-font:Regular:16:0"
     icon.drawing=on
-    icon.color=$LABEL_INACTIVE
-    icon.padding_left=0
+    icon.color=$LABEL_ACTIVE
+    icon.padding_left=32
     icon.padding_right=8
   )
   sketchybar --set "$NAME" "${args[@]}"
