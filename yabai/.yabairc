@@ -10,6 +10,7 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
 yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=window_title_changed action="sketchybar --trigger front_app_switched"
 
 if [ -f "$HOME/.config/sketchybar/scripts/create_spaces.sh" ]; then
   yabai -m signal --add event=display_added action="sleep 2 && $HOME/.config/sketchybar/scripts/create_spaces.sh"
