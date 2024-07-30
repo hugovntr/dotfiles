@@ -8,9 +8,21 @@
 if [ "$SENDER" = "front_app_switched" ]; then
   source "$HOME/.config/sketchybar/icon_map.sh"
   source "$HOME/.config/sketchybar/constants.sh"
-  __icon_map "${INFO}"
+  APP="$(yabai -m query --windows --window | jq -r '.app')"
+  WINDOW_TITLE="$(yabai -m query --windows --window | jq -r '.title')"
+  title="${APP} | ${WINDOW_TITLE}"
+  if [[ $WINDOW_TITLE = "" ]]; then
+    title="${APP}"
+  else
+    if [[ ${#WINDOW_TITLE} -gt 44 ]];then
+      WINDOW_TITLE="$(echo "$WINDOW_TITLE" | cut -c 1-44)…"
+    fi
+    title="${WINDOW_TITLE}"
+  fi
+  __icon_map "${APP}"
   args=(
-    label="$INFO"
+    label="$title"
+    label.padding_right=4
     icon=${icon_result}
     icon.font="sketchybar-app-font:Regular:16:0"
     icon.drawing=on
