@@ -19,7 +19,7 @@ fi
 
 # Blacklist
 yabai -m rule --add app="^(System Settings|System Preferences|Finder|App Store|Activity Monitor|Raycast|System Information|Preview)$" manage=off
-yabai -m rule --add app="^(Music|Apple Music|Spotify|Messages|Mail)$" manage=off
+yabai -m rule --add app="^(Music|Apple Music|Spotify|Messages|Mail|QuickTime|QuickTime Player)$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^OrbStack$" manage=off
 
