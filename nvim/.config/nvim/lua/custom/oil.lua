@@ -2,6 +2,7 @@ local oil = require 'oil'
 oil.setup {
   columns = {
     'icon',
+    'size',
   },
   delete_to_trash = true,
   view_options = {
@@ -10,7 +11,7 @@ oil.setup {
       return vim.startswith(name, '.')
     end,
     is_always_hidden = function(name, _)
-      return name == '.git' or name == 'node_modules'
+      return name == '.git' or name == 'node_modules' or name == '..'
     end,
   },
   preview = {
