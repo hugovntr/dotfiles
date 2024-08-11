@@ -21,11 +21,18 @@ end, { silent = true })
 
 -- luasnip.config.setup {}
 cmp.setup {
-  enabled = true,
+  enabled = function()
+    local buftype = vim.api.nvim_get_option_value('buftype', { buf = 0 })
+    local filetype = vim.bo.filetype
+    if buftype == 'prompt' or filetype == 'oil' then
+      return false
+    end
+    return true
+  end,
   sources = {
-    { name = 'luasnip' },
-    { name = 'nvim_lsp' },
     { name = 'buffer' },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
     { name = 'path' },
     { name = 'emmet' },
   },
