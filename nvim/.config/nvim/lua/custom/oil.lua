@@ -42,14 +42,18 @@ local function is_oil()
   return vim.startswith(bufname, 'oil://')
 end
 
--- Toggle oil with Meta + E
-vim.keymap.set('n', '<M-e>', function()
-  if is_oil() then
+local function toggle_oil()
+  local bufname = vim.fn.bufname ''
+  if vim.startswith(bufname, 'oil://') then
     oil.close()
   else
     oil.open_float()
   end
-end)
+end
+
+-- Toggle oil with Meta + E
+vim.keymap.set('n', '<M-e>', toggle_oil)
+vim.keymap.set('n', '<C-e>', toggle_oil)
 
 -- Autocmd to enable preview
 -- vim.api.nvim_create_autocmd('User', {
