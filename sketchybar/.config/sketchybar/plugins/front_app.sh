@@ -8,8 +8,14 @@
 if [ "$SENDER" = "front_app_switched" ]; then
   source "$HOME/.config/sketchybar/icon_map.sh"
   source "$HOME/.config/sketchybar/constants.sh"
-  APP="$(yabai -m query --windows --window | jq -r '.app')"
-  WINDOW_TITLE="$(yabai -m query --windows --window | jq -r '.title')"
+  cmd=$(yabai -m query --windows --window 2>/dev/null)
+  if [ -z "${cmd}" ]; then
+    app=$(aerospace list-windows --focused --format '%{app-name}' | jq -R '.')
+    title=$(aerospace list-windows --focused --format '%{window-title}' | jq -R '.')
+    cmd="{\"app\": ${app}, \"title\": ${title}}"
+  fi
+  APP="$(echo $cmd | jq -r '.app')"
+  WINDOW_TITLE="$(echo $cmd | jq -r '.title')"
   title="${APP} | ${WINDOW_TITLE}"
   if [[ $WINDOW_TITLE = "" ]]; then
     title="${APP}"

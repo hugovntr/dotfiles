@@ -11,7 +11,10 @@ window_state() {
 
   source "$HOME/.config/sketchybar/constants.sh"
 
-  WINDOW=$(yabai -m query --windows --window)
+  WINDOW="$(yabai -m query --windows --window 2>/dev/null)"
+  if [ -z "${WINDOW}" ]; then
+    exit 0;
+  fi
   CURRENT=$(echo "$WINDOW" | jq '.["stack-index"]')
 
   args=()
@@ -41,7 +44,10 @@ window_state() {
 }
 
 windows_on_spaces () {
-  CURRENT_SPACES="$(yabai -m query --displays | jq -r '.[].spaces | @sh')"
+  CURRENT_SPACES="$(yabai -m query --displays 2>/dev/null | jq -r '.[].spaces | @sh')"
+  if [ -z "${CURRENT_SPACES}" ]; then
+    CURRENT_SPACES="$(aerospace list-workspaces --all | tr '\n' ' ')"
+  fi
   source "$HOME/.config/sketchybar/icon_map.sh"
 
   args=()
@@ -51,7 +57,11 @@ windows_on_spaces () {
     do
       icon_strip=""
       space_args=(--set space.$space)
-      apps=$(yabai -m query --windows --space $space | jq -r ".[].app")
+      cmd=$(yabai -m query --windows --space $space 2>/dev/null)
+      if [ -z "${cmd}" ]; then
+        cmd=$(aerospace list-windows --workspace $space --format '[{"app": "%{app-name}"}]')
+      fi
+      apps=$(echo $cmd | jq -r ".[].app")
       if [ "$apps" != "" ]; then
         while IFS= read -r app; do
           __icon_map "${app}"
@@ -68,14 +78,14 @@ windows_on_spaces () {
   sketchybar -m "${args[@]}"
 }
 
-mouse_clicked() {
-  yabai -m window --toggle float
-  window_state
-}
+# mouse_clicked() {
+#   yabai -m window --toggle float
+#   window_state
+# }
 
 case "$SENDER" in
-  "mouse.clicked") mouse_clicked
-  ;;
+  # "mouse.clicked") mouse_clicked
+  # ;;
   "forced") 
     windows_on_spaces
     exit 0
