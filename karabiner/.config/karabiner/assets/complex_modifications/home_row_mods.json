@@ -33,6 +33,26 @@
       ]
     },
     {
+      "description": "C-s -> Ctrl + Shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": ["left_control"]
+            }
+          },
+          "to": {
+            "key_code": "left_shift",
+            "modifiers": [
+              "left_control"
+            ]
+          }
+        }
+      ]
+    },
+    {
       "description": "[Code Fast] RShift + QS = ()",
       "manipulators": [
         {

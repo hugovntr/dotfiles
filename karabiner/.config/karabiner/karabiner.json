@@ -18,6 +18,28 @@
                 },
                 "rules": [
                     {
+                        "description": "C-s -> Ctrl + Shift",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": {
+                                    "key_code": "left_shift",
+                                    "modifiers": [
+                                        "left_control"
+                                    ]
+                                },
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "[Code Fast] RShift + GH = []",
                         "manipulators": [
                             {
