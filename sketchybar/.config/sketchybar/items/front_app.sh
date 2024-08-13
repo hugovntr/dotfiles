@@ -4,6 +4,7 @@ space_manager=(
   script="$PLUGIN_DIR/space_manager.sh"
   icon.font="$FONT:Bold:16.0"
   label.drawing=on
+  icon.drawing=off
   icon.width=30
   icon=$YABAI_GRID
   icon.color=$BRAND

@@ -33,7 +33,7 @@ if [ "$SENDER" = "front_app_switched" ]; then
     icon.font="sketchybar-app-font:Regular:16:0"
     icon.drawing=on
     icon.color=$LABEL_ACTIVE
-    icon.padding_left=32
+    icon.padding_left=0
     icon.padding_right=8
   )
   sketchybar --set "$NAME" "${args[@]}"
