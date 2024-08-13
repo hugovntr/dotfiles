@@ -1,9 +1,3 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
-
-# It's not necessary to copy all keys to your config.
-# If the key is missing in your config, "default-config.toml" will serve as a fallback
-
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
@@ -69,7 +63,6 @@ outer.right =      32
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 [mode.main.binding]
-
 # All possible keys:
 # - Letters.        a, b, c, ..., z
 # - Numbers.        0, 1, 2, ..., 9
@@ -85,11 +78,6 @@ outer.right =      32
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-# You can uncomment this line to open up terminal with alt + enter shortcut
-# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-# alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
@@ -99,58 +87,64 @@ ctrl-shift-k = 'focus up'
 ctrl-shift-l = 'focus down'
 ctrl-shift-semicolon = 'focus right'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#resize
-ctrl-t = 'mode resize'
-# alt-shift-minus = 'resize smart -50'
-# alt-shift-equal = 'resize smart +50'
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 ctrl-1 = 'workspace 1'
 ctrl-2 = 'workspace 2'
 ctrl-3 = 'workspace 3'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-ctrl-q = 'mode move'
+# Ctrl + A
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
+
+# ---
+# Modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-# alt-shift-semicolon = 'mode service'
-ctrl-b = 'mode service'
+# ---
+ctrl-q = ['mode move', 'exec-and-forget sketchybar --trigger mode_changed MODE=move'] # Ctrl + a
+ctrl-t = ['mode resize', 'exec-and-forget sketchybar --trigger mode_changed MODE=resize']
+ctrl-b = ['mode service', 'exec-and-forget sketchybar --trigger mode_changed MODE=service']
 
-# 'service' binding mode declaration.
+# ---
+# Binding modes commands
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# ---
+
+# Service
 [mode.service.binding]
-esc = ['mode main']
-r = ['reload-config', 'mode main']
-# r = ['flatten-workspace-tree', 'mode main'] # reset layout
-#s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+esc = ['mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+r = ['reload-config', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+f = ['layout floating tiling', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default'] # Toggle between floating and tiling layout
 
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+alt-shift-h = ['join-with left', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+alt-shift-j = ['join-with down', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+alt-shift-k = ['join-with up', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+alt-shift-l = ['join-with right', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 
+# Move
 [mode.move.binding]
-esc = 'mode main'
-1 = ['move-node-to-workspace 1', 'mode main']
-2 = ['move-node-to-workspace 2', 'mode main']
-3 = ['move-node-to-workspace 3', 'mode main']
-j = [ 'move left', 'mode main' ]
-k = [ 'move up', 'mode main' ]
-l = [ 'move down', 'mode main' ]
-semicolon = [ 'move right', 'mode main' ]
+esc = ['mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+1 = ['move-node-to-workspace 1', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+2 = ['move-node-to-workspace 2', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+3 = ['move-node-to-workspace 3', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+j = [ 'move left', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default' ]
+k = [ 'move up', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default' ]
+l = [ 'move down', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default' ]
+semicolon = [ 'move right', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default' ]
 
+# Resize
 [mode.resize.binding]
-esc = "mode main"
+esc = ["mode main", 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 j = ['resize smart -50']
 semicolon = ['resize smart +50']
 
-# Float certain windows
+# ---
+# Window with default to floating layout
+# ---
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
 run = 'layout floating'
