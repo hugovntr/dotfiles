@@ -41,6 +41,9 @@ nvnoremap('xx', 'dd')
 nvnoremap('d', '"_d')
 nvnoremap('dd', '"_dd')
 
+-- Change word
+nnoremap('cw', '"_ciw') -- Change inside word without copy
+
 -- Buffer management
 nnoremap('<C-p>', '<cmd>bprev<cr>', { desc = 'Previous buffer' })
 nnoremap('<C-n>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
