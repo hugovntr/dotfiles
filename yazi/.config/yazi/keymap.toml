@@ -1,0 +1,13 @@
+[manager]
+prepend_keymap = [
+  # Navigation
+  { on = "j", run = "leave", desc = "Go back to the parent directory" },
+  { on = "-", run = "leave", desc = "Go back to the parent directory" },
+  { on = "m", run = "enter", desc = "Enter the child directory"},
+  { on = "k", run = "arrow -1", desc = "Move the custor up" },
+  { on = "l", run = "arrow 1", desc = "Move the cursor down" },
+
+  # Preview
+  { on = "K", run = "seek -5", desc = "Move preview up 5 units" },
+  { on = "L", run = "seek 5", desc = "Move preview down 5 units" },
+]
