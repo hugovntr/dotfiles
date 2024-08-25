@@ -62,6 +62,15 @@ require('lualine').setup {
           inactive = { fg = '#777777', bg = '' },
           active = { fg = 'White', gui = 'bold' },
         },
+        fmt = function(bufname, ctx)
+          if ctx.file:match '.*/app.*/page.tsx' then
+            return ctx.file:gsub('(.*/)(.*)/page.[j|t]sx', '%2') .. ' - page.tsx'
+          end
+          if ctx.file:match '.*/app.*/layout.tsx' then
+            return ctx.file:gsub('(.*/)(.*)/layout.[j|t]sx', '%2') .. ' - layout.tsx'
+          end
+          return bufname
+        end,
       },
     },
     lualine_b = { 'diff' },
@@ -109,7 +118,30 @@ require('lualine').setup {
       -- end,
     },
     lualine_d = { '%=' },
-    lualine_x = { 'filetype' },
+    lualine_x = {
+      {
+        ---@diagnostic disable-next-line: undefined-field
+        require('noice').api.status.command.get,
+        ---@diagnostic disable-next-line: undefined-field
+        cond = require('noice').api.status.command.has,
+        color = { fg = '#ff9e64' },
+      },
+      {
+        ---@diagnostic disable-next-line: undefined-field
+        require('noice').api.status.mode.get,
+        ---@diagnostic disable-next-line: undefined-field
+        cond = require('noice').api.status.mode.has,
+        color = { fg = '#ff9e64' },
+      },
+      {
+        ---@diagnostic disable-next-line: undefined-field
+        require('noice').api.status.search.get,
+        ---@diagnostic disable-next-line: undefined-field
+        cond = require('noice').api.status.search.has,
+        color = { fg = '#ff9e64' },
+      },
+      'filetype',
+    },
     lualine_y = {
       {
         'location',

@@ -9,6 +9,7 @@ return {
       },
       opts = {},
     },
+    'folke/noice.nvim',
   },
   config = function()
     require 'custom.lualine'
