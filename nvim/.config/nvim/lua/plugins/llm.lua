@@ -1,14 +1,26 @@
 return {
-  -- {
-  --   'huggingface/llm.nvim',
-  --   dependencies = {
-  --     'nomnivore/ollama.nvim',
-  --   },
-  --   event = 'VeryLazy',
-  --   config = function()
-  --     require 'custom.llm'
-  --   end,
-  -- },
+  {
+    'yetone/avante.nvim',
+    event = 'VeryLazy',
+    build = 'make',
+    opts = {
+      provider = 'openai',
+      openai = {
+        api_key_name = 'USER',
+        endpoint = 'http://127.0.0.1:11434/v1',
+        model = 'llama3.1:8b',
+        temperature = 0,
+        ['local'] = true,
+      },
+    },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'MeanderingProgrammer/markdown.nvim',
+    },
+  },
   {
     'hugovntr/llm.nvim',
     branch = 'fix-keymaps',
@@ -17,7 +29,7 @@ return {
     },
     event = 'VeryLazy',
     config = function()
-      require 'custom.llm'
+      require('custom.llm').llm_nvim()
     end,
   },
   {
