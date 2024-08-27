@@ -57,8 +57,8 @@ config.inactive_pane_hsb = {
 -- Transparency and Colors
 config.color_scheme = "Catppuccin Mocha"
 config.colors = require("colors")
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 32
+config.window_background_opacity = 0.85
+config.macos_window_background_blur = 64
 
 local function tab_title(tab_info)
 	local title = tab_info.tab_title
