@@ -77,6 +77,18 @@ return {
 	{ key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
 	{ key = "Space", mods = "LEADER", action = act.PaneSelect({ mode = "SwapWithActive" }) },
 	{ key = "r", mods = "LEADER", action = act.ReloadConfiguration },
+	{
+		key = "t",
+		mods = "LEADER",
+		action = act.PromptInputLine({
+			description = "Enter new tab name",
+			action = wezterm.action_callback(function(window, _, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 
 	-- Adjust Pane size
 	{ key = "m", mods = "LEADER", action = act.AdjustPaneSize({ "Right", 20 }) },
