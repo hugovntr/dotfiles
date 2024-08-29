@@ -50,12 +50,11 @@ config.window_padding = {
 	bottom = 2,
 }
 config.inactive_pane_hsb = {
-	brightness = 0.5,
+	brightness = 0.4,
 	saturation = 0.9,
 }
 
 -- Transparency and Colors
-config.color_scheme = "Catppuccin Mocha"
 config.colors = require("colors")
 config.window_background_opacity = 0.85
 config.macos_window_background_blur = 64
