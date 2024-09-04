@@ -67,5 +67,9 @@ inoremap('<M-BS>', '<C-W>', { desc = 'Delete previous word' })
 nnoremap('<M-k>', '<cmd>m .-2<cr>', { desc = 'Move line up (1)' })
 nnoremap('<M-l>', '<cmd>m .+1<cr>', { desc = 'Move line down (1)' })
 
+-- Move selected line(s) in Visual mode
+vim.keymap.set('v', 'L', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
 -- Reload current file
 nnoremap('<C-r>', '<cmd>source %<cr>', { desc = '[R]eload current file' })
