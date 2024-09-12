@@ -39,7 +39,7 @@ function d () {
 if (( $+commands[eza] )); then
   typeset -ag eza_params
 
-  eza_params=('--git' '--icons' '--group' '--group-directories-first' '--color=always' '--color-scale=size' '--color-scale-mode=gradient')
+  eza_params=('--git' '--icons' '--group' '--group-directories-first' '--color=always' '--color-scale=size' '--color-scale-mode=gradient' '--sort=modified')
   alias l='eza -lo --no-user --no-permissions $eza_params'
   alias lsa='eza -lah --total-size $eza_params'
   alias ll='eza --all -l --time-style=relative $eza_params'

@@ -1,5 +1,5 @@
 # NodeJS
-eval "$(fnm env --use-on-cd)"
+source <(fnm env --use-on-cd)
 
 # PyEnv
 # Try to find pyenv, if it's not on the path
@@ -59,5 +59,9 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # Shell integrations
-source <(fzf --zsh)
+function fzf() {
+  unset -f fzf
+  source <(fzf --zsh)
+  fzf $@
+}
 eval "$(zoxide init --cmd cd zsh)"
