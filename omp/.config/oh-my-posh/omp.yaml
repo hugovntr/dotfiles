@@ -1,0 +1,116 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+final_space: true
+enable_cursor_positioning: true
+version: 2
+blocks:
+  - type: prompt
+    newline: true
+    alignment: left
+    segments:
+      - type: text
+        style: plain
+        template: "┌─"
+        foreground: "242"
+
+      - type: path
+        style: plain
+        foreground: "lightCyan"
+        background: "transparent"
+        template: " <white>{{ if .Segments.Contains \"Git\" }} {{ else }} {{ end }}</> {{ .Path }}"
+        properties:
+          style: agnoster
+          gitdir_format: "<cyan><i><b>%s</b></i></>"
+          max_depth: 3
+
+      - type: git
+        style: plain
+        foreground: "213"
+        template: "<244>|</> <b>{{ .HEAD }}</>
+          {{ if .Working.Changed }}<red> </> {{ .Working.String }}{{ end }}
+          {{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} 
+          {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{
+          end }}"
+        properties:
+          fetch_status: true
+          fetch_upstream_icon: false
+          source: cli
+          branch_icon: " "
+          status_formats:
+            Modified: " <yellow>~%d</>"
+            Added: " <green>+%d</>"
+            Deleted: " <red>-%d</>"
+            Untracked: " <lightGreen>?%d</>"
+
+  # Right prompt
+  - type: prompt
+    alignment: right
+    filler: "<242>/</>"
+    segments:
+      - type: text
+        style: plain
+        template: "/ "
+        foreground: "242"
+
+      - type: node
+        foreground: "lightGreen"
+        template: " {{.Major}}.{{.Minor}} "
+        properties:
+          fetch_package_manager: false
+
+      - type: lua
+        foreground: "lightBlue"
+        template: " {{.Major}}.{{.Minor}} "
+
+      - type: python
+        foreground: "yellow"
+        template: " {{.Full}} "
+
+      - type: go
+        foreground: "cyan"
+        template: " {{ .Full }} "
+
+
+      - type: executiontime
+        style: plain
+        template: "  {{ .FormattedMs }}"
+        foreground: "yellow"
+        properties:
+          style: roundrock
+          threshold: 500
+          always_enabled: false
+
+  # Second line
+  - type: prompt
+    alignment: left
+    segments:
+      - type: text
+        style: plain
+        template: "└─"
+        foreground: "242"
+      - type: status
+        style: plain
+        foreground_templates:
+          - "{{ if .Error }}red{{ else }}green{{ end }}"
+        template: "{{ if .Error }}✗ {{ else }} {{ end }}"
+        properties:
+          always_enabled: true
+
+
+  - type: rprompt
+    alignment: right
+    segments:
+      - type: session
+        style: plain
+        background: "darkGray"
+        template: "{{ if .SSHSession }}   <b>{{ .UserName }}</b>@{{ .HostName }} {{ end }}"
+      - type: time
+        foreground: "lightYellow"
+
+secondary_prompt:
+  background: "transparent"
+  foreground: "242"
+
+transient_prompt:
+  background: "transparent"
+  foreground: "darkGray"
+  template: "> "
