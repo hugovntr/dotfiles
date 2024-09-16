@@ -8,10 +8,10 @@ format = """\
 [┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics$fill $all\
 [└─](fg:242) $jobs$character"""
 
-right_format="[ $container $username $localip $time ](bg:235)"
+right_format="[ $container$username$localip$time ](bg:235)"
 
 [profiles]
-transient = """$time $character"""
+transient = """[$time](fg:250) $character"""
 
 [fill]
 symbol = "/"
@@ -27,7 +27,7 @@ error_symbol = "[✗](bold red) "
 disabled = false
 format = "[ $time]($style)"
 time_format = "%l:%M %p"
-style = "fg:254 bg:235"
+style = "none"
 use_12hr = true
 utc_time_offset = "local"
 
