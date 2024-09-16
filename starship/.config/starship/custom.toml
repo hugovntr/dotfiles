@@ -5,10 +5,13 @@ add_newline = true
 
 
 format = """\
-[┌─](fg:242) $container$directory$git_branch$git_status$git_state$git_metrics$fill $all\
-[└─](fg:242) $character"""
+[┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics$fill $all\
+[└─](fg:242) $jobs$character"""
 
-right_format=""
+right_format="[ $container $username $localip $time ](bg:235)"
+
+[profiles]
+transient = """$time $character"""
 
 [fill]
 symbol = "/"
@@ -21,10 +24,10 @@ success_symbol = "[](bold green) "
 error_symbol = "[✗](bold red) "
 
 [time]
-disabled = true
+disabled = false
 format = "[ $time]($style)"
 time_format = "%l:%M %p"
-style = "fg:254"
+style = "fg:254 bg:235"
 use_12hr = true
 utc_time_offset = "local"
 
@@ -73,3 +76,15 @@ disabled = true
 
 [localip]
 disabled = false
+ssh_only = true
+style = "bold fg:yellow bg:235"
+
+[hostname]
+disabled = true
+
+[username]
+style_root = "bold fg:red bg:235"
+style_user = "bold fg:yellow bg:235"
+
+[container]
+style = "bold dimmed fg:red bg:235"
