@@ -27,20 +27,17 @@ source "${ZSH_CONFIG}/init.zsh"
 # Prompt / Starship
 export STARSHIP_CONFIG="${DOTFILES}/starship.toml"
 eval "$(starship init zsh)"
+
 set-long-prompt() {
   PROMPT=$(starship prompt)
   RPROMPT=$(starship prompt --right)
 }
 precmd_functions+=(set-long-prompt)
-
 set-short-prompt() {
-    # setting this doesn't seem to actually work
     PROMPT="$(starship prompt --profile transient)"
     RPROMPT=""
-    # RPROMPT=$'%{\e[999C%}\e[8D%F{8}%*%f ' # remove if you don't want right prompt
     zle .reset-prompt 2>/dev/null # hide the errors on ctrl+c
 }
-
 zle-line-finish() { set-short-prompt }
 zle -N zle-line-finish
 
