@@ -67,7 +67,6 @@ local servers = {
     },
   },
   ruff_lsp = {},
-  tsserver = {},
   tailwindcss = {},
   ltex = {},
   lua_ls = {
