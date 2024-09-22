@@ -18,7 +18,9 @@ return {
   {
     'mvllow/modes.nvim',
     event = 'BufEnter',
-    opts = {},
+    opts = {
+      line_opacity = 0.25,
+    },
   },
   -- {
   --   'xiyaowong/transparent.nvim',
