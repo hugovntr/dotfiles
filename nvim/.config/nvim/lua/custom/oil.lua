@@ -15,6 +15,10 @@ oil.setup {
     end,
   },
   preview = {
+    max_width = 0.9,
+    max_height = 0.9,
+    width = nil,
+    height = nil,
     win_options = {
       winblend = 0,
     },
@@ -26,6 +30,7 @@ oil.setup {
     max_width = 120,
     max_height = 24,
     border = 'rounded',
+    preview_split = 'auto',
     win_options = {
       winblend = 0,
     },
@@ -48,6 +53,12 @@ local function toggle_oil()
     oil.close()
   else
     oil.open_float()
+    vim.wait(1000, function()
+      return oil.get_cursor_entry() ~= nil
+    end)
+    if oil.get_cursor_entry() then
+      oil.open_preview()
+    end
   end
 end
 
