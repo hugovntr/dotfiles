@@ -15,9 +15,27 @@ return {
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
+      presets = {
+        lsp_doc_border = true,
+      },
       cmdline = {
         enabled = true,
         view = 'cmdline',
+      },
+      messages = {
+        enabled = true,
+        view = 'notify',
+        view_error = 'notify',
+        view_warn = 'notify',
+        view_history = 'messages',
+      },
+      lsp = {
+        hover = {
+          enabled = true,
+          silent = true,
+          view = nil,
+          opts = {},
+        },
       },
     },
   },
