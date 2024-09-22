@@ -58,13 +58,13 @@ local custom_highlights = function(colors)
     },
     TelescopeSelection = {
       fg = colors.text,
-      bg = colors.base,
+      bg = colors.surface0,
       style = { 'bold' },
     },
     TelescopeSelectionCaret = { fg = colors.flamingo, style = { 'bold' } },
 
-    CursorLine = { bg = colors.base },
-    CursorLineBG = { bg = colors.base },
+    CursorLine = { bg = colors.surface0 },
+    CursorLineBG = { bg = colors.surface0 },
 
     CmpItemMenu = { fg = colors.overlay2, style = { 'italic' } },
     CmpItemAbbrDeprecated = { style = { 'strikethrough' } },
