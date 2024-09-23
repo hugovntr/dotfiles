@@ -53,12 +53,12 @@ local function toggle_oil()
     oil.close()
   else
     oil.open_float()
-    vim.wait(1000, function()
-      return oil.get_cursor_entry() ~= nil
-    end)
-    if oil.get_cursor_entry() then
-      oil.open_preview()
-    end
+    -- vim.wait(1000, function()
+    --   return oil.get_cursor_entry() ~= nil
+    -- end)
+    -- if oil.get_cursor_entry() then
+    --   oil.open_preview()
+    -- end
   end
 end
 
