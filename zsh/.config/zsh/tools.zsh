@@ -59,9 +59,10 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # Shell integrations
-function fzf() {
-  unset -f fzf
-  source <(fzf --zsh)
-  fzf $@
-}
+# function fzf() {
+#   unset -f fzf
+#   source <(fzf --zsh)
+#   fzf $@
+# }
+source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
