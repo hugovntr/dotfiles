@@ -24,9 +24,9 @@ return {
       },
       messages = {
         enabled = true,
-        view = 'notify',
-        view_error = 'notify',
-        view_warn = 'notify',
+        view = 'messages',
+        view_error = 'messages',
+        view_warn = 'messages',
         view_history = 'messages',
       },
       lsp = {
