@@ -6,6 +6,8 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+require("mux")
+
 -- Automatically start tmux
 -- wezterm.on("gui-startup", function(cmd)
 -- 	local mux = wezterm.mux
