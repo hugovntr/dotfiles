@@ -23,7 +23,7 @@ return {
         view = 'cmdline',
       },
       messages = {
-        enabled = true,
+        enabled = false,
         view = 'messages',
         view_error = 'messages',
         view_warn = 'messages',
