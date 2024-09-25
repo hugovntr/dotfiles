@@ -60,10 +60,6 @@ return {
 			act.SendKey({ key = "l", mods = "CTRL" }),
 		}),
 	},
-	-- { key = "j", mods = "CTRL", action = act.DisableDefaultAssignment },
-	-- { key = "k", mods = "CTRL", action = act.DisableDefaultAssignment },
-	-- { key = "l", mods = "CTRL", action = act.SendKey({ key = "l", mods = "CTRL|OPT" }) },
-	-- { key = "m", mods = "CTRL", action = act.SendKey({ key = "k", mods = "CTRL|OPT" }) },
 	-- Temporary mod
 	{ key = "e", mods = "CMD", action = act.SendKey({ key = "e", mods = "ALT" }) },
 	{ key = "s", mods = "CMD", action = act.SendKey({ key = "s", mods = "ALT" }) },
@@ -97,6 +93,8 @@ return {
 			end),
 		}),
 	},
+	{ key = "i", mods = "LEADER", action = act.EmitEvent("save-session") },
+	{ key = "o", mods = "LEADER", action = act.EmitEvent("restore-session") },
 
 	-- Adjust Pane size
 	{ key = "m", mods = "LEADER", action = act.AdjustPaneSize({ "Right", 20 }) },
