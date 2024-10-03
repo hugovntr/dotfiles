@@ -82,6 +82,9 @@ vim.opt.cmdheight = 0
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+-- Popup Menu Size
+vim.opt.pumheight = 12 -- Limit to 12 items
+
 -- Import custom keymaps
 require 'keymaps'
 
