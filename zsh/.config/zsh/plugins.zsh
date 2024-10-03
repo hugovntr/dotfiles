@@ -28,3 +28,20 @@ zi for \
 
 zinit ice wait lucid
 zinit snippet OMZP::golang
+
+zi for \
+  atload"zvm_config" \
+  blockf \
+  lucid \
+  wait \
+  jeffreytse/zsh-vi-mode
+
+function zvm_config() {
+  export ZVM_INIT_MODE=sourcing
+  export ZVM_VI_INSERT_ESCAPE_BINDKEY=kl
+  export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  export ZVM_VI_EDITOR=nvim
+  zvm_bindkey vicmd "m" zle vi-forward-char
+  zvm_bindkey vicmd "j" zle vi-backward-char
+  zvm_bindkey vicmd "l" zle down-line-or-history
+}
