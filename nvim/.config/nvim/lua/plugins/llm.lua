@@ -8,7 +8,7 @@ return {
       openai = {
         api_key_name = 'USER',
         endpoint = 'http://127.0.0.1:11434/v1',
-        model = 'llama3.1:8b',
+        model = 'llama3.2:3b',
         temperature = 0,
         ['local'] = true,
       },
