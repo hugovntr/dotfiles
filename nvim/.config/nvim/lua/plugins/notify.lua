@@ -22,13 +22,6 @@ return {
         enabled = true,
         view = 'cmdline',
       },
-      messages = {
-        enabled = false,
-        view = 'messages',
-        view_error = 'messages',
-        view_warn = 'messages',
-        view_history = 'messages',
-      },
       lsp = {
         hover = {
           enabled = true,
