@@ -39,7 +39,7 @@ zi for \
 function zvm_config() {
   export ZVM_INIT_MODE=sourcing
   export ZVM_VI_INSERT_ESCAPE_BINDKEY=kl
-  export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  export ZVM_LINE_INIT_MODE=$ZVM_MODE_LAST
   export ZVM_VI_EDITOR=nvim
   zvm_bindkey vicmd "m" zle vi-forward-char
   zvm_bindkey vicmd "j" zle vi-backward-char
