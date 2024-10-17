@@ -35,3 +35,11 @@ alias debugzsh="time zsh -i -c exit"
 
 # Hyperfine
 alias bench="hyperfine"
+
+# Darwin-Rebuild
+function drb() {
+  local nix_path=$XDG_CONFIG_HOME/nix
+  local dotfiles_path=$(readlink -f $XDG_CONFIG_HOME/zsh | xargs dirname | xargs dirname | xargs dirname )/nix
+  cp $dotfiles_path/flake.nix $nix_path
+  darwin-rebuild switch --flake $nix_path#macos
+}
