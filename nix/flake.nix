@@ -54,8 +54,6 @@
             pkgs.python312
 
             # User Interface
-            pkgs.aerospace
-            pkgs.sketchybar
             pkgs.jankyborders
 
             # Misc
@@ -68,10 +66,15 @@
 
       homebrew = {
           enable = true;
+          taps = [
+            "felixkratz/formulae"
+            "nikitabobko/tap"
+          ];
           casks = [
             "wezterm"
             "shortcat"
             "vlc"
+            "nikitabobko/tap/aerospace"
           ];
           brews = [
             "gnu-sed"
@@ -80,6 +83,7 @@
               name = "tmux";
               args = ["HEAD"];
             }
+            "felixkratz/formulae/sketchybar"
             "watch"
           ];
           onActivation.cleanup = "zap";
@@ -87,14 +91,36 @@
           onActivation.upgrade = true;
       };
 
+      launchd = {
+        user = {
+          agents = {
+            sketchybar = {
+              command = "/opt/homebrew/bin/sketchybar --config ~/.config/sketchybar/sketchybarrc --hotload";
+              path = ["${config.environment.systemPath}:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin"];
+              serviceConfig = {
+                KeepAlive = true;
+                RunAtLoad = true;
+                StandardOutPath = "/tmp/log/sketchybar.out.log";
+                StandardErrorPath = "/tmp/log/sketchybar.err.log";
+              };
+            };
+          };
+        };
+      };
+
       system.defaults = {
         dock.autohide = true;
         finder.FXPreferredViewStyle = "clmv";
         loginwindow.GuestEnabled = false;
-        NSGlobalDomain.AppleICUForce24HourTime = true;
-        NSGlobalDomain.KeyRepeat = 2;
-        NSGlobalDomain.InitialKeyRepeat = 15;
+        NSGlobalDomain = {
+          AppleICUForce24HourTime = true;
+          KeyRepeat = 2;
+          InitialKeyRepeat = 15;
+        };
       };
+
+      # Sudo via TouchID
+      security.pam.enableSudoTouchIdAuth = true;
 
       system.activationScripts.applications.text = let
         env = pkgs.buildEnv {
