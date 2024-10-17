@@ -90,7 +90,7 @@ case "$SENDER" in
     windows_on_spaces
     exit 0
   ;;
-  "window_focus") window_state 
+  "window_focus") windows_on_spaces
   ;;
   "windows_on_spaces") windows_on_spaces
   ;;
