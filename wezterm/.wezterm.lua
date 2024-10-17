@@ -37,6 +37,7 @@ config.pane_focus_follows_mouse = false
 -- Max FPS
 config.max_fps = 120
 config.animation_fps = 120
+-- config.front_end = "WebGpu"
 
 -- Keybindings
 config.enable_kitty_keyboard = true
