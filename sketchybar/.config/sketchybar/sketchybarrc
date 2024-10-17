@@ -12,15 +12,16 @@ sketchybar --hotload true
 
 ##### Bar Appearance #####
 bar=(
-  height=32
+  height=26
   position=top
-  color=0x40171717
+  color=0x80171717
   sticky=on
   shadow=off
-  blur_radius=56
+  blur_radius=24
   padding_left=8
   padding_right=8
   notch_width=0
+  topmost=on
 )
 sketchybar --bar "${bar[@]}"
 

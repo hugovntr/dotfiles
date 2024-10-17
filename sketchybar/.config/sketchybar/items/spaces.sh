@@ -18,9 +18,9 @@ do
     padding_right=4
     icon=${SPACE_ICONS[i]}
     icon.highlight_color=$BRAND
-    icon.padding_left=16
+    icon.padding_left=8
     icon.padding_right=8
-    icon.font="$FONT:Semibold:16:0"
+    icon.font="$FONT:Semibold:12:0"
     label.padding_left=4
     label.padding_right=10
     label.font="sketchybar-app-font:Regular:13:0"
@@ -29,7 +29,7 @@ do
     label.background.color=$BACKGROUND
     label.background.corner_radius=4
     label.color=$LABEL_INACTIVE
-    label.drawing=off
+    label.drawing=false
     background.color=$BACKGROUND
     background.corner_radius=8
     background.border_width=0
