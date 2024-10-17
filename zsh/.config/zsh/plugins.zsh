@@ -1,7 +1,7 @@
 # Tmux plugin configuration
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOQUIT=false
-export ZSH_TMUX_CONFIG="${DOTFILES}/tmux/tmux.conf"
+export ZSH_TMUX_CONFIG="${XDG_CONFIG_HOME}/tmux/tmux.conf"
 
 zinit load zsh-users/zsh-autosuggestions
 

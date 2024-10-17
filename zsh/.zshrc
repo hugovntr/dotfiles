@@ -3,8 +3,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export FORGE="$HOME/.config"
 export XDG_CONFIG_HOME="$FORGE"
 export DOTFILES="${XDG_CONFIG_HOME:-FORGE}"
-export ZSH_CONFIG="${DOTFILES}/zsh"
-export WEZTERM_CONFIG_FILE="${DOTFILES}/wezterm/wezterm.lua"
+export ZSH_CONFIG="${XDG_CONFIG_HOME}/zsh"
+export WEZTERM_CONFIG_FILE="${XDG_CONFIG_HOME}/wezterm/wezterm.lua"
 
 # True color configuration
 export TERM=xterm-256color
@@ -25,7 +25,7 @@ fi
 source "${ZSH_CONFIG}/init.zsh"
 
 # Prompt / Starship
-export STARSHIP_CONFIG="${DOTFILES}/starship.toml"
+export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship.toml"
 eval "$(starship init zsh)"
 
 set-long-prompt() {
