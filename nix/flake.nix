@@ -48,6 +48,7 @@
             pkgs.hyperfine
             pkgs.yazi
             pkgs.zoxide
+            pkgs.moreutils
 
             # Languages
             pkgs.go
