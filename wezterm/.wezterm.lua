@@ -48,6 +48,7 @@ config.keys = require("keys")
 config.line_height = 1.2
 config.initial_rows = 54
 config.initial_cols = 256
+config.default_cursor_style = "SteadyBar"
 
 -- Window Decorations
 config.window_decorations = "RESIZE"
