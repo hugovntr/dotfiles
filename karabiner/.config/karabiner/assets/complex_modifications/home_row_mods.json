@@ -53,7 +53,7 @@
       ]
     },
     {
-      "description": "[Code Fast] RShift + QS = ()",
+      "description": "[Code Fast] RShift + QSD = ({[",
       "manipulators": [
         {
           "type": "basic",
@@ -76,14 +76,10 @@
             }
           },
           "to": {
-            "key_code": "hyphen"
+            "key_code": "5",
+            "modifiers": ["right_option"]
           }
-        }
-      ]
-    },
-    {
-      "description": "[Code Fast] RShift + DF = {}",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -94,9 +90,14 @@
           },
           "to": {
             "key_code": "5",
-            "modifiers": ["right_option"]
+            "modifiers": ["right_option", "left_shift"]
           }
-        },
+        }
+      ]
+    },
+    {
+      "description": "[Code Fast] RShift + FGH = )}]",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -106,15 +107,9 @@
             }
           },
           "to": {
-            "key_code": "hyphen",
-            "modifiers": ["right_option"]
+            "key_code": "hyphen"
           }
-        }
-      ]
-    },
-    {
-      "description": "[Code Fast] RShift + GH = []",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -125,7 +120,7 @@
           },
           "to": {
             "key_code": "5",
-            "modifiers": ["right_option", "left_shift"]
+            "modifiers": ["right_option"]
           }
         },
         {
