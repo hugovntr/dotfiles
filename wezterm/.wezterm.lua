@@ -45,7 +45,7 @@ config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = require("keys")
 
 -- Font size / Term size
-config.line_height = 1.2
+config.line_height = 1.5
 config.initial_rows = 54
 config.initial_cols = 256
 config.default_cursor_style = "SteadyBar"
@@ -61,7 +61,7 @@ config.window_padding = {
 	left = 4,
 	right = 4,
 	top = 2,
-	bottom = 2,
+	bottom = 0,
 }
 config.inactive_pane_hsb = {
 	brightness = 0.3,
