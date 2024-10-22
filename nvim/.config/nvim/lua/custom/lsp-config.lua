@@ -59,14 +59,22 @@ local servers = {
       pyright = {
         disableOrganizeImports = true,
       },
-      python = {
-        analysis = {
-          ignore = { '*' },
+      python = { analysis = { ignore = { '*' } } },
+    },
+  },
+  ruff_lsp = {
+    init_options = {
+      settings = {
+        fixAll = true,
+        organizeImports = true,
+        lint = { enable = true },
+        codeAction = {
+          disableRuleComment = { enable = true },
+          fixViolation = { enable = true },
         },
       },
     },
   },
-  ruff_lsp = {},
   tailwindcss = {},
   ltex = {},
   lua_ls = {
