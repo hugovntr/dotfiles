@@ -45,21 +45,36 @@ local function nvim_action(key, mods, action)
 	}
 end
 
+local function term_action(key, mods, action)
+	return {
+		key = key,
+		mods = mods,
+		action = wezterm.action_callback(function(win, pane)
+			if not is_nvim(pane) then
+				win:perform_action(action, pane)
+			else
+				win:perform_action({
+					SendKey = { key = key, mods = mods },
+				}, pane)
+			end
+		end),
+	}
+end
+
 return {
 	-- {
 	-- 	key = "m",
 	-- 	mods = "CMD",
 	-- 	action = wezterm.action.DisableDefaultAssignment,
 	-- },
-	-- { key = "k", mods = "CMD", action = act.SendKey({ mods = "CTRL", key = "l" }) },
-	{
-		key = "k",
-		mods = "CMD",
-		action = act.Multiple({
+	term_action(
+		"k",
+		"CMD",
+		act.Multiple({
 			act.ClearScrollback("ScrollbackAndViewport"),
 			act.SendKey({ key = "l", mods = "CTRL" }),
-		}),
-	},
+		})
+	),
 	-- Temporary mod
 	{ key = "e", mods = "CMD", action = act.SendKey({ key = "e", mods = "ALT" }) },
 	{ key = "s", mods = "CMD", action = act.SendKey({ key = "s", mods = "ALT" }) },
