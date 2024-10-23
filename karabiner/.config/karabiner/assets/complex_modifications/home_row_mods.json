@@ -119,7 +119,7 @@
             }
           },
           "to": {
-            "key_code": "5",
+            "key_code": "hyphen",
             "modifiers": ["right_option"]
           }
         },
