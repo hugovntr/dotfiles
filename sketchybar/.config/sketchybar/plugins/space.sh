@@ -14,7 +14,7 @@ update() {
     WIDTH="0" # Current space doesn't display app icons
   fi
 
-  sketchybar --animate tanh 20 --set $NAME icon.highlight=$SELECTED label.width=$WIDTH 
+  sketchybar --animate tanh 20 --set $NAME icon.highlight=$SELECTED label.width=$WIDTH background.drawing=$SELECTED
 }
 
 mouse_clicked() {

@@ -17,7 +17,7 @@ do
     padding_left=4
     padding_right=4
     icon=${SPACE_ICONS[i]}
-    icon.highlight_color=$BRAND
+    icon.highlight_color=$WHITE
     icon.padding_left=8
     icon.padding_right=8
     icon.font="$FONT:Semibold:12:0"
@@ -30,10 +30,12 @@ do
     label.background.corner_radius=4
     label.color=$LABEL_INACTIVE
     label.drawing=false
-    background.color=$BACKGROUND
+    background.color=$BRAND
     background.corner_radius=8
     background.border_width=0
     background.drawing=false
+    background.height=4
+    background.y_offset=12
   )
 
   sketchybar --add space space.$sid left    \
@@ -45,7 +47,7 @@ spaces=(
   background.color=$BACKGROUND
   background.border_color=$BACKGROUND
   background.border_width=2
-  background.drawing=on
+  background.drawing=true
 )
 
 separator=(
@@ -63,4 +65,4 @@ sketchybar --add bracket spaces '/space\..*/' \
            --set spaces "${spaces[@]}"        \
                                               \
            --add item separator left          \
-           --set separator "${separator[@]}"
+           --set separator "${separator[@]}"  \
