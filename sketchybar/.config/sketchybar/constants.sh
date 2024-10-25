@@ -2,7 +2,8 @@
 export FONT="JetBrainsMono Nerd Font"
 
 # Colors
-export BRAND=0xffFF4F00
+# export BRAND=0xffFF4F00
+export BRAND=0xFFFA7A61
 export BLACK=0xff171717
 export WHITE=0xffFFFFFF
 export GREEN=0xff5EFF6C

@@ -13,7 +13,7 @@ space_manager=(
 
 front_app=(
   script="$PLUGIN_DIR/front_app.sh"
-  label.font="$FONT:Bold:13.0"
+  label.font="$FONT:Semibold:12.0"
   associated_display=active
 )
 
