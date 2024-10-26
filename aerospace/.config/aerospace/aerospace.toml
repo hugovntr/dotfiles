@@ -142,6 +142,8 @@ semicolon = [ 'move right', 'mode main', 'exec-and-forget sketchybar --trigger m
 esc = ["mode main", 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 j = ['resize smart -200']
 semicolon = ['resize smart +200']
+r = ['balance-sizes', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+f = ['fullscreen', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 
 # ---
 # Window with default to floating layout
