@@ -4,6 +4,55 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "A(Q) -> Shift",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "a_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "a" },
+                                "to": { "key_code": "a" },
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "a" },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 200,
+                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                },
+                                "to_delayed_action": {
+                                    "to_if_canceled": {
+                                        "set_variable": {
+                                            "name": "a_pressed",
+                                            "value": 0
+                                        }
+                                    },
+                                    "to_if_invoked": {
+                                        "set_variable": {
+                                            "name": "a_pressed",
+                                            "value": 0
+                                        }
+                                    }
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "set_variable": {
+                                            "name": "a_pressed",
+                                            "value": 1
+                                        }
+                                    },
+                                    { "key_code": "a" }
+                                ],
+                                "to_if_held_down": { "key_code": "left_shift" },
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "[Code Fast] RShift + FGH = )}]",
                         "manipulators": [
                             {
@@ -114,31 +163,6 @@
                                 "to": {
                                     "key_code": "left_shift",
                                     "modifiers": ["left_control"]
-                                },
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "A(Q) -> Shift",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "a" },
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 500,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
-                                },
-                                "to_delayed_action": {
-                                    "to_if_canceled": { "key_code": "a" },
-                                    "to_if_invoked": { "key_code": "vk_none" }
-                                },
-                                "to_if_alone": {
-                                    "halt": true,
-                                    "key_code": "a"
-                                },
-                                "to_if_held_down": {
-                                    "halt": true,
-                                    "key_code": "left_shift"
                                 },
                                 "type": "basic"
                             }
