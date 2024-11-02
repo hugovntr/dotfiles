@@ -23,6 +23,7 @@
             pkgs.ansible
             pkgs.docker
             pkgs.wget
+            pkgs.ollama
 
             # Installation Management
             pkgs.fnm
