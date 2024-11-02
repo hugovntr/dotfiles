@@ -106,6 +106,15 @@
                 StandardErrorPath = "/tmp/log/sketchybar.err.log";
               };
             };
+            ollama = {
+              command = "ollama serve";
+              path = ["${config.environment.systemPath}"];
+              serviceConfig = {
+                KeepAlive = true;
+                RunAtLoad = true;
+                StandardErrorPath = "/tmp/log/ollama.err.log";
+              };
+            };
           };
         };
       };
