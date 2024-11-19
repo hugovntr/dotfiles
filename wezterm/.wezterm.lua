@@ -29,14 +29,14 @@ end)
 config.automatically_reload_config = true
 
 -- Quit confirmation
-config.window_close_confirmation = "NeverPrompt"
+config.window_close_confirmation = "AlwaysPrompt"
 
 -- Focus follows mouse
 config.pane_focus_follows_mouse = false
 
 -- Max FPS
-config.max_fps = 120
-config.animation_fps = 120
+config.max_fps = 240
+config.animation_fps = 240
 -- config.front_end = "WebGpu"
 
 -- Keybindings
