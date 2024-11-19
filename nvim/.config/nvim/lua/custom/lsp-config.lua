@@ -62,7 +62,7 @@ local servers = {
       python = { analysis = { ignore = { '*' } } },
     },
   },
-  ruff_lsp = {
+  ruff = {
     init_options = {
       settings = {
         fixAll = true,

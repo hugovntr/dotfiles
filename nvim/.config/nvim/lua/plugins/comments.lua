@@ -2,10 +2,12 @@ return {
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
     enable_autocmd = false,
+    event = 'InsertEnter',
   },
   {
     'numToStr/Comment.nvim',
     opts = {},
+    event = 'VeryLazy',
     keys = {
       { 'gcc', mode = 'n', desc = 'Comment toggle current line' },
       { 'gc', mode = { 'n', 'o' }, desc = 'Comment toggle linewise' },

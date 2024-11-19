@@ -6,6 +6,7 @@ return { -- LSP Configuration & Plugins
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'folke/neodev.nvim', opts = {} },
   },
+  event = 'VeryLazy',
   config = function()
     require 'custom.lsp-config'
   end,

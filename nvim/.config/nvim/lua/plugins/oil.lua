@@ -10,6 +10,7 @@ return {
     'stevearc/oil.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {},
+    event = 'VeryLazy',
     config = function()
       require 'custom.oil'
     end,

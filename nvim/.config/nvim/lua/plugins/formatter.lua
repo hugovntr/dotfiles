@@ -1,6 +1,7 @@
 return {
   {
     'mhartington/formatter.nvim',
+    event = 'VeryLazy',
     config = function()
       vim.api.nvim_create_augroup('__formatter__', { clear = true })
       vim.api.nvim_create_autocmd('BufWritePost', {
@@ -20,6 +21,7 @@ return {
   },
   { -- Autoformat
     'stevearc/conform.nvim',
+    event = 'VeryLazy',
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)

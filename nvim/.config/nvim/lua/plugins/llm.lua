@@ -6,11 +6,10 @@ return {
     opts = {
       provider = 'openai',
       openai = {
-        api_key_name = 'USER',
+        api_key_name = '',
         endpoint = 'http://127.0.0.1:11434/v1',
         model = 'llama3.2:3b',
         temperature = 0,
-        ['local'] = true,
       },
     },
     dependencies = {
