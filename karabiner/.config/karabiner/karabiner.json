@@ -5,6 +5,7 @@
                 "rules": [
                     {
                         "description": "A(Q) -> Shift",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -21,8 +22,8 @@
                             {
                                 "from": { "key_code": "a" },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 200,
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                    "basic.to_if_alone_timeout_milliseconds": 100,
+                                    "basic.to_if_held_down_threshold_milliseconds": 300
                                 },
                                 "to_delayed_action": {
                                     "to_if_canceled": {

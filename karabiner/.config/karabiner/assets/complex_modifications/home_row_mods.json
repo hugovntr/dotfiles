@@ -16,8 +16,8 @@
           "type": "basic",
           "from": { "key_code": "a" },
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 200,
-            "basic.to_if_held_down_threshold_milliseconds": 200
+            "basic.to_if_alone_timeout_milliseconds": 100,
+            "basic.to_if_held_down_threshold_milliseconds": 300
           },
           "to_if_alone": [
             { "set_variable": { "name": "a_pressed", "value": 1 } },
