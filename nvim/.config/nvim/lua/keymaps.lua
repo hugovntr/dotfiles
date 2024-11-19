@@ -48,7 +48,7 @@ nnoremap('cw', '"_ciw') -- Change inside word without copy
 nnoremap('<C-p>', '<cmd>bprev<cr>', { desc = 'Previous buffer' })
 nnoremap('<C-n>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
 nnoremap('<leader>q', '<cmd>bd<cr>', { silent = false, desc = 'Close current buffer' })
-nnoremap('qq', '<cmd>bd<cr>', { silent = true, desc = 'Close current buffer' })
+-- nnoremap('qq', '<cmd>bd<cr>', { silent = true, desc = 'Close current buffer' })
 
 -- One hand fast travel
 nnoremap('¬', '}') -- down (Alt + L)
