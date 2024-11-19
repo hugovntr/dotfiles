@@ -60,6 +60,9 @@
 
             # Misc
             pkgs.mkalias
+
+            # Keyboard
+            pkgs.avrdude
         ];
 
       fonts.packages = [
@@ -71,12 +74,14 @@
           taps = [
             "felixkratz/formulae"
             "nikitabobko/tap"
+            "qmk/qmk"
           ];
           casks = [
             "wezterm"
             "shortcat"
             "vlc"
             "nikitabobko/tap/aerospace"
+            "qmk-toolbox"
           ];
           brews = [
             "gnu-sed"
@@ -87,6 +92,8 @@
             }
             "felixkratz/formulae/sketchybar"
             "watch"
+            "qmk/qmk/qmk"
+            "avr-gcc"
           ];
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
