@@ -61,12 +61,7 @@ local function term_action(key, mods, action)
 	}
 end
 
-return {
-	-- {
-	-- 	key = "m",
-	-- 	mods = "CMD",
-	-- 	action = wezterm.action.DisableDefaultAssignment,
-	-- },
+local keys = {
 	term_action(
 		"k",
 		"CMD",
@@ -112,10 +107,14 @@ return {
 	{ key = "o", mods = "LEADER", action = act.EmitEvent("restore-session") },
 
 	-- Adjust Pane size
-	{ key = "m", mods = "LEADER", action = act.AdjustPaneSize({ "Right", 20 }) },
-	{ key = "j", mods = "LEADER", action = act.AdjustPaneSize({ "Left", 20 }) },
-	{ key = "k", mods = "LEADER", action = act.AdjustPaneSize({ "Up", 5 }) },
-	{ key = "l", mods = "LEADER", action = act.AdjustPaneSize({ "Down", 5 }) },
+	{
+		key = "g",
+		mods = "LEADER",
+		action = act.ActivateKeyTable({
+			name = "resize_pane",
+			one_shot = false,
+		}),
+	},
 
 	-- Move between panes
 	-- { key = "m", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
@@ -129,4 +128,21 @@ return {
 
 	-- Neovim Specials
 	nvim_action("Delete", nil, act.SendKey({ key = "Delete", mods = "CTRL" })),
+}
+
+local key_tables = {
+	resize_pane = {
+		-- Exit resize mode
+		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "m", action = act.AdjustPaneSize({ "Right", 20 }) },
+		{ key = "j", action = act.AdjustPaneSize({ "Left", 20 }) },
+		{ key = "k", action = act.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "l", action = act.AdjustPaneSize({ "Down", 5 }) },
+	},
+}
+
+return {
+	leader = { key = "q", mods = "CTRL" },
+	keys = keys,
+	key_tables = key_tables,
 }

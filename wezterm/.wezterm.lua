@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local keysDef = require("keys")
 
 local config = {}
 
@@ -41,8 +42,9 @@ config.animation_fps = 240
 
 -- Keybindings
 config.enable_kitty_keyboard = true
-config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
-config.keys = require("keys")
+config.leader = keysDef.leader
+config.keys = keysDef.keys
+config.key_tables = keysDef.key_tables
 
 -- Font size / Term size
 config.line_height = 1.5
