@@ -76,7 +76,9 @@ local servers = {
     },
   },
   tailwindcss = {},
-  ltex = {},
+  ltex = {
+    filetypes = { 'bib', 'plaintex', 'rst', 'text', 'mdx', 'markdown' },
+  },
   lua_ls = {
     settings = {
       Lua = {
