@@ -53,7 +53,10 @@
 
             # Languages
             pkgs.go
-            pkgs.python312
+
+            #TODO: Refactor
+            (pkgs.python312.withPackages(ps: with ps; [ pip ]))
+
 
             # User Interface
             pkgs.jankyborders
@@ -78,6 +81,7 @@
           ];
           casks = [
             "wezterm"
+            "ghostty"
             "shortcat"
             "vlc"
             "nikitabobko/tap/aerospace"
