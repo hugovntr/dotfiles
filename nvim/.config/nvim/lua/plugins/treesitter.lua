@@ -108,4 +108,9 @@ return {
     },
     ft = { 'markdown', 'mdx', 'Avante' },
   },
+  {
+    'davidmh/mdx.nvim',
+    config = true,
+    event = 'BufEnter *.mdx',
+  },
 }
