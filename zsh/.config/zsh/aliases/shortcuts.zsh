@@ -43,3 +43,6 @@ function drb() {
   cp $dotfiles_path/flake.nix $nix_path
   darwin-rebuild switch --flake $nix_path#macos
 }
+
+# MLX
+alias mlx="$HOME/Projects/ai/mlx/.venv/bin/mlx_lm.generate --ignore-chat-template -m 2048"
