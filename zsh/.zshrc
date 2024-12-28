@@ -4,7 +4,7 @@ export FORGE="$HOME/.config"
 export XDG_CONFIG_HOME="$FORGE"
 export DOTFILES="${XDG_CONFIG_HOME:-FORGE}"
 export ZSH_CONFIG="${XDG_CONFIG_HOME}/zsh"
-export WEZTERM_CONFIG_FILE="${XDG_CONFIG_HOME}/wezterm/wezterm.lua"
+export WEZTERM_CONFIG_FILE="${HOME}/.wezterm.lua"
 
 # True color configuration
 export TERM=xterm-256color
