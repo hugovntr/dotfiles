@@ -47,6 +47,12 @@ config.keys = keysDef.keys
 config.key_tables = keysDef.key_tables
 
 -- Font size / Term size
+config.font_size = 12
+config.font = wezterm.font_with_fallback({
+	"JetBrains Mono",
+	"Noto Color Emoji",
+	"Symbols Nerd Font Mono",
+})
 config.line_height = 1.5
 config.initial_rows = 54
 config.initial_cols = 256
