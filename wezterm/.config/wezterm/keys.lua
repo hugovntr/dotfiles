@@ -75,6 +75,7 @@ local keys = {
 	{ key = "s", mods = "CMD", action = act.SendKey({ key = "s", mods = "ALT" }) },
 	{ key = "p", mods = "CMD", action = act.SendKey({ key = "p", mods = "ALT" }) },
 	{ key = "Backspace", mods = "CMD", action = act.SendKey({ mods = "CTRL", key = "u" }) },
+
 	-- MacOS Keys
 	{ key = "LeftArrow", mods = "OPT", action = act({ SendString = "\x1bb" }) },
 	{ key = "RightArrow", mods = "OPT", action = act({ SendString = "\x1bf" }) },
@@ -117,10 +118,6 @@ local keys = {
 	},
 
 	-- Move between panes
-	-- { key = "m", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
-	-- { key = "j", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
-	-- { key = "k", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
-	-- { key = "l", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
 	pane_navigation(direction_keys["Left"], "CTRL", act.ActivatePaneDirection("Left")),
 	pane_navigation(direction_keys["Up"], "CTRL", act.ActivatePaneDirection("Up")),
 	pane_navigation(direction_keys["Down"], "CTRL", act.ActivatePaneDirection("Down")),
