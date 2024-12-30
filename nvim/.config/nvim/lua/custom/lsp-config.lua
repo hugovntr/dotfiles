@@ -78,6 +78,17 @@ local servers = {
   tailwindcss = {},
   ltex = {
     filetypes = { 'bib', 'plaintex', 'rst', 'text', 'mdx', 'markdown' },
+    flags = { debounce_text_changes = 300 },
+    settings = {
+      ltex = {
+        language = 'en-US',
+        flags = { debounce_text_changes = 300 },
+        additionalRules = {
+          enablePickyRules = true,
+          motherTongue = 'en-US',
+        },
+      },
+    },
   },
   lua_ls = {
     settings = {
