@@ -6,6 +6,11 @@ local function is_nvim(pane)
 	return process_name == "nvim" or process_name == "vim"
 end
 
+local function is_tmux(pane)
+	local process_name = string.gsub(pane:get_foreground_process_name(), "(.*[/\\])(.*)", "%2")
+	return process_name == "tmux"
+end
+
 local direction_keys = {
 	Left = "j",
 	Up = "k",
@@ -22,6 +27,16 @@ local function pane_navigation(key, mods, action)
 				win:perform_action({
 					SendKey = { key = key, mods = mods },
 				}, pane)
+			elseif is_tmux(pane) then
+				if key == "m" then
+					win:perform_action({
+						SendKey = { key = "h", mods = mods },
+					}, pane)
+				else
+					win:perform_action({
+						SendKey = { key = key, mods = mods },
+					}, pane)
+				end
 			else
 				win:perform_action(action, pane)
 			end
@@ -51,6 +66,12 @@ local function term_action(key, mods, action)
 		mods = mods,
 		action = wezterm.action_callback(function(win, pane)
 			if not is_nvim(pane) then
+				if is_tmux(pane) then
+					win:perform_action({
+						SendKey = { key = "o", mods = "CTRL" },
+					}, pane)
+					return
+				end
 				win:perform_action(action, pane)
 			else
 				win:perform_action({
