@@ -68,7 +68,7 @@ local function term_action(key, mods, action)
 			if not is_nvim(pane) then
 				if is_tmux(pane) then
 					win:perform_action({
-						SendKey = { key = "o", mods = "CTRL" },
+						SendKey = { key = "g", mods = "CTRL" },
 					}, pane)
 					return
 				end
