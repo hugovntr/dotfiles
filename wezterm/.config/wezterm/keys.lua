@@ -96,6 +96,7 @@ local keys = {
 	{ key = "s", mods = "CMD", action = act.SendKey({ key = "s", mods = "ALT" }) },
 	{ key = "p", mods = "CMD", action = act.SendKey({ key = "p", mods = "ALT" }) },
 	{ key = "Backspace", mods = "CMD", action = act.SendKey({ mods = "CTRL", key = "u" }) },
+	{ key = "m", mods = "OPT", action = act.DisableDefaultAssignment },
 
 	-- MacOS Keys
 	{ key = "LeftArrow", mods = "OPT", action = act({ SendString = "\x1bb" }) },
