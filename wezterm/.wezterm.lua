@@ -20,11 +20,11 @@ wezterm.on("restore-session", function(window)
 end)
 
 -- Automatically start tmux
--- wezterm.on("gui-startup", function(cmd)
--- 	local mux = wezterm.mux
--- 	local _, build_pane, _ = mux.spawn_window(cmd or {})
--- 	build_pane:send_text("tmux\n")
--- end)
+wezterm.on("gui-startup", function(cmd)
+	local mux = wezterm.mux
+	local _, build_pane, _ = mux.spawn_window(cmd or {})
+	build_pane:send_text("tmux attach || tmux new\n")
+end)
 
 -- Automagically reload the configuration
 config.automatically_reload_config = true
