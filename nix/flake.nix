@@ -27,7 +27,6 @@
 
             # Installation Management
             pkgs.fnm
-            pkgs.uv
             pkgs.pnpm
 
             # Dependencies
@@ -50,6 +49,7 @@
             pkgs.yazi
             pkgs.zoxide
             pkgs.moreutils
+            pkgs.cyme
 
             # Languages
             pkgs.go
@@ -98,6 +98,7 @@
             "watch"
             "qmk/qmk/qmk"
             "avr-gcc"
+            "uv"
           ];
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
