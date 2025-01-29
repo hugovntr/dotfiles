@@ -10,4 +10,8 @@ prepend_keymap = [
   # Preview
   { on = "K", run = "seek -5", desc = "Move preview up 5 units" },
   { on = "L", run = "seek 5", desc = "Move preview down 5 units" },
+
+  # Copy file content
+  { on = ["c", "y"], run = ["plugin copy-file-contents"], desc = "Copy file content"},
+
 ]
