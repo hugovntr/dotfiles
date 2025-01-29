@@ -24,6 +24,7 @@
             pkgs.docker
             pkgs.wget
             pkgs.ollama
+            pkgs.redis
 
             # Installation Management
             pkgs.fnm
