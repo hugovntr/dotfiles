@@ -51,6 +51,7 @@
             pkgs.zoxide
             pkgs.moreutils
             pkgs.cyme
+            pkgs.gnumake
 
             # Languages
             pkgs.go
