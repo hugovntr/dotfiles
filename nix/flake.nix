@@ -52,6 +52,7 @@
             pkgs.moreutils
             pkgs.cyme
             pkgs.gnumake
+            pkgs.graphviz
 
             # Languages
             pkgs.go
