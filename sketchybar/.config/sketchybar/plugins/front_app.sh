@@ -28,18 +28,8 @@ if [ "$SENDER" = "front_app_switched" ]; then
   __icon_map "${APP}"
   args=(
     label="$title"
-    label.padding_left=8
-    label.padding_right=4
     icon=${icon_result}
-    icon.font="sketchybar-app-font:Regular:14:0"
     icon.drawing=on
-    icon.color=$BRAND
-    icon.padding_left=8
-    icon.padding_right=8
-    icon.background.drawing=true
-    icon.background.color=$BACKGROUND
-    icon.background.height=22
-    icon.background.corner_radius=4
   )
   sketchybar --set "$NAME" "${args[@]}"
 fi
