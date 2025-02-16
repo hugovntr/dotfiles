@@ -49,7 +49,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+-- -- Nvim CMP
+-- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
+-- Blink
+capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(capabilities))
 
 local servers = {
   -- clangd = {},
@@ -112,6 +116,8 @@ vim.list_extend(ensure_installed, {
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
 require('mason-lspconfig').setup {
+  ensure_installed = {},
+  automatic_installation = true,
   handlers = {
     function(server_name)
       local server = servers[server_name] or {}
