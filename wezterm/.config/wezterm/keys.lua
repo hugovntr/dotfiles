@@ -95,6 +95,7 @@ local keys = {
 	{ key = "e", mods = "CMD", action = act.SendKey({ key = "e", mods = "ALT" }) },
 	{ key = "s", mods = "CMD", action = act.SendKey({ key = "s", mods = "ALT" }) },
 	{ key = "p", mods = "CMD", action = act.SendKey({ key = "p", mods = "ALT" }) },
+	{ key = "l", mods = "CMD", action = act.ShowDebugOverlay },
 	{ key = "Backspace", mods = "CMD", action = act.SendKey({ mods = "CTRL", key = "u" }) },
 	{ key = "m", mods = "OPT", action = act.DisableDefaultAssignment },
 

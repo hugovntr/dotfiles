@@ -38,7 +38,7 @@ config.pane_focus_follows_mouse = false
 -- Max FPS
 config.max_fps = 240
 config.animation_fps = 240
--- config.front_end = "WebGpu"
+config.front_end = "WebGpu"
 
 -- Keybindings
 config.enable_kitty_keyboard = true
@@ -47,13 +47,36 @@ config.keys = keysDef.keys
 config.key_tables = keysDef.key_tables
 
 -- Font size / Term size
-config.font_size = 12
+config.dpi = 144.0 -- Default is 72.0
+config.font_size = 6 -- Default is 12
 config.font = wezterm.font_with_fallback({
-	"JetBrains Mono",
+	{
+		family = "JetBrains Mono",
+		weight = "ExtraLight",
+		stretch = "Normal",
+		freetype_load_target = "Light",
+		harfbuzz_features = { "calt", "liga", "zero", "cv03", "cv12", "ss20", "cv10", "cv16", "cv18" },
+	},
+	-- {
+	-- 	family = "Monaspace Neon",
+	-- 	weight = "Regular",
+	-- 	stretch = "Normal",
+	-- 	freetype_load_target = "Light",
+	-- 	harfbuzz_features = { "calt", "dlig", "liga", "ss01", "ss02", "ss03", "ss04", "ss05" },
+	-- },
+	-- {
+	-- 	family = "Geist Mono",
+	-- 	weight = "Medium",
+	-- 	freetype_load_target = "Light",
+	-- 	freetype_load_flags = "FORCE_AUTOHINT",
+	-- 	scale = 1,
+	-- 	style = "Normal",
+	-- 	harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
+	-- },
 	"Noto Color Emoji",
 	"Symbols Nerd Font Mono",
 })
-config.line_height = 1.5
+config.line_height = 1.6
 config.initial_rows = 54
 config.initial_cols = 256
 config.default_cursor_style = "SteadyBar"
