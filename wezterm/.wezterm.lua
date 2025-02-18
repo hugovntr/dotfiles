@@ -55,7 +55,7 @@ config.font = wezterm.font_with_fallback({
 		weight = "ExtraLight",
 		stretch = "Normal",
 		freetype_load_target = "Light",
-		harfbuzz_features = { "calt", "liga", "zero", "cv03", "cv12", "ss20", "cv10", "cv16", "cv18" },
+		harfbuzz_features = { "calt", "liga", "zero", "cv12", "ss20", "cv10", "cv16", "cv18" },
 	},
 	-- {
 	-- 	family = "Monaspace Neon",
