@@ -42,11 +42,11 @@ cmp.setup {
     end,
   },
   formatting = {
-    fields = { 'kind', 'abbr', 'menu' },
+    fields = { 'kind', 'abbr' },
     expandable_indicator = true,
     format = function(entry, vim_item)
       local highlight_info = require('colorful-menu').cmp_highlights(entry)
-      local item = lspkind.cmp_format { mode = 'symbol_text', maxwidth = 50, ellipsis_char = '...' }(entry, vim_item)
+      local item = lspkind.cmp_format { mode = 'symbol', maxwidth = 50, ellipsis_char = '...' }(entry, vim_item)
       local strings = vim.split(item.kind, '%s', { trimempty = true })
       item.kind = ' ' .. (strings[1] or '') .. '  '
       -- item.menu = '  (' .. (strings[2] or '') .. ')'
