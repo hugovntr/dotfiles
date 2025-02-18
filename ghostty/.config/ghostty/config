@@ -1,5 +1,7 @@
 shell-integration = zsh
 command = zsh -c "/opt/homebrew/bin/tmux new -A -s ghostty"
+confirm-close-surface = false
+title = "Ghostty"
 
 # Theme
 theme = "catppuccin-mocha"
@@ -57,3 +59,6 @@ macos-option-as-alt = left
 keybind = cmd+s=text:\x1b:w\n
 keybind = cmd+r=reload_config
 keybind = cmd+k=text:\x07
+
+# Tmux Navigation
+keybind = ctrl+m=text:\x08
