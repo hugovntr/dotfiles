@@ -24,6 +24,7 @@ wezterm.on("gui-startup", function(cmd)
 	local mux = wezterm.mux
 	local _, build_pane, _ = mux.spawn_window(cmd or {})
 	-- build_pane:send_text("tmux attach || tmux new\n")
+	-- TODO: It attach to the first session it finds, which might be ghostty's
 	build_pane:send_text("tmux new -A -s wezterm\n")
 end)
 
