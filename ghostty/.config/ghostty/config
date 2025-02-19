@@ -1,5 +1,5 @@
 shell-integration = zsh
-command = zsh -c "/opt/homebrew/bin/tmux new -A -s ghostty"
+command = ~/.config/ghostty/command.sh
 confirm-close-surface = false
 title = "Ghostty"
 
