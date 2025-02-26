@@ -5,7 +5,7 @@ title = "Ghostty"
 
 # Theme
 theme = "catppuccin-mocha"
-background = #09090b
+background = #010309
 foreground = #fff
 cursor-color = "#fff"
 cursor-text = "#09090b"
@@ -32,8 +32,8 @@ palette = 15=#ffffff
 # Window style
 macos-titlebar-style = "hidden"
 alpha-blending = "linear-corrected"
-background-opacity = 0.85
-background-blur-radius = 64
+background-opacity = .9
+background-blur-radius = 48
 window-padding-x = 8,2
 window-padding-y = 0
 window-padding-balance = true
@@ -49,10 +49,12 @@ macos-icon = "holographic"
 font-family = "JetBrains Mono"
 font-feature = "calt, liga, zero, cv12, ss20, cv10, cv16, cv18"
 font-thicken = false
+font-thicken-strength = 10
 font-size = 12
 adjust-cell-height = "75%"
-adjust-cell-width = "-10%"
-adjust-cursor-height = "50%"
+#adjust-cell-width = "-7%"
+adjust-cell-width = "-7%"
+adjust-cursor-height = "75%"
 
 # Keybind
 macos-option-as-alt = left
