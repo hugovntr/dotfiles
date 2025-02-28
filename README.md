@@ -6,6 +6,7 @@
 - FZF `brew install fzf`
 - Zoxide `brew install zoxide`
 - WezTerm `brew install wezterm` _(optional)_
+- Ghostty `brew install ghostty` _(optional)_
 - Tmux `brew install tmux` _(optional)_
 - Hyperfine `brew install hyperfine` *(optional)*
 
