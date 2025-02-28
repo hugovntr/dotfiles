@@ -1,6 +1,7 @@
 local snacks = require 'snacks'
 
 snacks.setup {
+  image = { enabled = true },
   bigfile = { enabled = true },
   notifier = { enabled = false },
   gitbrowse = { enabled = false },
@@ -12,9 +13,9 @@ snacks.setup {
       open = false,
       git_hl = false,
     },
-    git = {
-      patterns = { 'GitSign', 'MiniDiffSign' },
-    },
+    -- git = {
+    --   patterns = { 'GitSign', 'MiniDiffSign' },
+    -- },
     refresh = 50,
   },
   dashboard = {
@@ -40,6 +41,30 @@ snacks.setup {
       { section = 'startup' },
     },
   },
+  -- scroll = {
+  --   enabled = true,
+  --   animate = {
+  --     duration = { step = 15, total = 250 },
+  --     easing = 'linear',
+  --     fps = 120,
+  --   },
+  --   -- faster animation when repeating scroll after delay
+  --   animate_repeat = {
+  --     delay = 100, -- delay in ms before using the repeat animation
+  --     duration = { step = 5, total = 50 },
+  --     easing = 'linear',
+  --     fps = 120,
+  --   },
+  --   -- what buffers to animate
+  --   filter = function(buf)
+  --     return vim.g.snacks_scroll ~= false and vim.b[buf].snacks_scroll ~= false and vim.bo[buf].buftype ~= 'terminal'
+  --   end,
+  -- },
+  -- animate = {
+  --   duration = 20,
+  --   easing = 'linear',
+  --   fps = 120,
+  -- },
 }
 vim.keymap.set('n', 'qq', function()
   Snacks.bufdelete()
