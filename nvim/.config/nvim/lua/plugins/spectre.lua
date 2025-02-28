@@ -1,7 +1,7 @@
 return {
-  'nvim-pack/nvim-spectre',
-  event = 'VeryLazy',
-  config = function()
-    require 'custom.spectre'
-  end,
+  -- 'nvim-pack/nvim-spectre',
+  -- event = 'VeryLazy',
+  -- config = function()
+  --   require 'custom.spectre'
+  -- end,
 }
