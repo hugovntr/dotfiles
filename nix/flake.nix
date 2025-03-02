@@ -102,6 +102,7 @@
             "qmk/qmk/qmk"
             "avr-gcc"
             "uv"
+            "fastfetch"
           ];
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
