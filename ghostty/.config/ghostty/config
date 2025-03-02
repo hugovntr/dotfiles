@@ -11,15 +11,19 @@ cursor-color = "#fff"
 cursor-text = "#09090b"
 selection-background = "#3c4048"
 selection-foreground = "#fff"
-palette = 0=#6b7280
-palette = 1=#ff6e5e
-palette = 2=#5eff6c
-palette = 3=#f1ff5e
-palette = 4=#5ea1ff
-palette = 5=#bd5eff
-palette = 6=#5ef1ff
+
+## DARK
+palette = 0=#626875
+palette = 1=#FF5542
+palette = 2=#00F014
+palette = 3=#DCF000
+palette = 4=#4291FF
+palette = 5=#B54DFF
+palette = 6=#00E0F5
 palette = 7=#ffffff
 # palette = 8=#16181a
+
+## BRIGHT
 palette = 8=#6b7280
 palette = 9=#ff6e5e
 palette = 10=#5eff6c
