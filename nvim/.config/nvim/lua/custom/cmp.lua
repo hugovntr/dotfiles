@@ -30,7 +30,7 @@ cmp.setup {
     return true
   end,
   sources = {
-    { name = 'buffer' },
+    -- { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
