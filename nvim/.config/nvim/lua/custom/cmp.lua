@@ -30,11 +30,16 @@ cmp.setup {
     return true
   end,
   sources = {
-    -- { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'path' },
     { name = 'emmet' },
+    {
+      name = 'async_path',
+      option = {
+        show_hidden_files_by_default = true,
+      },
+    },
+    -- { name = 'buffer' },
   },
   snippet = {
     expand = function(args)
