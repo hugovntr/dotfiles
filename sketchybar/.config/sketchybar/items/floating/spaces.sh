@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SPACE_ICONS=("1" "2" "3")
+SPACE_ICONS=("󰲠 " "󰲢 " "󰲤 ")
+# SPACE_ICONS=("󰎤 " "󰎧 " "󰎪 ")
 
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
@@ -14,20 +15,23 @@ do
   space=(
     associated_space=$sid
     script="$PLUGIN_DIR/space.sh"
-    padding_left=4
+    padding_left=8
     padding_right=8
-    icon=""
-    icon.width=18
-    icon.highlight_color=$BRAND900
+    # icon=""
+    icon=${SPACE_ICONS[i]}
+    icon.width=16
+    icon.color=0x30FFFFFF
+    icon.highlight_color=$BRAND
     icon.padding_left=0
     icon.padding_right=0
-    icon.font="$FONT:Semibold:18:0"
+    icon.font="$FONT:Semibold:24:0"
     label.padding_left=6
     label.padding_right=10
     label.font="sketchybar-app-font:Regular:11:0"
     label.background.height=18
     label.background.drawing=on
-    label.background.color=0x44190501
+    # label.background.color=0x44190501
+    label.background.color=$BACKGROUND
     label.background.corner_radius=6
     label.y_offset=-1
     label.color=$BRAND50
@@ -48,10 +52,10 @@ done
 spaces=(
   background.height=26
   background.corner_radius=8
-  background.color=$BRAND
+  background.color=$BACKGROUND
   background.border_color=$BACKGROUND
   background.border_width=0
-  background.drawing=true
+  background.drawing=false
 )
 
 sketchybar --add bracket spaces '/space\..*/' \
