@@ -1,5 +1,5 @@
 # Fonts
-export FONT="JetBrainsMono Nerd Font"
+export FONT="Monaspace Argon"
 
 # Colors
 # export BRAND=0xffFF4F00
