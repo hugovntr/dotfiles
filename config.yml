@@ -1,0 +1,55 @@
+homebrew:
+  taps:
+    - "felixkratz/formulae"
+    - "nikitabobko/tap"
+    - "qmk/qmk"
+  casks:
+    - "wezterm"
+    - "ghostty"
+    - "shortcat"
+    - "vlc"
+    - "nikitabobko/tap/aerospace"
+  packages:
+    # Essentials
+    - "neovim"
+    - "ansible"
+    - "docker"
+    - "wget"
+    - "ollama"
+    - "gnu-sed"
+    - "gnupg"
+    - "tmux"
+    - "felixkratz/formulae/sketchybar"
+    - "felixkratz/formulae/borders"
+    - "watch"
+    - "qmk/qmk/qmk"
+    - "uv"
+    - "fastfetch"
+
+    # Compiler/Runtime
+    - "go"
+
+    # Dependencies Management
+    - "fnm"
+    - "pnpm"
+
+    # Tools
+    - "htop"
+    - "jq"
+    - "ripgrep"
+    - "git"
+    - "starship"
+    - "bat"
+    - "eza"
+    - "ffmpeg"
+    - "fzf"
+    - "imagemagick"
+    - "hyperfine"
+    - "yazi"
+    - "zoxide"
+    - "moreutils"
+    - "cyme"
+    - "make"
+    - "graphviz"
+    - "xz"
+    - "git-lfs"
