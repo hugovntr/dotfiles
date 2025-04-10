@@ -1,5 +1,5 @@
 # Fonts
-export FONT="Monaspace Argon"
+export FONT="Monaspace Neon"
 
 # Colors
 # export BRAND=0xffFF4F00
