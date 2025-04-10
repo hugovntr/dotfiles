@@ -1,14 +1,18 @@
-# dotfiles
+██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
+██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
+██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
+██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
+██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║  Setup work environment on macOS
+╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝  Made by: Hugo Ventura <https://github.com/hugovntr>
+                                                             
 
 ## Requirements
-- GNU Stow `brew install stow`
-- Starship `brew install starship`
-- FZF `brew install fzf`
-- Zoxide `brew install zoxide`
-- WezTerm `brew install wezterm` _(optional)_
-- Ghostty `brew install ghostty` _(optional)_
-- Tmux `brew install tmux` _(optional)_
-- Hyperfine `brew install hyperfine` *(optional)*
+[Homebrew](brew.sh) **must** be installed on your system.
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+> [!NOTE]
+> The part of the script that is responsible for automatically installing homebrew is bugged and I haven't taken the time to debug it (mostly due to the fact that it requires manual user input)
 
 
 ## Installation
@@ -22,20 +26,19 @@ git clone https://github.com/hugovntr/dotfiles.git ~/.dotfiles
 # Navigate to the dotfiles folder
 cd ~/.dotfiles/
 ```
-Once you are in the dotfiles folder, you may install the desired package(s).
+Once you are in the dotfiles folder, you may run the `setup.sh` script.
 
-For example, if you only want to install **neovim** you can do it like so:
+First, ensure that the script has the correct `chmod`
 ```bash
-stow nvim
-```
-And all the configuration will be symlinked to the appropriate folder in the system.
-
-But, you can also install multiple packages at once:
-```bash
-stow nvim wezterm zsh
+chmod +x setup.sh ./.setup/utils.sh
 ```
 
-Restart your shell once that's done
+Next, run the script:
+```bash
+./setup.sh
+```
+
+I advise you to restart your machine once it's completed
 
 ## Before you try
 Because of the way my brain is set up, I don't use **vim** default navigation key bindings.
