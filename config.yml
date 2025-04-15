@@ -47,6 +47,7 @@ homebrew:
     - "hyperfine"
     - "yazi"
     - "zoxide"
+    - "coreutils"
     - "moreutils"
     - "cyme"
     - "make"
