@@ -30,7 +30,18 @@ cmp.setup {
     return true
   end,
   sources = {
-    { name = 'nvim_lsp' },
+    {
+      name = 'nvim_lsp',
+      entry_filter = function(entry)
+        -- Ugliest fix for auto-import of "lucide-react" icons and "@radix-ui/" components
+        local label = entry:get_completion_item().label
+        local detail = entry:get_completion_item().detail or ''
+        if label:match 'lucide%-react' or detail:match 'lucide%-react' or label:match '@radix%-ui/*' or detail:match '@radix%-ui/*' then
+          return false
+        end
+        return true
+      end,
+    },
     { name = 'luasnip' },
     { name = 'emmet' },
     {
