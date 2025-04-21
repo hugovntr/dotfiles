@@ -8,3 +8,4 @@ alias push="git push"
 alias pull="git pull"
 alias fetch="git fetch --prune"
 alias merged='git branch --merged | egrep -v "(^\*|master|main|canary)" | xargs git branch -d'
+alias gi="git ai"
