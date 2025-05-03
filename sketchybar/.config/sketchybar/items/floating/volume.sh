@@ -9,10 +9,10 @@ volume_slider=(
   slider.background.height=5
   slider.background.corner_radius=3
   slider.background.color=0xFF3b3b3b
-  slider.knob.font="$FONT:Bold:13.0"
-  slider.knob=" "
+  slider.knob.font="$FONT:20.0"
+  slider.knob=" "
   slider.knob.drawing=off
-  y_offset=16
+  y_offset=12
   padding_right=8
 )
 
@@ -27,7 +27,7 @@ volume_icon=(
   label.width=25
   label.align=left
   label.font="$FONT:Regular:20.0"
-  y_offset=16
+  y_offset=12
 )
 
 sketchybar --add item volume_icon center         \

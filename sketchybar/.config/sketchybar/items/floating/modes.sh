@@ -1,23 +1,23 @@
 modes=(
   script="$PLUGIN_DIR/mode.sh"
-  icon.font="$FONT:Bold:16.0"
+  icon.font="$FONT_ICON:Regular:16.0"
   icon.color=$WHITE
   icon.width=24
   icon.padding_left=8
   label.color="0xFFFFFFFF"
-  label.font="$FONT:Bold:11.0"
-  label.y_offset=0
+  label.font="$FONT_SANS:Sbd:11.0"
+  label.y_offset=1
   label.align=left
-  label.padding_left=4
+  label.padding_left=0
+  label.padding_right=10
   label.width=dynamic
   padding_left=16
   padding_right=16
   associated_display=active
   background.drawing=true
   background.color=$BACKGROUND
-  background.height=26
-  background.corner_radius=8
-  label.padding_right=8
+  background.height=24
+  background.corner_radius=6
   width=dynamic
 )
 

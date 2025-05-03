@@ -2,7 +2,7 @@
 
 space_manager=(
   script="$PLUGIN_DIR/space_manager.sh"
-  icon.font="$FONT:Bold:16.0"
+  icon.font="$FONT_ICON:Bold:16.0"
   label.drawing=on
   icon.drawing=off
   icon.width=30
@@ -12,10 +12,10 @@ space_manager=(
 
 front_app=(
   script="$PLUGIN_DIR/front_app.sh"
-  label.font="$FONT:Semibold:12.0"
+  label.font="$FONT_SANS:Medium:13.0"
   icon.font="sketchybar-app-font:Regular:16:0"
   associated_display=active
-  label.y_offset=1
+  label.y_offset=2
   label.padding_left=8
   label.padding_right=0
   icon.drawing=false

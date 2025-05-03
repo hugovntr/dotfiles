@@ -19,13 +19,13 @@ do
     padding_right=8
     # icon=""
     icon=${SPACE_ICONS[i]}
-    icon.width=16
+    icon.width=20
     icon.color=0x30FFFFFF
     icon.highlight_color=$BRAND
     icon.padding_left=0
     icon.padding_right=0
-    icon.font="$FONT:Semibold:24:0"
-    label.padding_left=6
+    icon.font="$FONT_ICON:Semibold:24:0"
+    label.padding_left=5
     label.padding_right=10
     label.font="sketchybar-app-font:Regular:11:0"
     label.background.height=18

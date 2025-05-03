@@ -19,9 +19,9 @@ bar=(
   shadow=off
   blur_radius=0
   padding_left=24
-  padding_right24
-  notch_width=0
+  padding_right=24
   topmost=false
+  notch_width=0
 )
 sketchybar --bar "${bar[@]}"
 
@@ -54,21 +54,8 @@ source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/modes.sh"
 source "$ITEM_DIR/front_app.sh"
 
-##### Adding Right Items #####
-source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/volume.sh"
-source "$ITEM_DIR/music.sh"
-
-notch=(
-  background.drawing=true
-  background.color=0xFF000000
-  background.height=32
-  background.corner_radius=8
-  y_offset=16
-  padding_left=8
-)
-sketchybar --add bracket notch music volume volume_icon calendar \
-           --set         notch "${notch[@]}" \
+##### Adding Center Items #####
+source "$ITEM_DIR/notch.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
