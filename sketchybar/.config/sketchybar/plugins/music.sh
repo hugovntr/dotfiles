@@ -2,17 +2,32 @@
 
 source "$HOME/.config/sketchybar/constants.sh"
 
+sleep 1
 APP_STATE=$(pgrep -x Music)
 if [[ ! $APP_STATE ]]; then 
-    sketchybar -m --set music drawing=off
+    sketchybar  --animate sin 20 \
+      --set music drawing=off \
+      --set music.artwork drawing=off \
+      --set notch popup.height=48 \
+      --animate sin 10 \
+      --set notch.calendar y_offset=-4 \
+                           padding_left=16 \
+                           width=dynamic \
+                           icon.drawing=true
     exit 0
 fi
+STATE=$(osascript -e 'tell application "Music" to set playerState to (get player state) as text')
 
-STATE=$(echo $INFO | jq -r '.state')
-title=$(echo $INFO | jq -r '.title')
-artist=$(echo $INFO | jq -r '.artist')
 if [[ $STATE == "stopped" ]]; then
-    sketchybar --set music drawing=off
+    sketchybar  --animate sin 20 \
+      --set music drawing=off \
+      --set music.artwork drawing=off \
+      --set notch popup.height=48 \
+      --animate sin 10 \
+      --set notch.calendar y_offset=-4 \
+                           padding_left=16 \
+                           width=dynamic \
+                           icon.drawing=true
     exit 0
 fi
 
@@ -24,22 +39,48 @@ if [[ $STATE == "playing" ]]; then
     icon=" "
 fi
 
+title=$(osascript -e 'tell application "Music" to get name of current track')
+artist=$(osascript -e 'tell application "Music" to get artist of current track')
+
+if [[ $STATE == "playing" ]]; then
+    osascript "$(pwd)/plugins/music.applescript"
+fi
+ARTWORK_LOCATION="~/album_art.tiff"
+
+
 if [[ ${#title} -gt 25 ]]; then
-TITLE=$(printf "$(echo $title | cut -c 1-25)…")
+  title=$(printf "$(echo $title | cut -c 1-25)…")
 fi
 
 if [[ ${#artist} -gt 25 ]]; then
-ARTIST=$(printf "$(echo $artist | cut -c 1-25)…")
+  artist=$(printf "$(echo $artist | cut -c 1-25)…")
 fi
 
-args=(
+music_args=(
   icon="$icon"
-  icon.font="$FONT:Bold:14.0"
-  icon.color="$WHITE"
-  icon.padding_right=4
-  label="${title} — ${artist}"
-  label.font="$FONT:Bold:12.0"
+  icon.font="$FONT_ICON:Bold:15.0"
+  icon.y_offset=0
+  icon.padding_right=8
+  label="${artist} — ${title}"
   drawing=on
 )
 
-sketchybar -m --set music "${args[@]}"
+music_artwork_args=(
+  drawing=true
+  label.drawing=false
+  icon.drawing=false
+  background.color="$TRANSPARENT"
+  background.image="$ARTWORK_LOCATION"
+)
+
+sketchybar -m --set music "${music_args[@]}"
+sketchybar -m --set music.artwork "${music_artwork_args[@]}"
+
+# When there is a notch
+sketchybar --animate sin 20 \
+           --set notch popup.height=60 \
+           --animate sin 10 \
+           --set notch.calendar y_offset=8 \
+                                padding_left=0 \
+                                width=0 \
+                                icon.drawing=false \
