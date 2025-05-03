@@ -7,7 +7,7 @@ return {
     },
     cmd = 'Trouble',
     keys = {
-      { '<C-,>', '<cmd>Trouble diagnostics toggle<cr>', desc = 'Diagnostics (Trouble)' },
+      { '<leader>t', '<cmd>Trouble diagnostics toggle<cr>', desc = 'Diagnostics (Trouble)' },
     },
   },
 }
