@@ -1,5 +1,7 @@
 # Fonts
+export FONT_ICON="Monaspace Neon"
 export FONT="Monaspace Neon"
+export FONT_SANS="Mona Sans VF"
 
 # Colors
 # export BRAND=0xffFF4F00
