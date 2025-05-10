@@ -72,4 +72,4 @@ vim.keymap.set('v', 'L', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Reload current file
-nnoremap('<C-r>', '<cmd>source %<cr>', { desc = '[R]eload current file' })
+-- nnoremap('<C-r>', '<cmd>source %<cr>', { desc = '[R]eload current file' })
