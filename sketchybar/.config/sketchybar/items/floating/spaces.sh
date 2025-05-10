@@ -21,10 +21,10 @@ do
     icon=${SPACE_ICONS[i]}
     icon.width=20
     icon.color=0x30FFFFFF
-    icon.highlight_color=$BRAND
+    icon.highlight_color=$BRAND300
     icon.padding_left=0
     icon.padding_right=0
-    icon.font="$FONT_ICON:Semibold:24:0"
+    icon.font="$FONT_ICON:Semibold:20:0"
     label.padding_left=5
     label.padding_right=10
     label.font="sketchybar-app-font:Regular:11:0"
