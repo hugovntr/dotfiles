@@ -5,11 +5,11 @@ source "$HOME/.config/sketchybar/constants.sh"
 sleep 1
 APP_STATE=$(pgrep -x Music)
 if [[ ! $APP_STATE ]]; then 
-    sketchybar  --animate sin 20 \
+    sketchybar  --animate tanh 20 \
       --set music drawing=off \
       --set music.artwork drawing=off \
       --set notch popup.height=48 \
-      --animate sin 10 \
+      --animate tanh 10 \
       --set notch.calendar y_offset=-4 \
                            padding_left=16 \
                            width=dynamic \
@@ -19,11 +19,11 @@ fi
 STATE=$(osascript -e 'tell application "Music" to set playerState to (get player state) as text')
 
 if [[ $STATE == "stopped" ]]; then
-    sketchybar  --animate sin 20 \
+    sketchybar  --animate tanh 20 \
       --set music drawing=off \
       --set music.artwork drawing=off \
       --set notch popup.height=48 \
-      --animate sin 10 \
+      --animate tanh 10 \
       --set notch.calendar y_offset=-4 \
                            padding_left=16 \
                            width=dynamic \
@@ -32,7 +32,7 @@ if [[ $STATE == "stopped" ]]; then
 fi
 
 if [[ $STATE == "paused" ]]; then
-    icon=" "
+    icon=" "
 fi
 
 if [[ $STATE == "playing" ]]; then
@@ -62,7 +62,7 @@ music_args=(
   icon.y_offset=0
   icon.padding_right=8
   label="${artist} — ${title}"
-  drawing=on
+  drawing=true
 )
 
 music_artwork_args=(
@@ -77,9 +77,9 @@ sketchybar -m --set music "${music_args[@]}"
 sketchybar -m --set music.artwork "${music_artwork_args[@]}"
 
 # When there is a notch
-sketchybar --animate sin 20 \
+sketchybar --animate tanh 20 \
            --set notch popup.height=60 \
-           --animate sin 10 \
+           --animate tanh 10 \
            --set notch.calendar y_offset=8 \
                                 padding_left=0 \
                                 width=0 \
