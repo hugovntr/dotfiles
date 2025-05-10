@@ -1,4 +1,5 @@
 local snacks = require 'snacks'
+local ascii = require 'ascii'
 
 snacks.setup {
   image = { enabled = true },
@@ -21,8 +22,11 @@ snacks.setup {
   dashboard = {
     enabled = true,
     width = 80,
+    preset = {
+      header = table.concat(ascii.art.text.neovim.sharp, '\n'),
+    },
     sections = {
-      { section = 'header' },
+      { section = 'header', height = 90 },
       { section = 'keys', gap = 1, padding = 1 },
       { pane = 2, icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 1 },
       { pane = 2, icon = ' ', title = 'Projects', section = 'projects', indent = 2, padding = 1 },
