@@ -121,6 +121,11 @@ ctrl-b = ['mode service', 'exec-and-forget sketchybar --trigger mode_changed MOD
 esc = ['mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 r = ['reload-config', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 f = ['layout floating tiling', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default'] # Toggle between floating and tiling layout
+b = [
+  'exec-and-forget borders ax_focus=off active_color="gradient(top_left=0xfffa7a61,bottom_right=0xffBD5EFF" style=round inactive_color="0x00FFFFFF" width=6.0 hidpi=on blur_radius=0.0 order=above',
+  'mode main',
+  'exec-and-forget sketchybar --trigger mode_changed MODE=default'
+]
 
 alt-shift-h = ['join-with left', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 alt-shift-j = ['join-with down', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
@@ -145,6 +150,8 @@ j = ['resize smart -200']
 semicolon = ['resize smart +200']
 r = ['balance-sizes', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 f = ['fullscreen', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+t = ['layout tiles horizontal vertical','mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+q = ['layout accordion horizontal vertical', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 
 # ---
 # Window with default to floating layout
