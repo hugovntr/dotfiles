@@ -1,11 +1,11 @@
 # Fonts
-export FONT_ICON="Monaspace Neon"
+export FONT_ICON="JetBrainsMono Nerd Font"
 export FONT="Monaspace Neon"
 export FONT_SANS="Mona Sans VF"
 
 # Colors
 # export BRAND=0xffFF4F00
-export BRAND=0xFFFA7A61
+# export BRAND=0xFFFA7A61
 export BLACK=0xff171717
 export WHITE=0xffFFFFFF
 export GREEN=0xff5EFF6C
@@ -16,17 +16,18 @@ export MAUVE=0xffBD5EFF
 export SKY=0xff5EF1FF
 export MAROON=0xffFA7A61
 
-export BRAND50=0xFFFEEAE6
-export BRAND100=0xFFFDD1C9
-export BRAND200=0xFFFCA897
-export BRAND300=0xFFFA7A61
-export BRAND400=0xFFF8512F
-export BRAND500=0xFFF22F08
-export BRAND600=0xFFC12506
-export BRAND700=0xFF8F1C05
-export BRAND800=0xFF5E1203
-export BRAND900=0xFF310A02
-export BRAND950=0xFF190501
+# export BRAND50=0xFFFEEAE6
+# export BRAND100=0xFFFDD1C9
+# export BRAND200=0xFFFCA897
+# export BRAND300=0xFFFA7A61
+# export BRAND400=0xFFF8512F
+# export BRAND500=0xFFF22F08
+# export BRAND600=0xFFC12506
+# export BRAND700=0xFF8F1C05
+# export BRAND800=0xFF5E1203
+# export BRAND900=0xFF310A02
+# export BRAND950=0xFF190501
+source "colors.sh"
 
 # State Colors
 export BACKGROUND_ACTIVE=0xC8171717
