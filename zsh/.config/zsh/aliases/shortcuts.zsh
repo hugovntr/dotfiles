@@ -46,3 +46,6 @@ function drb() {
 
 # MLX
 alias mlx="$HOME/Projects/ai/mlx/.venv/bin/mlx_lm.generate --ignore-chat-template -m 2048"
+
+# Color palette generation
+alias colors="$XDG_CONFIG_HOME/colors/generate_palette.sh"
