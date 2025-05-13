@@ -81,3 +81,8 @@ for file in ${ZSH_CONFIG}/aliases/*.zsh; do
     source "$file"
   fi
 done
+
+# Source colors
+if [[ -f "$XDG_CONFIG_HOME/colors/colors.sh" ]] then
+  source "$XDG_CONFIG_HOME/colors/colors.sh"
+fi
