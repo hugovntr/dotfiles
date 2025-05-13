@@ -4,44 +4,17 @@ confirm-close-surface = false
 title = "Ghostty"
 
 # Theme
-theme = "catppuccin-mocha"
-background = #010309
-foreground = #fff
-cursor-color = "#fff"
-cursor-text = "#09090b"
-selection-background = "#3c4048"
-selection-foreground = "#fff"
-
-## DARK
-palette = 0=#626875
-palette = 1=#FF5542
-palette = 2=#00F014
-palette = 3=#DCF000
-palette = 4=#4291FF
-palette = 5=#B54DFF
-palette = 6=#00E0F5
-palette = 7=#ffffff
-# palette = 8=#16181a
-
-## BRIGHT
-palette = 8=#6b7280
-palette = 9=#ff6e5e
-palette = 10=#5eff6c
-palette = 11=#f1ff5e
-palette = 12=#5ea1ff
-palette = 13=#bd5eff
-palette = 14=#5ef1ff
-palette = 15=#ffffff
+theme = "sequoia"
 
 # Window style
 macos-titlebar-style = "hidden"
-alpha-blending = "linear-corrected"
+alpha-blending = "native"
 background-opacity = .9
 background-blur-radius = 48
 window-padding-x = 8,2
 window-padding-y = 0
 window-padding-balance = true
-window-vsync = true
+window-vsync = false
 window-colorspace = "display-p3"
 window-decoration = "none"
 
@@ -53,7 +26,6 @@ macos-icon = "holographic"
 font-family = "JetBrains Mono"
 font-feature = "calt, liga, zero, cv12, ss20, cv10, cv16, cv18"
 font-thicken = false
-font-thicken-strength = 10
 font-size = 12
 adjust-cell-height = "75%"
 #adjust-cell-width = "-7%"

@@ -1,0 +1,27 @@
+# Theme
+background =#0f172a
+foreground =#f8fafc
+cursor-color ="#fff"
+cursor-text = "#09090b"
+selection-background = "#3c4048"
+selection-foreground = "#fff"
+
+## DARK
+palette = 0=#64748b
+palette = 1=#f43f5e
+palette = 2=#34d399
+palette = 3=#eab308
+palette = 4=#4291FF
+palette = 5=#d946ef
+palette = 6=#22d3ee
+palette = 7=#ffffff
+
+## BRIGHT
+palette = 8=#94a3b8
+palette = 9=#fb7185
+palette = 10=#6ee7b7
+palette = 11=#fcd34d
+palette = 12=#60a5fa
+palette = 13=#a78bfa
+palette = 14=#67e8f9
+palette = 15=#ffffff
