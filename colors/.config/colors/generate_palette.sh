@@ -10,7 +10,7 @@ fi
 
 BASE_COLOR=$1
 PALETTE_NAME=$2
-OUTPUT_FILE=${3:-~/.config/colors.sh}
+OUTPUT_FILE=${3:-$XDG_CONFIG_HOME/colors/colors.sh}
 
 # Function to normalize color input to RRGGBB
 normalize_color() {

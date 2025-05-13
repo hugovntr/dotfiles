@@ -27,7 +27,6 @@ export MAROON=0xffFA7A61
 # export BRAND800=0xFF5E1203
 # export BRAND900=0xFF310A02
 # export BRAND950=0xFF190501
-source "colors.sh"
 
 # State Colors
 export BACKGROUND_ACTIVE=0xC8171717
@@ -35,3 +34,5 @@ export BACKGROUND=0x7D171717
 export BACKGROUNDFULL=0xFF171717
 export LABEL_ACTIVE=0xFFFFFFFF
 export LABEL_INACTIVE=0x7DFFFFFF
+
+source "$XDG_CONFIG_HOME/colors/colors.sh"
