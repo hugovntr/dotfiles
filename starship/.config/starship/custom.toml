@@ -8,10 +8,10 @@ format = """\
 [┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics$fill $all\
 [└─](fg:242) $jobs$character"""
 
-right_format="[ $container$username$localip$time ](bg:235)"
+right_format="[ $container$username$localip$time ](bg:233)"
 
 [profiles]
-transient = """[$time](fg:250) $character"""
+transient = """[$time](fg:white) $character"""
 
 [fill]
 symbol = "/"
@@ -41,7 +41,7 @@ repo_root_format = '  [$before_root_path]($before_repo_root_style)[$repo_root
 [git_branch]
 symbol = " "
 style = "bold fg:213"
-format = "[|](fg:244)[ $symbol$branch(:$remote_branch)]($style) "
+format = "[|](fg:242)[ $symbol$branch(:$remote_branch)]($style) "
 
 [git_metrics]
 disabled = false
