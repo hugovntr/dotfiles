@@ -8,8 +8,9 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
   # 'exec-and-forget /run/current-system/sw/bin/borders ax_focus=off active_color="0x26FFFFFF" style=round inactive_color=00FFFFFF width=24.0 hidpi=on blur_radius=16.0'
-  "exec-and-forget sketchybar",
-  'exec-and-forget borders ax_focus=off active_color="gradient(top_left=0xfffa7a61,bottom_right=0xffBD5EFF" style=round inactive_color="0x00FFFFFF" width=6.0 hidpi=on blur_radius=0.0 order=above'
+  "exec-and-forget XDG_CONFIG_HOME=$HOME/.config sketchybar",
+  "exec-and-forget XDG_CONFIG_HOME=$HOME/.config borders",
+  # 'exec-and-forget borders ax_focus=off active_color="gradient(top_left=0xfffa7a61,bottom_right=0xffBD5EFF" style=round inactive_color="0x00FFFFFF" width=6.0 hidpi=on blur_radius=0.0 order=above'
 ]
 
 # Start AeroSpace at login
