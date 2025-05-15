@@ -58,21 +58,29 @@ cmp.setup {
     end,
   },
   formatting = {
-    fields = { 'kind', 'abbr' },
-    expandable_indicator = true,
+    fields = { 'kind', 'abbr', 'menu' },
+    expandable_indicator = false,
     format = function(entry, vim_item)
       local highlight_info = require('colorful-menu').cmp_highlights(entry)
-      local item = lspkind.cmp_format { mode = 'symbol', maxwidth = 50, ellipsis_char = '...' }(entry, vim_item)
-      local strings = vim.split(item.kind, '%s', { trimempty = true })
-      item.kind = ' ' .. (strings[1] or '') .. '  '
-      -- item.menu = '  (' .. (strings[2] or '') .. ')'
-
       if highlight_info ~= nil then
-        item.abbr_hl_group = highlight_info.highlights
-        item.abbr = highlight_info.text
+        vim_item.abbr_hl_group = highlight_info.highlights
+        vim_item.abbr = highlight_info.text
       end
 
-      return item
+      local kind = lspkind.cmp_format { mode = 'symbol_text' }(entry, vim.deepcopy(vim_item))
+
+      -- local item = lspkind.cmp_format { mode = 'symbol', maxwidth = 50, ellipsis_char = '...' }(entry, vim_item)
+      local strings = vim.split(kind.kind, '%s', { trimempty = true })
+      vim_item.kind = ' ' .. (strings[1] or '') .. '  '
+      vim_item.menu = ''
+      -- item.menu = '  (' .. (strings[2] or '') .. ')'
+
+      -- if highlight_info ~= nil then
+      --   item.abbr_hl_group = highlight_info.highlights
+      --   item.abbr = highlight_info.text
+      -- end
+
+      return vim_item
     end,
   },
   window = {
