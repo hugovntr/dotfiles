@@ -97,6 +97,7 @@ local custom_highlights = function(colors)
     CmpItemKindCopilot = { fg = colors.teal },
 
     -- blink cmp
+    BlinkCmpMenuBorder = { fg = colors.surface1, bg = colors.none },
     BlinkCmpMenuSelection = { bg = colors.surface0 },
     BlinkCmpLabelDeprecated = { style = { 'strikethrough' } },
     BlinkCmpKindSnippet = { fg = colors.mauve },
