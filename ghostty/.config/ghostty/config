@@ -14,7 +14,7 @@ background-blur-radius = 48
 window-padding-x = 8,2
 window-padding-y = 0
 window-padding-balance = true
-window-vsync = false
+window-vsync = true
 window-colorspace = "display-p3"
 window-decoration = "none"
 
