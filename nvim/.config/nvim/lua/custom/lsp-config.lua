@@ -28,6 +28,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  For example, in C this would take you to the header.
     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+    -- Inlay Hints
+    map('<leader>i', function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { 0 }, { 0 })
+    end, 'Toggle [I]nlay Hints')
+    vim.lsp.inlay_hint.enable(true, { 0 })
+
     -- The following two autocommands are used to highlight references of the
     -- word under your cursor when your cursor rests there for a little while.
     --    See `:help CursorHold` for information about when this is executed
@@ -48,15 +54,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- -- Nvim CMP
-capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
--- Blink
--- capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(capabilities))
-
 local servers = {
-  -- clangd = {},
+  clangd = {},
   gopls = {},
   pyright = {
     settings = {
@@ -80,6 +79,24 @@ local servers = {
     },
   },
   tailwindcss = {},
+  ts_ls = {
+    settings = {
+      typescript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = false,
+        },
+      },
+      preferences = {
+        autoImportFileExcludePatterns = {},
+      },
+    },
+  },
   ltex = {
     filetypes = { 'bib', 'plaintex', 'rst', 'text', 'mdx', 'markdown' },
     settings = {
@@ -104,7 +121,12 @@ local servers = {
   },
 }
 
-require('mason').setup()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities()) -- Nvim CMP
+capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(capabilities)) -- Blink
+
+require('mason').setup {}
+local lspconfig = require 'lspconfig'
 
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
@@ -115,14 +137,20 @@ vim.list_extend(ensure_installed, {
 })
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+for name, server in pairs(servers) do
+  server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+  lspconfig[name].setup(server)
+end
+
 require('mason-lspconfig').setup {
   ensure_installed = vim.tbl_keys(servers or {}),
   automatic_installation = true,
-  handlers = {
-    function(server_name)
-      local server = servers[server_name] or {}
-      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-      require('lspconfig')[server_name].setup(server)
-    end,
-  },
+  automatic_enable = {},
+  -- handlers = {
+  --   function(server_name)
+  --     local server = servers[server_name] or {}
+  --     server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+  --     require('lspconfig')[server_name].setup(server)
+  --   end,
+  -- },
 }
