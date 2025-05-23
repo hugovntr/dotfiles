@@ -56,12 +56,20 @@ if [[ ${#artist} -gt 25 ]]; then
   artist=$(printf "$(echo $artist | cut -c 1-25)…")
 fi
 
+label="${artist} - ${title}"
+label_real_width=$((${#label} * 7))
+label_width="dynamic"
+if [[ $label_real_width -lt 128 ]]; then
+  label_width=128
+fi
+
 music_args=(
   icon="$icon"
   icon.font="$FONT_ICON:Bold:15.0"
   icon.y_offset=0
   icon.padding_right=8
-  label="${artist} — ${title}"
+  label="${label}"
+  width=$label_width
   drawing=true
 )
 
