@@ -29,6 +29,7 @@ homebrew:
 
     # Compiler/Runtime
     - "go"
+    - "postgresql"
 
     # Dependencies Management
     - "fnm"
