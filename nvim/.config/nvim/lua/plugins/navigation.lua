@@ -17,6 +17,18 @@ return {
   -- },
   {
     'mrjones2014/smart-splits.nvim',
+    dependencies = {
+      {
+        'aaronik/treewalker.nvim',
+        event = 'VeryLazy',
+        opts = {
+          highlight = false,
+          highlight_duration = 250,
+          highlight_group = 'CursorLine',
+          jumplist = true,
+        },
+      },
+    },
     config = function()
       require 'custom.navigation'
     end,

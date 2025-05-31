@@ -48,9 +48,9 @@ nnoremap('<leader>q', '<cmd>bd<cr>', { silent = false, desc = 'Close current buf
 -- nnoremap('qq', '<cmd>bd<cr>', { silent = true, desc = 'Close current buffer' })
 
 -- One hand fast travel
-nnoremap('¬', '}') -- down (Alt + L)
-nnoremap('ø', '{') -- up
-nnoremap('È', '{') -- up
+-- nnoremap('¬', '}') -- down (Alt + L)
+-- nnoremap('ø', '{') -- up
+-- nnoremap('È', '{') -- up
 
 -- Split pane
 nnoremap('<leader>wv', '<cmd>vsplit<cr>')
