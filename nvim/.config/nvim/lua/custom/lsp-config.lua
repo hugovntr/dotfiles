@@ -79,7 +79,42 @@ local servers = {
     },
   },
   tailwindcss = {},
+  vtsls = {
+    filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+    settings = {
+      complete_function_calls = true,
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          maxInlayHintLength = 30,
+          completion = {
+            enableServerSideFuzzyMatch = true,
+          },
+        },
+      },
+      typescript = {
+        updateImportsOnFileMove = { enabled = 'always' },
+        suggest = {
+          completeFunctionCalls = true,
+          autoImports = true,
+        },
+        inlayHints = {
+          enumMemberValues = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = 'literals' },
+          parameterTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          variableTypes = { enabled = true },
+        },
+        preferences = {
+          preferTypeOnlyAutoImports = true,
+        },
+      },
+    },
+  },
   ts_ls = {
+    enabled = false,
     settings = {
       typescript = {
         inlayHints = {
@@ -116,7 +151,15 @@ local servers = {
         completion = {
           callSnippet = 'Replace',
         },
+        diagnostics = {
+          workspaceEvent = 'OnSave',
+        },
       },
+    },
+  },
+  emmet_language_server = {
+    settings = {
+      showSuggestionsAsSnippets = true,
     },
   },
 }
@@ -133,7 +176,7 @@ vim.list_extend(ensure_installed, {
   'stylua', -- Used to format Lua code
   'prettierd',
   'llm-ls',
-  'emmet-language-server',
+  -- 'emmet-language-server',
 })
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
