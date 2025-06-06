@@ -166,7 +166,4 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = { 'location' },
   },
-  extensions = {
-    'neo-tree',
-  },
 }
