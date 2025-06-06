@@ -11,14 +11,27 @@ table.insert(vimgrep_arguments, '--glob')
 table.insert(vimgrep_arguments, '!**.git/*')
 
 telescope.setup {
-  defaults = vim.tbl_extend('force', themes.get_ivy(), {
-    vimgrep_arguments = vimgrep_arguments,
-    mappings = {
-      i = {
-        ['<esc>'] = actions.close,
+  defaults = vim.tbl_extend(
+    'force',
+    themes.get_cursor {
+      layout_config = {
+        width = function(_, max_columns, _)
+          return math.min(max_columns, 180)
+        end,
+        height = function(_, _, max_lines)
+          return math.min(max_lines, 15)
+        end,
       },
     },
-  }),
+    {
+      vimgrep_arguments = vimgrep_arguments,
+      mappings = {
+        i = {
+          ['<esc>'] = actions.close,
+        },
+      },
+    }
+  ),
   pickers = {
     find_files = {
       find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
