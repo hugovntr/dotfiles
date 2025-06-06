@@ -1,8 +1,14 @@
 local oil = require 'oil'
 oil.setup {
   columns = {
-    'icon',
-    'size',
+    { 'size', highlight = 'Conceal' },
+    { 'icon', add_padding = true },
+  },
+  win_options = {
+    cursorcolumn = false,
+    list = false,
+    spell = false,
+    signcolumn = 'no',
   },
   delete_to_trash = true,
   view_options = {
@@ -19,18 +25,18 @@ oil.setup {
     max_height = 0.9,
     width = nil,
     height = nil,
-    win_options = {
-      winblend = 0,
-    },
+    -- win_options = {
+    --   winblend = 0,
+    -- },
     update_on_cursor_moved = true,
   },
   float = {
     -- Padding around the floating window
-    padding = 2,
+    padding = 0,
     max_width = 120,
     max_height = 24,
     border = 'rounded',
-    preview_split = 'auto',
+    preview_split = 'right',
     win_options = {
       winblend = 0,
     },
@@ -79,6 +85,12 @@ vim.keymap.set('n', '<C-e>', toggle_oil)
 --     end
 --   end),
 -- })
+
+-- Autocmd to disable line number
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'OilEnter',
+  command = 'setlocal nonumber norelativenumber',
+})
 
 -- Close oil with Esc only if Oil is openned
 vim.keymap.set('n', '<Esc>', function()
