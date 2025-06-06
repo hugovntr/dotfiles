@@ -78,7 +78,40 @@ local servers = {
       },
     },
   },
-  tailwindcss = {},
+  cssls = {
+    filetypes = { 'css', 'scss', 'less' },
+    init_options = { provideFormatter = true },
+    root_markers = { 'package.json', '.git' },
+    settings = {
+      css = { validate = true, lint = { unknownAtRules = 'ignore' } },
+      scss = { validate = true, lint = { unknownAtRules = 'ignore' } },
+      less = { validate = true, lint = { unknownAtRules = 'ignore' } },
+    },
+  },
+  tailwindcss = {
+    filetypes = { 'javascriptreact', 'typescriptreact', 'html', 'css', 'postcss', 'scss', 'less', 'mdx' },
+    settings = {
+      tailwindCSS = {
+        validate = true,
+        lint = {
+          cssConflict = 'warning',
+          invalidApply = 'error',
+          invalidScreen = 'error',
+          invalidVariant = 'error',
+          invalidConfigPath = 'error',
+          invalidTailwindDirective = 'error',
+          recommendedVariantOrder = 'warning',
+        },
+        classAttributes = {
+          'class',
+          'className',
+          'class:list',
+          'classList',
+          'ngClass',
+        },
+      },
+    },
+  },
   vtsls = {
     filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
     settings = {
@@ -113,25 +146,25 @@ local servers = {
       },
     },
   },
-  ts_ls = {
-    enabled = false,
-    settings = {
-      typescript = {
-        inlayHints = {
-          includeInlayEnumMemberValueHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayVariableTypeHints = false,
-        },
-      },
-      preferences = {
-        autoImportFileExcludePatterns = {},
-      },
-    },
-  },
+  -- ts_ls = {
+  --   enabled = false,
+  --   settings = {
+  --     typescript = {
+  --       inlayHints = {
+  --         includeInlayEnumMemberValueHints = true,
+  --         includeInlayFunctionLikeReturnTypeHints = true,
+  --         includeInlayFunctionParameterTypeHints = true,
+  --         includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+  --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+  --         includeInlayPropertyDeclarationTypeHints = true,
+  --         includeInlayVariableTypeHints = false,
+  --       },
+  --     },
+  --     preferences = {
+  --       autoImportFileExcludePatterns = {},
+  --     },
+  --   },
+  -- },
   ltex = {
     filetypes = { 'bib', 'plaintex', 'rst', 'text', 'mdx', 'markdown' },
     settings = {
@@ -168,7 +201,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities()) -- Nvim CMP
 capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(capabilities)) -- Blink
 
-require('mason').setup {}
+require('mason').setup()
 local lspconfig = require 'lspconfig'
 
 local ensure_installed = vim.tbl_keys(servers or {})
