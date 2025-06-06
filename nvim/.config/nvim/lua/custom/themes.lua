@@ -1,24 +1,34 @@
--- local c = require 'catppuccin.palettes.mocha'
+local c = require 'catppuccin.palettes.mocha'
 
 ---@type CtpColors<string>
 local color_overrides = {
   brand = '#FF4F00',
   base = '#171717',
-  green = '#5eff6c',
-  red = '#fd5e3a',
-  yellow = '#f1ff5e',
-  blue = '#5ea1ff',
-  mauve = '#bd5eff',
-  sky = '#5ef1ff',
-  maroon = '#fa7a61',
+  -- green = '#5eff6c',
+  -- red = '#fd5e3a',
+  -- yellow = '#f1ff5e',
+  -- blue = '#5ea1ff',
+  -- mauve = '#bd5eff',
+  -- sky = '#5ef1ff',
+  -- maroon = '#fa7a61',
+
+  red = '#f43f5e',
+  green = '#34d399',
+  yellow = '#eab308',
+  blue = '#4291FF',
+  mauve = '#d946ef',
+  sky = '#22d3ee',
+  maroon = '#da7635',
 }
 
 ---@param colors CtpColors<string>
 local custom_highlights = function(colors)
   return {
-    FloatBorder = { fg = colors.surface1, bg = colors.none },
+    NormalFloat = { bg = colors.none },
+    FloatBorder = { fg = colors.sky, bg = colors.none },
+    FloatTitle = { fg = colors.sky, bg = colors.none },
     TelescopeBorder = {
-      fg = colors.surface1,
+      fg = colors.sky,
       bg = colors.none,
     },
     TelescopeMatching = { fg = colors.yellow },
@@ -26,7 +36,7 @@ local custom_highlights = function(colors)
       bg = colors.none,
     },
     TelescopePromptBorder = {
-      fg = colors.surface2,
+      fg = colors.sky,
       bg = colors.none,
     },
     TelescopePromptNormal = {
@@ -34,23 +44,23 @@ local custom_highlights = function(colors)
       bg = colors.none,
     },
     TelescopePromptPrefix = {
-      fg = colors.flamingo,
+      fg = colors.sky,
       bg = colors.none,
     },
     TelescopePreviewTitle = {
-      fg = colors.base,
-      bg = colors.green,
+      fg = colors.green,
+      bg = colors.none,
     },
     TelescopePreviewNormal = {
-      bg = colors.base,
+      bg = colors.none,
     },
     TelescopePreviewBorder = {
-      fg = colors.base,
-      bg = colors.base,
+      fg = colors.surface2,
+      bg = colors.none,
     },
     TelescopePromptTitle = {
-      fg = colors.base,
-      bg = colors.red,
+      fg = colors.sky,
+      bg = colors.none,
     },
     TelescopeResultsTitle = {
       fg = colors.mantle,
@@ -61,7 +71,7 @@ local custom_highlights = function(colors)
       bg = colors.surface0,
       style = { 'bold' },
     },
-    TelescopeSelectionCaret = { fg = colors.flamingo, style = { 'bold' } },
+    TelescopeSelectionCaret = { fg = colors.sky, style = { 'bold' } },
 
     CursorLine = { bg = colors.surface0 },
     CursorLineBG = { bg = colors.surface0 },
@@ -126,6 +136,14 @@ local custom_highlights = function(colors)
     BlinkCmpKindOperator = { fg = colors.blue },
     BlinkCmpKindTypeParameter = { fg = colors.blue },
     BlinkCmpKindCopilot = { fg = colors.teal },
+
+    -- snacks
+    SnacksIndent = { fg = colors.surface2 },
+    SnacksIndentScope = { fg = colors.overlay1 },
+    SnacksDashboardHeader = { fg = colors.peach },
+    SnacksDashboardIcon = { fg = colors.peach },
+    SnacksDashboardTitle = { fg = colors.sky },
+    SnacksDashboardDesc = { fg = colors.sky },
   }
 end
 require('catppuccin').setup {
@@ -147,6 +165,7 @@ require('catppuccin').setup {
     },
     notify = true,
     treesitter = true,
+    snacks = true,
   },
   term_colors = true,
 }
