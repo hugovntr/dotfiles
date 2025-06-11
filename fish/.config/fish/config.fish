@@ -9,6 +9,9 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx FISH_CONFIG $XDG_CONFIG_HOME/fish
 set -gx EDITOR nvim
 
+# Path
+fish_add_path --append --path $HOME/bin $HOME/.local/bin
+
 # Homebrew
 if test -f /opt/homebrew/bin/brew 
   set -gx HOMEBREW_PREFIX "/opt/homebrew"
