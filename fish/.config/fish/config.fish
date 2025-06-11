@@ -24,6 +24,9 @@ starship init fish | source
 # Initialize zoxide
 zoxide init --cmd cd fish | source
 
+# FNM
+fnm env --use-on-cd --shell fish | source
+
 if status is-interactive
   # Check if we're in interactive shell
 end
