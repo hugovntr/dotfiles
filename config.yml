@@ -11,6 +11,8 @@ homebrew:
     - "nikitabobko/tap/aerospace"
   packages:
     # Essentials
+    - "zsh"
+    - "fish"
     - "bash"
     - "neovim"
     - "ansible"
