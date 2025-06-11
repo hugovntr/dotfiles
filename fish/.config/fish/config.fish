@@ -12,6 +12,9 @@ set -gx EDITOR nvim
 # Path
 fish_add_path --append --path $HOME/bin $HOME/.local/bin
 
+# Vim motion
+source $XDG_CONFIG_HOME/fish/functions/vim-motion.fish
+
 # Homebrew
 if test -f /opt/homebrew/bin/brew 
   set -gx HOMEBREW_PREFIX "/opt/homebrew"
