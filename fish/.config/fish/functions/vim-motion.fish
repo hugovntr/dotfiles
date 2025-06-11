@@ -29,6 +29,7 @@ end
 
 function yank_selection_and_copy
     commandline -s | fish_clipboard_copy
+    commandline -f end-selection repaint-mode
     # fish_clipboard_copy
     # commandline -r (commandline -b)""
     # commandline -f repaint
