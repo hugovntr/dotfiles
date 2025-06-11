@@ -22,10 +22,10 @@ return {
         'aaronik/treewalker.nvim',
         event = 'VeryLazy',
         opts = {
-          highlight = false,
+          highlight = true,
           highlight_duration = 250,
           highlight_group = 'CursorLine',
-          jumplist = true,
+          jumplist = false,
         },
       },
     },
