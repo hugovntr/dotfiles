@@ -32,7 +32,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<leader>i', function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { 0 }, { 0 })
     end, 'Toggle [I]nlay Hints')
-    vim.lsp.inlay_hint.enable(true, { 0 })
+
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    local buf = event.buf
+
+    if client and client.server_capabilities.inlayHintProvider then
+      vim.defer_fn(function()
+        vim.lsp.inlay_hint.enable(true, { buf })
+      end, 20)
+    end
 
     -- The following two autocommands are used to highlight references of the
     -- word under your cursor when your cursor rests there for a little while.
@@ -122,7 +130,7 @@ local servers = {
         experimental = {
           maxInlayHintLength = 30,
           completion = {
-            enableServerSideFuzzyMatch = true,
+            enableServerSideFuzzyMatch = false,
           },
         },
       },
