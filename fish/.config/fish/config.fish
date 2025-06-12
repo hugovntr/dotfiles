@@ -9,16 +9,17 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx FISH_CONFIG $XDG_CONFIG_HOME/fish
 set -gx EDITOR nvim
 
-# Path
-fish_add_path --append --path $HOME/bin $HOME/.local/bin
 
 # Homebrew
 if test -f /opt/homebrew/bin/brew 
   set -gx HOMEBREW_PREFIX "/opt/homebrew"
   set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
   set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
-  fish_add_path --append --path /opt/homebrew/bin /opt/homebrew/sbin
+  fish_add_path /opt/homebrew/bin /opt/homebrew/sbin
 end
+
+# Path
+fish_add_path --append --path $HOME/bin $HOME/.local/bin
 
 # Source colors
 if test -f $XDG_CONFIG_HOME/colors/colors.sh
