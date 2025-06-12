@@ -37,6 +37,7 @@ homebrew:
     # Dependencies Management
     - "fnm"
     - "pnpm"
+    - "fisher"
 
     # Tools
     - "htop"
