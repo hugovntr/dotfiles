@@ -29,7 +29,6 @@ return { -- Autocompletion
     dependencies = {
       'rafamadriz/friendly-snippets',
       'onsails/lspkind.nvim',
-      'nvim-tree/nvim-web-devicons',
       { 'xzbdmw/colorful-menu.nvim' },
       { 'L3MON4D3/LuaSnip', version = 'v2.*' },
     },
