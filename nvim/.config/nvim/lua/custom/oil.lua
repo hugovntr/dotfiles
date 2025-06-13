@@ -54,8 +54,7 @@ local function is_oil()
 end
 
 local function toggle_oil()
-  local bufname = vim.fn.bufname ''
-  if vim.startswith(bufname, 'oil://') then
+  if is_oil() then
     oil.close()
   else
     oil.open_float()
@@ -85,12 +84,6 @@ vim.keymap.set('n', '<C-e>', toggle_oil)
 --     end
 --   end),
 -- })
-
--- Autocmd to disable line number
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'OilEnter',
-  command = 'setlocal nonumber norelativenumber',
-})
 
 -- Close oil with Esc only if Oil is openned
 vim.keymap.set('n', '<Esc>', function()
