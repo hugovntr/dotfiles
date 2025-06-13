@@ -123,14 +123,14 @@ local servers = {
   vtsls = {
     filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
     settings = {
-      complete_function_calls = true,
       vtsls = {
         enableMoveToFileCodeAction = true,
         autoUseWorkspaceTsdk = true,
         experimental = {
           maxInlayHintLength = 30,
           completion = {
-            enableServerSideFuzzyMatch = false,
+            entriesLimit = 30,
+            enableServerSideFuzzyMatch = true,
           },
         },
       },
@@ -140,6 +140,7 @@ local servers = {
           completeFunctionCalls = true,
           autoImports = true,
         },
+        workspaceSymbols = { scope = 'currentProject' },
         inlayHints = {
           enumMemberValues = { enabled = true },
           functionLikeReturnTypes = { enabled = true },
@@ -150,12 +151,18 @@ local servers = {
         },
         preferences = {
           preferTypeOnlyAutoImports = true,
+          importModuleSpecifier = 'project-relative',
+          autoImportFileExcludePatterns = { 'lucide-react', 'motion/react-m', 'next/dist' },
+        },
+        tsserver = {
+          useSeparateSyntaxServer = true,
+          useSyntaxServer = 'auto',
         },
       },
     },
   },
   -- ts_ls = {
-  --   enabled = false,
+  --   enabled = true,
   --   settings = {
   --     typescript = {
   --       inlayHints = {
@@ -165,11 +172,16 @@ local servers = {
   --         includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
   --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
   --         includeInlayPropertyDeclarationTypeHints = true,
-  --         includeInlayVariableTypeHints = false,
+  --         includeInlayVariableTypeHints = true,
   --       },
   --     },
   --     preferences = {
-  --       autoImportFileExcludePatterns = {},
+  --       preferTypeOnlyAutoImports = true,
+  --       importModuleSpecifier = 'project-relative',
+  --       autoImportFileExcludePatterns = { 'lucide-react', 'motion/react-m' },
+  --     },
+  --     completion = {
+  --       completeFunctionCalls = true,
   --     },
   --   },
   -- },
