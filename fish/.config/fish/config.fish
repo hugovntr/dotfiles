@@ -18,6 +18,11 @@ if test -f /opt/homebrew/bin/brew
   fish_add_path /opt/homebrew/bin /opt/homebrew/sbin
 end
 
+# Bun
+if test -d $HOME/.bun
+  fish_add_path --append --path $HOME/.bun/bin
+end
+
 # Path
 fish_add_path --append --path $HOME/bin $HOME/.local/bin
 
