@@ -19,3 +19,9 @@ function fnm --wraps=fnm --description 'fnm lazy loader'
     __fnm_lazy_init
     command fnm $argv
 end
+
+if test "$NVIM"
+  if not command -v node >/dev/null 2>&1
+    __fnm_lazy_init
+  end
+end
