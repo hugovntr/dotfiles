@@ -3,17 +3,17 @@ return {
   event = 'VeryLazy',
   dependencies = {
     { 'echasnovski/mini.icons', opts = {} },
-    {
-      'utilyre/barbecue.nvim',
-      event = 'VeryLazy',
-      dependencies = {
-        'SmiteshP/nvim-navic',
-      },
-      opts = {
-        attach_navic = false,
-        create_autocmd = false,
-      },
-    },
+    -- {
+    --   'utilyre/barbecue.nvim',
+    --   event = 'VeryLazy',
+    --   dependencies = {
+    --     'SmiteshP/nvim-navic',
+    --   },
+    --   opts = {
+    --     attach_navic = false,
+    --     create_autocmd = false,
+    --   },
+    -- },
     'folke/noice.nvim',
   },
   config = function()
