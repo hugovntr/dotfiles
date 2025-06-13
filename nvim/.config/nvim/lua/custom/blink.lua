@@ -1,35 +1,103 @@
----@module 'blink.cmp'
----@type blink.cmp.Config
-local M = {
+local blink = require 'blink-cmp'
+
+blink.setup {
+  enabled = function()
+    return true
+  end,
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
+    per_filetype = {
+      sql = { 'snippets', 'dadbod', 'buffer' },
+    },
+    providers = {
+      dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
+    },
+    min_keyword_length = 0,
   },
+  -- snippets = { preset = 'luasnip' },
 
   keymap = {
     ['<C-n>'] = { 'select_next' },
     ['<C-p'] = { 'select_prev' },
     ['<Tab>'] = { 'select_and_accept', 'fallback' },
+    ['<C-y>'] = { 'snippet_forward' },
+    ['<C-u>'] = { 'snippet_backward' },
   },
 
   appearance = {
     nerd_font_variant = 'mono',
   },
 
-  signature = { enabled = false },
+  fuzzy = {
+    implementation = 'prefer_rust_with_warning',
+    prebuilt_binaries = { download = true },
+    sorts = {
+      function(a, b)
+        if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
+          return
+        end
+        return b.client_name == 'emmet_ls'
+      end,
+      'score',
+      'sort_text',
+    },
+  },
+
+  signature = {
+    enabled = false,
+    window = {
+      show_documentation = false,
+    },
+  },
+
+  cmdline = {
+    completion = {
+      menu = { auto_show = true },
+    },
+  },
 
   completion = {
+    keyword = { range = 'full' },
+
     ghost_text = { enabled = false },
+
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 500,
+    },
+
+    trigger = {
+      show_on_keyword = true,
+      prefetch_on_insert = false,
+      show_on_trigger_character = true,
+      show_on_insert_on_trigger_character = true,
+      show_on_blocked_trigger_characters = { ' ', '\n', '\t' },
+      show_on_x_blocked_trigger_characters = { "'", '"' },
+    },
+
+    accept = {
+      auto_brackets = { enabled = false },
+    },
+
+    list = {
+      selection = {
+        preselect = false,
+        auto_insert = false,
+      },
+    },
 
     menu = {
       min_width = 40,
       scrollbar = false,
+      border = 'single',
       draw = {
         padding = 1,
-        align_to = 'none',
+        gap = 2,
+        align_to = 'label',
         treesitter = { 'lsp' },
         columns = {
           { 'kind_icon' },
-          { 'label', 'label_description', gap = 1 },
+          { 'label', 'label_description', gap = 2 },
         },
 
         components = {
@@ -43,66 +111,22 @@ local M = {
               return hl
             end,
           },
-          -- kind_icon = {
-          --   ellipsis = false,
-          --   text = function(ctx)
-          --     local icon = ctx.kind_icon
-          --     if vim.tbl_contains({ 'Path' }, ctx.source_name) then
-          --       local dev_icon, _ = require('nvim-web-devicons').get_icon(ctx.label)
-          --       if dev_icon then
-          --         icon = dev_icon
-          --       end
-          --     else
-          --       icon = require('lspkind').symbolic(ctx.kind, { mode = 'symbol', maxwidth = 50, ellipsis_char = '...' })
-          --     end
-          --
-          --     return icon .. ctx.icon_gap
-          --   end,
-          --
-          --   highlight = function(ctx)
-          --     local hl = 'BlinkCmpKind' .. ctx.kind or require('blink.cmp.completion.windows.render.tailwind').get_hl(ctx)
-          --     if vim.tbl_contains({ 'Path' }, ctx.source_name) then
-          --       local dev_icon, dev_hl = require('nvim-web-devicons').get_icon(ctx.label)
-          --       if dev_icon then
-          --         hl = dev_hl
-          --       end
-          --     end
-          --     return hl
-          --   end,
-          -- },
-
+          kind = {
+            highlight = function(ctx)
+              local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+              return hl
+            end,
+          },
           label = {
-            width = { fill = true, max = 60 },
             text = function(ctx)
-              local highlights_info = require('colorful-menu').blink_highlights(ctx)
-              if highlights_info ~= nil then
-                -- Or you want to add more item to label
-                return highlights_info.label
-              else
-                return ctx.label
-              end
+              return require('colorful-menu').blink_components_text(ctx)
             end,
             highlight = function(ctx)
-              local highlights = {}
-              local highlights_info = require('colorful-menu').blink_highlights(ctx)
-              if highlights_info ~= nil then
-                highlights = highlights_info.highlights
-              end
-              for _, idx in ipairs(ctx.label_matched_indices) do
-                table.insert(highlights, { idx, idx + 1, group = 'BlinkCmpLabelMatch' })
-              end
-              -- Do something else
-              return highlights
+              return require('colorful-menu').blink_components_highlight(ctx)
             end,
           },
         },
       },
     },
   },
-}
-
-return {
-  get_config = function()
-    return M
-  end,
 }
