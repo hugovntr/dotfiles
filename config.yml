@@ -32,6 +32,7 @@ homebrew:
     # Compiler/Runtime
     - "go"
     - "rust"
+    - "bun"
     - "postgresql"
 
     # Dependencies Management
