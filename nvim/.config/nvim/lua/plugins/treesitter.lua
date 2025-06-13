@@ -103,7 +103,7 @@ return {
   },
   {
     'MeanderingProgrammer/markdown.nvim',
-    event = 'BufEnter',
+    event = 'VeryLazy',
     opts = {
       file_types = { 'markdown', 'mdx', 'Avante' },
     },

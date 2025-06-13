@@ -1,10 +1,11 @@
 return {
   'nvim-lualine/lualine.nvim',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   dependencies = {
     { 'echasnovski/mini.icons', opts = {} },
     {
       'utilyre/barbecue.nvim',
+      event = 'VeryLazy',
       dependencies = {
         'SmiteshP/nvim-navic',
       },
