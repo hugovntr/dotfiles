@@ -1,5 +1,5 @@
 function __fnm_lazy_init
-    functions -e fnm
+    functions -e fnm node npm
     fnm env --use-on-cd --shell fish | source
     functions -e __fnm_lazy_init
     commandline -f repaint
