@@ -36,7 +36,6 @@ homebrew:
     - "postgresql"
 
     # Dependencies Management
-    - "fnm"
     - "pnpm"
     - "fisher"
 
