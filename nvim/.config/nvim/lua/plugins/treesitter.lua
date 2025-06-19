@@ -86,6 +86,11 @@ return {
       vim.keymap.set({ 'n', 'x', 'o' }, ';', r.repeat_last_move)
       vim.keymap.set({ 'n', 'x', 'o' }, ',', r.repeat_last_move_opposite)
 
+      -- folds
+      vim.wo.foldmethod = 'expr'
+      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.cmd [[ set nofoldenable ]]
+
       -- make f, F, t, T also repeatable
       -- vim.keymap.set({ 'n', 'x', 'o' }, 'f', r.builtin_f)
       -- vim.keymap.set({ 'n', 'x', 'o' }, 'F', r.builtin_F)
