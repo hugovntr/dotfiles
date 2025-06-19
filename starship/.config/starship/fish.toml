@@ -1,12 +1,13 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Insert a blank line between shell prompts
-add_newline = true
+add_newline = false
 
 
 format = """\
-[┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics$fill $all\
+[┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics $fill $all\
 [└─](fg:242) $jobs$character"""
+
 
 right_format="[ $container$username$localip$time ](bg:233)"
 
@@ -15,13 +16,17 @@ transient = """[$time](fg:white) $character"""
 
 [fill]
 symbol = "/"
+style = 'italic fg:238'
 
 [line_break]
 disabled = false
 
 [character]
-success_symbol = "[](bold green) "
-error_symbol = "[✗](bold red) "
+success_symbol = "[](bold green) "
+error_symbol = "[](bold red) "
+
+[jobs]
+symbol = ""
 
 [time]
 disabled = false
@@ -36,7 +41,7 @@ truncate_to_repo = true
 repo_root_style = "cyan bold"
 style = "bold cyan dimmed"
 format = "  [$path ]($style)"
-repo_root_format = '  [$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+repo_root_format = '  [$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
 
 [git_branch]
 symbol = " "
