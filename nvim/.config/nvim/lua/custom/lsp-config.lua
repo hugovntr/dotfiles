@@ -151,7 +151,7 @@ local servers = {
         },
         preferences = {
           preferTypeOnlyAutoImports = true,
-          importModuleSpecifier = 'project-relative',
+          importModuleSpecifier = 'non-relative',
           autoImportFileExcludePatterns = { 'lucide-react', 'motion/react-m', 'next/dist' },
         },
         tsserver = {
