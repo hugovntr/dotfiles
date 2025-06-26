@@ -11,10 +11,10 @@ return {
       require('formatter').setup {
         filetype = {
           lua = { require('formatter.filetypes.lua').stylua },
-          typescript = { require('formatter.filetypes.typescript').prettierd },
-          typescriptreact = { require('formatter.filetypes.typescriptreact').prettierd },
-          javascript = { require('formatter.filetypes.javascript').prettierd },
-          javascriptreact = { require('formatter.filetypes.javascriptreact').prettierd },
+          typescript = { require('formatter.filetypes.typescript').biome },
+          typescriptreact = { require('formatter.filetypes.typescriptreact').biome },
+          javascript = { require('formatter.filetypes.javascript').biome },
+          javascriptreact = { require('formatter.filetypes.javascriptreact').biome },
         },
       }
     end,
@@ -41,7 +41,7 @@ return {
 
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { 'prettierd', 'prettier' } },
+        javascript = { { 'biome', 'prettierd', 'prettier' } },
       },
     },
   },
