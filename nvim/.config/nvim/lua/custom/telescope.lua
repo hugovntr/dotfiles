@@ -1,5 +1,6 @@
 local telescope = require 'telescope'
 local actions = require 'telescope.actions'
+local state = require 'telescope.actions.state'
 local themes = require 'telescope.themes'
 
 -- Clone the default Telescope configuration
@@ -9,6 +10,27 @@ local vimgrep_arguments = { unpack(require('telescope.config').values.vimgrep_ar
 table.insert(vimgrep_arguments, '--hidden')
 table.insert(vimgrep_arguments, '--glob')
 table.insert(vimgrep_arguments, '!**.git/*')
+
+local custom_actions = {
+  multiselect = function(prompt_bufnr)
+    local function get_table_size(t)
+      local count = 0
+      for _ in pairs(t) do
+        count = count + 1
+      end
+      return count
+    end
+
+    local picker = state.get_current_picker(prompt_bufnr)
+    local num_sel = get_table_size(picker:get_multi_selection())
+    if num_sel > 1 then
+      actions.send_selected_to_qflist(prompt_bufnr)
+      actions.open_qflist(prompt_bufnr)
+    else
+      actions.file_edit(prompt_bufnr)
+    end
+  end,
+}
 
 telescope.setup {
   defaults = vim.tbl_extend(
@@ -26,8 +48,9 @@ telescope.setup {
     {
       vimgrep_arguments = vimgrep_arguments,
       mappings = {
-        i = {
+        n = {
           ['<esc>'] = actions.close,
+          ['n'] = custom_actions.multiselect,
         },
       },
     }
