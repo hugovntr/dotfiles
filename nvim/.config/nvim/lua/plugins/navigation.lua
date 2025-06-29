@@ -26,7 +26,7 @@ return {
           highlight = true,
           highlight_duration = 250,
           highlight_group = 'CursorLine',
-          jumplist = false,
+          jumplist = true,
         },
       },
     },
