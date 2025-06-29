@@ -5,7 +5,7 @@
 source "$XDG_CONFIG_HOME/colors/colors.sh"
 options=(
   ax_focus=off
-  active_color="gradient(top_left=$ALT500,bottom_right=$BRAND400)"
+  active_color="gradient(top_left=$ALT500,bottom_right=$BRAND500)"
   style=round
   inactive_color="0x00FFFFFF"
   width=8.0
