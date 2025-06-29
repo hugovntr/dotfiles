@@ -20,8 +20,8 @@ blink.setup {
     ['<C-n>'] = { 'select_next' },
     ['<C-p'] = { 'select_prev' },
     ['<Tab>'] = { 'select_and_accept', 'fallback' },
-    ['<C-y>'] = { 'snippet_forward' },
-    ['<C-u>'] = { 'snippet_backward' },
+    ['<C-y>'] = { 'snippet_forward', 'fallback' },
+    ['<C-u>'] = { 'snippet_backward', 'fallback' },
   },
 
   appearance = {
@@ -76,7 +76,7 @@ blink.setup {
     },
 
     accept = {
-      auto_brackets = { enabled = false },
+      auto_brackets = { enabled = true },
     },
 
     list = {
