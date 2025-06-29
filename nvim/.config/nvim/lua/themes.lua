@@ -4,9 +4,14 @@ return {
     event = 'VeryLazy',
   },
   {
-    'norcalli/nvim-colorizer.lua',
-    event = 'BufEnter',
-    opts = { '*' },
+    'uga-rosa/ccc.nvim',
+    event = 'VeryLazy',
+    config = function()
+      local ccc = require 'ccc'
+      ccc.setup {
+        highlighter = { auto_enable = true },
+      }
+    end,
   },
   {
     'catppuccin/nvim',
