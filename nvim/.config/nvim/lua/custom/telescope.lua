@@ -48,8 +48,10 @@ telescope.setup {
     {
       vimgrep_arguments = vimgrep_arguments,
       mappings = {
-        n = {
+        i = {
           ['<esc>'] = actions.close,
+        },
+        n = {
           ['n'] = custom_actions.multiselect,
         },
       },
