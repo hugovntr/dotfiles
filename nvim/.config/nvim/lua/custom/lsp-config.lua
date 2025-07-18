@@ -152,7 +152,7 @@ local servers = {
         preferences = {
           preferTypeOnlyAutoImports = true,
           importModuleSpecifier = 'non-relative',
-          autoImportFileExcludePatterns = { 'lucide-react', 'motion/react-m', 'next/dist' },
+          autoImportFileExcludePatterns = { 'lucide-react', 'motion/react-m', 'next/dist', 'motion/react' },
         },
         tsserver = {
           useSeparateSyntaxServer = true,
@@ -213,6 +213,12 @@ local servers = {
   emmet_language_server = {
     settings = {
       showSuggestionsAsSnippets = true,
+    },
+  },
+  rust_analyzer = {
+    filetypes = { 'rust' },
+    settings = {
+      cargo = { allFeatures = true },
     },
   },
 }
