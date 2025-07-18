@@ -12,8 +12,8 @@ snacks.setup {
     left = { 'mark', 'sign' },
     right = { 'fold', 'git' },
     folds = {
-      open = false,
-      git_hl = false,
+      open = true,
+      git_hl = true,
     },
     -- git = {
     --   patterns = { 'GitSign', 'MiniDiffSign' },
