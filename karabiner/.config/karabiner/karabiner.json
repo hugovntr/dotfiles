@@ -304,7 +304,16 @@
                         "product_id": 49298,
                         "vendor_id": 1133
                     },
-                    "ignore": true
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 49298,
+                        "vendor_id": 1133
+                    },
+                    "ignore_vendor_events": true
                 }
             ],
             "name": "Default profile",
