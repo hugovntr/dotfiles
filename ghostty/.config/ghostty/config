@@ -4,13 +4,11 @@ confirm-close-surface = false
 title = "Ghostty"
 
 # Theme
-theme = "sequoia"
+theme = "forest-night"
 
 # Window style
 macos-titlebar-style = "hidden"
 alpha-blending = "native"
-background-opacity = .9
-background-blur-radius = 48
 window-padding-x = 8,2
 window-padding-y = 0
 window-padding-balance = true
