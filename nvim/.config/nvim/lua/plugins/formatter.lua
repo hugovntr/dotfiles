@@ -15,6 +15,8 @@ return {
           typescriptreact = { require('formatter.filetypes.typescriptreact').biome },
           javascript = { require('formatter.filetypes.javascript').biome },
           javascriptreact = { require('formatter.filetypes.javascriptreact').biome },
+          json = { require('formatter.filetypes.json').biome },
+          rust = { require('formatter.filetypes.rust').rustfmt },
         },
       }
     end,
