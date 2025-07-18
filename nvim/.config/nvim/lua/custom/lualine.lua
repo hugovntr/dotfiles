@@ -186,6 +186,7 @@ slimline.setup {
     },
     center = {},
     right = {
+      'recording',
       'filetype_lsp',
       'progress',
     },
@@ -250,6 +251,7 @@ slimline.setup {
       icon = ' ',
     },
     recording = {
+      hl = { primary = 'ErrorMsg' },
       icon = ' ',
     },
   },
