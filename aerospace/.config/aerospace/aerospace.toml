@@ -156,32 +156,40 @@ t = ['layout tiles horizontal vertical','mode main', 'exec-and-forget sketchybar
 q = ['layout accordion horizontal vertical', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 
 # ---
-# Window with default to floating layout
+# Window with default to floating layout or moved to custom workspace
 # ---
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
-run = 'layout floating'
+run = ['layout floating', 'move-node-to-workspace 2']
+
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
 run = 'layout floating'
+
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'layout floating'
+
 [[on-window-detected]]
 if.app-id = 'com.apple.ActivityMonitor'
 run = 'layout floating'
+
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
 run = 'layout floating'
+
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
 run = 'layout floating'
+
 [[on-window-detected]]
 if.app-id = 'com.apple.QuickTimePlayerX'
 run = 'layout floating'
-[[on-window-detected]]
-if.app-id = 'cyrilzakka.HuggingChat-Mac'
-run = 'layout floating'
+
 [[on-window-detected]]
 if.app-name-regex-substring = "Simulator"
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = "LM Studio"
+run = ['move-node-to-workspace 2']
