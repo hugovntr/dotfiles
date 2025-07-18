@@ -5,6 +5,8 @@ cursor-color ="#fff"
 cursor-text = "#09090b"
 selection-background = "#3c4048"
 selection-foreground = "#fff"
+background-opacity = .9
+background-blur-radius = 48
 
 ## DARK
 palette = 0=#64748b
