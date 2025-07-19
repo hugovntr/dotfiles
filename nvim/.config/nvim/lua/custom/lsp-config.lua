@@ -141,14 +141,14 @@ local servers = {
           autoImports = true,
         },
         workspaceSymbols = { scope = 'currentProject' },
-        inlayHints = {
-          enumMemberValues = { enabled = true },
-          functionLikeReturnTypes = { enabled = true },
-          parameterNames = { enabled = 'literals' },
-          parameterTypes = { enabled = true },
-          propertyDeclarationTypes = { enabled = true },
-          variableTypes = { enabled = true },
-        },
+        -- inlayHints = {
+        --   enumMemberValues = { enabled = true },
+        --   functionLikeReturnTypes = { enabled = true },
+        --   parameterNames = { enabled = 'literals' },
+        --   parameterTypes = { enabled = true },
+        --   propertyDeclarationTypes = { enabled = true },
+        --   variableTypes = { enabled = true },
+        -- },
         preferences = {
           preferTypeOnlyAutoImports = true,
           importModuleSpecifier = 'non-relative',
