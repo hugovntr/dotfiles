@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  local theme = require 'themes.modppuccin'
+  local theme = require 'themes.forest-night'
   theme.setup()
 end
 
