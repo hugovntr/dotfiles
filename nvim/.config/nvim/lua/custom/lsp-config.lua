@@ -110,6 +110,10 @@ local servers = {
           invalidTailwindDirective = 'error',
           recommendedVariantOrder = 'warning',
         },
+        emmetCompletions = false,
+        colorDecorators = false,
+        hovers = false,
+        classFunctions = { 'tw', 'clsx', 'cn' },
         classAttributes = {
           'class',
           'className',
