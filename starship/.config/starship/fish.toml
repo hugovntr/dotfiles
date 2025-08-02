@@ -5,8 +5,8 @@ add_newline = false
 
 
 format = """\
-[┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics $fill $all\
-[└─](fg:242) $jobs$character"""
+[┌─](fg:235) $directory$git_branch$git_status$git_state$git_metrics $fill $all\
+[└─](fg:235) $jobs$character"""
 
 
 right_format="[ $container$username$localip$time ](bg:233)"
@@ -15,8 +15,8 @@ right_format="[ $container$username$localip$time ](bg:233)"
 transient = """[$time](fg:white) $character"""
 
 [fill]
-symbol = "/"
-style = 'italic fg:238'
+symbol = "—"
+style = 'fg:235'
 
 [line_break]
 disabled = false
