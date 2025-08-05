@@ -1,4 +1,4 @@
-if status is-interactive
+# if status is-interactive
   # Check if we're in interactive shell
   # Initialize starship
   set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/fish.toml
@@ -28,4 +28,4 @@ if status is-interactive
       echo -n '> '
     end
   end
-end
+# end
