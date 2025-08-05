@@ -2,7 +2,7 @@
 set fish_greeting
 
 # Environment
-set -gx CDPATH $HOME/Projects
+# set -gx CDPATH $HOME/Projects
 set -gx TERM xterm-256color
 set -gx COLORTERM truecolor
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -17,6 +17,11 @@ if test -f /opt/homebrew/bin/brew
   set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
   set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
   fish_add_path /opt/homebrew/bin /opt/homebrew/sbin
+else if test -d /home/linuxbrew/.linuxbrew
+  set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+  set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+  set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
+  fish_add_path "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"
 end
 
 # Bun
