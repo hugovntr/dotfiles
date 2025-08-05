@@ -1,7 +1,7 @@
 # if status is-interactive
   # Check if we're in interactive shell
   # Initialize starship
-  set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/fish.toml
+  set -gx STARSHIP_CONFIG "$XDG_CONFIG_HOME/starship/fish.toml"
   function starship_transient_prompt_func
     starship module character
   end
