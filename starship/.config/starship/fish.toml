@@ -22,8 +22,11 @@ style = 'fg:235'
 disabled = false
 
 [character]
-success_symbol = "[](bold green) "
-error_symbol = "[](bold red) "
+format = '$symbol '
+success_symbol = "[I ](bold green)"
+vimcmd_symbol = "[N ](bold fg:246)"
+vimcmd_visual_symbol = "[V ](bold fg:244)"
+error_symbol = "[I](bold green) [](bold red)"
 
 [jobs]
 symbol = ""
