@@ -47,3 +47,8 @@ fish_add_path --append --path $HOME/bin $HOME/.local/bin
 if test -f $XDG_CONFIG_HOME/colors/colors.sh
   source $XDG_CONFIG_HOME/colors/colors.sh
 end
+
+# CUDA
+if test -d /usr/local/cuda
+  fish_add_path --append --path "/usr/local/cuda/bin"
+end
