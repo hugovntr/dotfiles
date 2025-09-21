@@ -7,26 +7,25 @@ title = "Ghostty"
 theme = "forest-night"
 
 # Window style
-macos-titlebar-style = "hidden"
 alpha-blending = "native"
 window-padding-x = 8,2
 window-padding-y = 0
 window-padding-balance = true
 window-vsync = true
+window-padding-color = "extend-always"
 window-colorspace = "display-p3"
-window-decoration = "none"
 
 # MacOS window style
+macos-titlebar-style = "hidden"
 macos-window-shadow = false
 macos-icon = "holographic"
 
 # Font
-font-family = "JetBrains Mono"
+font-family = "Geist Mono"
 font-feature = "calt, liga, zero, cv12, ss20, cv10, cv16, cv18"
 font-thicken = false
 font-size = 12
 adjust-cell-height = "75%"
-#adjust-cell-width = "-7%"
 adjust-cell-width = "-7%"
 adjust-cursor-height = "75%"
 
@@ -39,3 +38,7 @@ keybind = cmd+k=text:\x07
 
 # Tmux Navigation
 keybind = ctrl+m=text:\x08
+
+# Custom Shader
+#custom-shader = ~/.config/ghostty/shaders/glitchy.glsl
+#custom-shader-animation = "always"
