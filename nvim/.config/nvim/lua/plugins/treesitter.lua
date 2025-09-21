@@ -88,11 +88,13 @@ return {
 
       -- folds
       vim.opt.foldmethod = 'expr'
-      -- vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+      vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      -- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
       vim.opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
-      vim.opt.foldlevel = 44
-      vim.cmd [[ set nofoldenable ]]
+      vim.opt.foldlevel = 2
+      vim.opt.foldlevelstart = 99
+      vim.opt.foldnestmax = 4
+      -- vim.cmd [[ set nofoldenable ]]
 
       -- make f, F, t, T also repeatable
       -- vim.keymap.set({ 'n', 'x', 'o' }, 'f', r.builtin_f)
