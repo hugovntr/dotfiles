@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "system",
+  "autoupdate": true,
+
+  // Provider specific configurations
+  "provider": {
+    "openrouter": {
+      "models": {
+        "moonshotai/kimi-k2-0905": {
+          "options": {
+            "provider": {
+              "order": ["novita"],
+              "allow_fallbacks": false
+            }
+          }
+        }
+      }
+    }
+  }
+}
