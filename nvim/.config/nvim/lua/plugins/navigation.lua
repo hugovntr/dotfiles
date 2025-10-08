@@ -34,6 +34,9 @@ return {
       require 'custom.navigation'
     end,
   },
+  {
+    'sunaku/tmux-navigate',
+  },
   -- {
   --   'nanotee/zoxide.vim',
   --   event = 'VeryLazy',
