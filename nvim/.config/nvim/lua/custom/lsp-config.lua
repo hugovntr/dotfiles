@@ -238,6 +238,7 @@ local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
   'stylua', -- Used to format Lua code
   'biome',
+  'eslint_d',
   -- 'prettierd',
   -- 'llm-ls',
   -- 'emmet-language-server',
