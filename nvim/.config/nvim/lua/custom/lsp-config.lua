@@ -145,14 +145,14 @@ local servers = {
           autoImports = true,
         },
         workspaceSymbols = { scope = 'currentProject' },
-        -- inlayHints = {
-        --   enumMemberValues = { enabled = true },
-        --   functionLikeReturnTypes = { enabled = true },
-        --   parameterNames = { enabled = 'literals' },
-        --   parameterTypes = { enabled = true },
-        --   propertyDeclarationTypes = { enabled = true },
-        --   variableTypes = { enabled = true },
-        -- },
+        inlayHints = {
+          --   enumMemberValues = { enabled = true },
+          --   functionLikeReturnTypes = { enabled = true },
+          --   parameterNames = { enabled = 'literals' },
+          --   parameterTypes = { enabled = true },
+          --   propertyDeclarationTypes = { enabled = true },
+          variableTypes = { enabled = true },
+        },
         preferences = {
           preferTypeOnlyAutoImports = true,
           importModuleSpecifier = 'non-relative',
@@ -165,30 +165,6 @@ local servers = {
       },
     },
   },
-  -- ts_ls = {
-  --   enabled = true,
-  --   settings = {
-  --     typescript = {
-  --       inlayHints = {
-  --         includeInlayEnumMemberValueHints = true,
-  --         includeInlayFunctionLikeReturnTypeHints = true,
-  --         includeInlayFunctionParameterTypeHints = true,
-  --         includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
-  --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-  --         includeInlayPropertyDeclarationTypeHints = true,
-  --         includeInlayVariableTypeHints = true,
-  --       },
-  --     },
-  --     preferences = {
-  --       preferTypeOnlyAutoImports = true,
-  --       importModuleSpecifier = 'project-relative',
-  --       autoImportFileExcludePatterns = { 'lucide-react', 'motion/react-m' },
-  --     },
-  --     completion = {
-  --       completeFunctionCalls = true,
-  --     },
-  --   },
-  -- },
   ltex = {
     filetypes = { 'bib', 'plaintex', 'rst', 'text', 'mdx', 'markdown' },
     settings = {
