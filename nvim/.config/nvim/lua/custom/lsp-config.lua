@@ -187,6 +187,10 @@ local servers = {
         diagnostics = {
           workspaceEvent = 'OnSave',
         },
+        runtime = { version = 'LuaJIT' },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file('', true),
+        },
       },
     },
   },
@@ -203,29 +207,14 @@ local servers = {
   },
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities()) -- Nvim CMP
-capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(capabilities)) -- Blink
-
-require('mason').setup()
-local lspconfig = require 'lspconfig'
-
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
-  'stylua', -- Used to format Lua code
+  'stylua',
   'biome',
   'eslint_d',
-  -- 'prettierd',
-  -- 'llm-ls',
-  -- 'emmet-language-server',
 })
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-for name, server in pairs(servers) do
-  server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-  lspconfig[name].setup(server)
-end
-
+require('mason').setup()
 require('mason-lspconfig').setup {
   ensure_installed = vim.tbl_keys(servers or {}),
   automatic_installation = true,
@@ -238,3 +227,19 @@ require('mason-lspconfig').setup {
   --   end,
   -- },
 }
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities()) -- Nvim CMP
+capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(capabilities)) -- Blink
+
+-- local lspconfig = require 'lspconfig'
+-- for name, server in pairs(servers) do
+--   server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+--   lspconfig[name].setup(server)
+-- end
+
+for name, config in pairs(servers) do
+  config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+  vim.lsp.config(name, config)
+  vim.lsp.enable(name)
+end
