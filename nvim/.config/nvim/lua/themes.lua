@@ -8,12 +8,13 @@ return {
     event = 'VeryLazy',
     config = function()
       local ccc = require 'ccc'
-      ccc.setup {
+      local opts = {
         highlighter = { auto_enable = true },
         highlight_mode = 'background',
         alpha_show = 'show',
         virtual_pos = 'eol',
       }
+      ccc.setup(opts)
     end,
   },
   {
@@ -28,13 +29,27 @@ return {
   {
     'mvllow/modes.nvim',
     event = 'BufEnter',
-    opts = {
-      line_opacity = 0.25,
-      set_cursor = true,
-      set_cursorline = true,
-      set_number = true,
-      set_signcolumn = false,
-    },
+    opts = {},
+    config = function()
+      local opts = {
+        line_opacity = 0.25,
+        set_cursor = true,
+        set_cursorline = true,
+        set_number = true,
+        set_signcolumn = false,
+      }
+      -- Initial setup
+      require('modes').setup(opts)
+      vim.o.cmdheight = 0
+
+      -- Autocommand on theme switch
+      vim.api.nvim_create_autocmd('OptionSet', {
+        pattern = 'background',
+        callback = function()
+          require('modes').setup(opts)
+        end,
+      })
+    end,
   },
   -- {
   --   'xiyaowong/transparent.nvim',

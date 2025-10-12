@@ -5,7 +5,11 @@ snacks.setup {
   image = { enabled = true },
   bigfile = { enabled = true },
   notifier = { enabled = true, style = 'compact', top_down = true },
-  indent = { enabled = true },
+  indent = {
+    enabled = true,
+    scope = { enabled = true, only_current = false, priority = 200 },
+    chunk = { enabled = true, only_current = false, priority = 200, char = { arrow = '─' } },
+  },
   gitbrowse = { enabled = false },
   statuscolumn = {
     enabled = true,
@@ -13,7 +17,7 @@ snacks.setup {
     right = { 'fold', 'git' },
     folds = {
       open = true,
-      git_hl = true,
+      git_hl = false,
     },
     -- git = {
     --   patterns = { 'GitSign', 'MiniDiffSign' },

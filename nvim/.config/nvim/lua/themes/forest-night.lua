@@ -4,9 +4,9 @@ function M.setup()
   local theme = require 'forest-night'
 
   theme.setup {
-    variant = 'light',
+    variant = 'dark',
     disable = {
-      background = true,
+      background = false,
       terminal_colors = true,
     },
     highlights = {},
@@ -26,11 +26,12 @@ function M.setup()
     },
   }
 
-  theme.load()
-
   local config = theme.get_config()
   local colors = require('forest-night.theme').colors
+  config.colors = colors
 
+  -- Apply themes
+  require('forest-night.theme').apply(config)
   require('forest-night.plugins.blink').apply(colors, config)
   require('forest-night.plugins.snacks').apply(colors, config)
   require('forest-night.plugins.trouble').apply(colors, config)

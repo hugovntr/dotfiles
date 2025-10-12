@@ -62,7 +62,7 @@ lualine.setup {
         filetype_names = { oil = 'File Explorer' },
         buffers_color = {
           inactive = { fg = '#777777', bg = '' },
-          active = { fg = 'White', gui = 'bold' },
+          active = { fg = 'Foreground', gui = 'bold' },
         },
         fmt = function(bufname, ctx)
           if ctx.file:match '.*/app.*/page.tsx' then
