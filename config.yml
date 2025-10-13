@@ -28,6 +28,7 @@ homebrew:
     - "qmk/qmk/qmk"
     - "uv"
     - "fastfetch"
+    - cormacrelf/tap/dark-notify
 
     # Compiler/Runtime
     - "go"

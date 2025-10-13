@@ -57,22 +57,34 @@ function M.setup()
     vim.o.background = vim.o.background == 'light' and 'dark' or 'light'
   end, { desc = '[S]witch [A]ppearance' })
 
-  -- local timer = vim.loop.new_timer()
+  -- Always sync with system
+  local stdout = vim.uv.new_pipe(false)
+  local _, pid = vim.uv.spawn('dark-notify', {
+    stdio = { nil, stdout, nil },
+  })
+
+  -- Read whenever a new notification comes in
+  vim.uv.read_start(stdout, function(_, s)
+    vim.schedule(function()
+      M.sync_with_system()
+    end)
+  end)
+
+  -- Kill the background process on exit
+  vim.api.nvim_create_autocmd('QuitPre', {
+    callback = function()
+      vim.uv.kill(pid + 0)
+    end,
+  })
+
+  -- local timer = vim.uv.new_timer()
   -- timer:start(
-  --   5000,
-  --   5000,
+  --   100,
+  --   100,
   --   vim.schedule_wrap(function()
   --     M.sync_with_system()
   --   end)
   -- )
-  -- Check system theme when Neovim gains focus
-  -- NOTE: This doesn't work
-  -- vim.api.nvim_create_autocmd({ 'FocusGained' }, {
-  --   callback = function()
-  --     M.sync_with_system()
-  --   end,
-  --   desc = 'Sync theme with system',
-  -- })
 end
 
 return M
