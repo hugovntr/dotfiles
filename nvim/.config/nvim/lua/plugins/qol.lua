@@ -26,6 +26,7 @@ return {
     'stevearc/oil.nvim',
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     opts = {},
+    lazy = true,
     event = 'VeryLazy',
     config = function()
       vim.api.nvim_create_autocmd('FileType', {
@@ -43,6 +44,7 @@ return {
   -- Shortcut helper
   {
     'folke/which-key.nvim',
+    lazy = true,
     event = 'VeryLazy',
     opts = {
       defer = function(ctx)
@@ -58,6 +60,7 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     event = 'VeryLazy',
+    lazy = true,
     branch = 'master',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -80,6 +83,7 @@ return {
   -- Top + Bottom line
   {
     'nvim-lualine/lualine.nvim',
+    lazy = true,
     event = 'VeryLazy',
     dependencies = {
       { 'echasnovski/mini.icons', opts = {} },
@@ -96,6 +100,7 @@ return {
   -- Git signs on gutter
   {
     'lewis6991/gitsigns.nvim',
+    lazy = true,
     event = 'VeryLazy',
     opts = {
       signs = {
