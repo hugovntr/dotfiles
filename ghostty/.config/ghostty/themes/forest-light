@@ -83,7 +83,7 @@ palette = 251=#c67c0e
 # Type color
 palette = 252=#a15d4a
 # Constant color
-palette = 253=#4a7c5f
+palette = 253=#8FBC8F 
 # Property color
 palette = 254=#2a9d95
 # Visual selection
