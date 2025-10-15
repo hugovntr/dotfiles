@@ -14,7 +14,7 @@ return {
     ---@type blink.cmp.Config
     opts = {},
     config = function()
-      require 'custom.blink'
+      require 'plugins.config.blink'
     end,
   },
 
@@ -118,7 +118,7 @@ return {
     'nvim-pack/nvim-spectre',
     event = 'VeryLazy',
     config = function()
-      require 'custom.spectre'
+      require 'plugins.config.spectre'
     end,
   },
 

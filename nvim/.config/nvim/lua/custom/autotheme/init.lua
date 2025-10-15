@@ -1,21 +1,16 @@
-local M = {}
+local M = {
+  state = '',
+  light = 'forest-light',
+  dark = 'forest-dark',
+}
 
 function M.set_theme(theme)
-  -- Clear existing highlights
-  vim.cmd 'hi clear'
-  if vim.fn.exists 'syntax_on' then
-    vim.cmd 'syntax reset'
+  if theme == 'light' and M.state ~= 'light' then
+    vim.cmd('colorscheme ' .. M.light)
+  elseif theme == 'dark' and M.state ~= 'dark' then
+    vim.cmd('colorscheme ' .. M.dark)
   end
-
-  if theme == 'light' then
-    local light = require 'themes.forest-light'
-    light.setup()
-    vim.g.colors_name = 'forest-light'
-  else
-    local dark = require 'themes.forest-night'
-    dark.setup()
-    vim.g.colors_name = 'forest-night'
-  end
+  M.state = theme
 end
 
 function M.get_system_theme()
@@ -33,7 +28,9 @@ end
 
 function M.sync_with_system()
   local system_theme = M.get_system_theme()
-  vim.o.background = system_theme
+  if system_theme ~= M.state then
+    vim.o.background = system_theme
+  end
 end
 
 function M.setup()
@@ -55,16 +52,18 @@ function M.setup()
   -- Register manual override command
   vim.keymap.set('n', '<leader>sa', function()
     vim.o.background = vim.o.background == 'light' and 'dark' or 'light'
-  end, { desc = '[S]witch [A]ppearance' })
+  end, { desc = '[S]witch [A]ppearance', remap = false })
 
   -- Always sync with system
   local stdout = vim.uv.new_pipe(false)
+  ---@diagnostic disable-next-line: missing-fields
   local _, pid = vim.uv.spawn('dark-notify', {
     stdio = { nil, stdout, nil },
-  })
+  }, function() end)
 
   -- Read whenever a new notification comes in
-  vim.uv.read_start(stdout, function(_, s)
+  ---@diagnostic disable-next-line: param-type-mismatch
+  vim.uv.read_start(stdout, function()
     vim.schedule(function()
       M.sync_with_system()
     end)
@@ -73,18 +72,9 @@ function M.setup()
   -- Kill the background process on exit
   vim.api.nvim_create_autocmd('QuitPre', {
     callback = function()
-      vim.uv.kill(pid + 0)
+      vim.uv.kill(pid + 0, 9)
     end,
   })
-
-  -- local timer = vim.uv.new_timer()
-  -- timer:start(
-  --   100,
-  --   100,
-  --   vim.schedule_wrap(function()
-  --     M.sync_with_system()
-  --   end)
-  -- )
 end
 
 return M

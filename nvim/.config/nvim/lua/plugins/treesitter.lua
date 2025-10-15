@@ -2,6 +2,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    branch = 'main',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -78,13 +79,7 @@ return {
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
       ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup(opts)
-
-      local r = require 'nvim-treesitter.textobjects.repeatable_move'
-
-      -- vim , and ; repeat last command
-      vim.keymap.set({ 'n', 'x', 'o' }, ';', r.repeat_last_move)
-      vim.keymap.set({ 'n', 'x', 'o' }, ',', r.repeat_last_move_opposite)
+      require('nvim-treesitter').setup(opts)
 
       -- folds
       vim.opt.foldmethod = 'expr'
@@ -95,12 +90,6 @@ return {
       vim.opt.foldlevelstart = 99
       vim.opt.foldnestmax = 4
       -- vim.cmd [[ set nofoldenable ]]
-
-      -- make f, F, t, T also repeatable
-      -- vim.keymap.set({ 'n', 'x', 'o' }, 'f', r.builtin_f)
-      -- vim.keymap.set({ 'n', 'x', 'o' }, 'F', r.builtin_F)
-      -- vim.keymap.set({ 'n', 'x', 'o' }, 't', r.builtin_t)
-      -- vim.keymap.set({ 'n', 'x', 'o' }, 'T', r.builtin_T)
 
       -- Languages aliases
       vim.treesitter.language.register('markdown', 'mdx')

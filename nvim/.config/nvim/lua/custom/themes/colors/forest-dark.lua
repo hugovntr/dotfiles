@@ -47,4 +47,19 @@ function M.setup()
   hl('BlinkCmpMenu', { fg = colors.fg, bg = colors.bg })
 end
 
+function M.load()
+  -- Clear existing highlights
+  vim.cmd 'hi clear'
+  if vim.fn.exists 'syntax_on' then
+    vim.cmd 'syntax reset'
+  end
+
+  -- Set what's needed
+  vim.o.background = 'dark'
+  vim.g.colors_name = 'forest-dark'
+
+  M.setup()
+end
+
+M.load()
 return M

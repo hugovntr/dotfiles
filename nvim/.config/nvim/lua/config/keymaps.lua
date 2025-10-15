@@ -1,7 +1,25 @@
-local nnoremap = require('keymaps_utils').nnoremap
-local nvnoremap = require('keymaps_utils').nvnoremap
-local inoremap = require('keymaps_utils').inoremap
-local ninoremap = require('keymaps_utils').ninoremap
+--
+-- Keymaps
+--
+
+local function bind(op, outer_opts)
+  outer_opts = vim.tbl_extend('force', { noremap = true, silent = true }, outer_opts or {})
+
+  return function(lhs, rhs, opts)
+    opts = vim.tbl_extend('force', outer_opts, opts or {})
+    vim.keymap.set(op, lhs, rhs, opts)
+  end
+end
+
+local map = bind ''
+local nmap = bind('n', { noremap = true })
+local nvnoremap = bind { 'n', 'v' }
+local ninoremap = bind { 'n', 'i' }
+local nnoremap = bind 'n'
+local vnoremap = bind 'v'
+local xnoremap = bind 'x'
+local inoremap = bind 'i'
+local tnoremap = bind 't'
 
 -- Clear highlights when pressing <Esc>
 nnoremap('<esc><esc>', '<cmd>nohlsearch<cr>')
@@ -44,7 +62,7 @@ nnoremap('cw', '"_ciw') -- Change inside word without copy
 -- Buffer management
 nnoremap('<C-p>', '<cmd>bprev<cr>', { desc = 'Previous buffer' })
 nnoremap('<C-n>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
-nnoremap('<leader>q', '<cmd>bd<cr>', { silent = false, desc = 'Close current buffer' })
+nnoremap('<leader>q', '<cmd>bd<cr>', { silent = false, desc = 'Close current buffer', remap = true })
 -- nnoremap('qq', '<cmd>bd<cr>', { silent = true, desc = 'Close current buffer' })
 
 -- One hand fast travel

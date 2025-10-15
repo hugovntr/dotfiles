@@ -1,30 +1,31 @@
 local M = {}
 
-function M.setup()
+M.config = {
+  variant = 'light',
+  disable = {
+    background = false,
+    terminal_colors = true,
+  },
+  plugins = {
+    treesitter = true,
+    lsp = true,
+    telescope = true,
+    nvimtree = false,
+    blink = true,
+    whichkey = true,
+    gitsigns = true,
+    indent_blane = false,
+    markdown = true,
+    noice = true,
+    trouble = true,
+    snacks = true,
+  },
+}
+
+function M.base_init()
   local theme = require 'forest-night'
 
-  theme.setup {
-    variant = 'light',
-    disable = {
-      background = false,
-      terminal_colors = true,
-    },
-    highlights = {},
-    plugins = {
-      treesitter = true,
-      lsp = true,
-      telescope = true,
-      nvimtree = false,
-      blink = true,
-      whichkey = true,
-      gitsigns = true,
-      indent_blane = false,
-      markdown = true,
-      noice = true,
-      trouble = true,
-      snacks = true,
-    },
-  }
+  theme.setup(M.config)
 
   local config = theme.get_config()
   local colors = {
@@ -109,6 +110,8 @@ function M.setup()
     -- Additional colors
     none = 'NONE',
   }
+
+  -- Set colorsheme name
   config.colors = colors
 
   -- Apply themes
@@ -129,4 +132,30 @@ function M.setup()
   hl('SnacksIndent', { fg = colors.bg_highlight })
 end
 
+function M.setup(user_config)
+  if user_config then
+    M.config = vim.tbl_deep_extend('force', M.config, user_config)
+  end
+end
+
+function M.load()
+  -- Clear existing highlights
+  vim.cmd 'hi clear'
+  if vim.fn.exists 'syntax_on' then
+    vim.cmd 'syntax reset'
+  end
+
+  -- Set what's needed
+  vim.o.background = 'light'
+  vim.g.colors_name = 'forest-light'
+
+  M.setup()
+  M.base_init()
+end
+
+function M.get_config()
+  return M.config
+end
+
+M.load()
 return M

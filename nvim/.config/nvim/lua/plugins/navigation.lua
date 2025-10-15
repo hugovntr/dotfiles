@@ -1,20 +1,4 @@
 return {
-  -- {
-  --   'folke/flash.nvim',
-  --   event = 'VeryLazy',
-  --   ---@type Flash.Config
-  --   opts = {},
-  --   keys = {
-  --     {
-  --       '<c-f>',
-  --       mode = { 'n', 'x', 'o' },
-  --       function()
-  --         require('flash').jump()
-  --       end,
-  --       desc = 'Flash',
-  --     },
-  --   },
-  -- },
   {
     'mrjones2014/smart-splits.nvim',
     event = 'VeryLazy',
@@ -31,19 +15,10 @@ return {
       },
     },
     config = function()
-      require 'custom.navigation'
+      require 'plugins.config.navigation'
     end,
   },
   {
     'sunaku/tmux-navigate',
   },
-  -- {
-  --   'nanotee/zoxide.vim',
-  --   event = 'VeryLazy',
-  --   dependencies = {
-  --     {
-  --       'junegunn/fzf',
-  --     },
-  --   },
-  -- },
 }

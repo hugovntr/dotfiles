@@ -1,0 +1,111 @@
+return {
+  -- Automatically select light/dark theme
+  {
+    'autotheme',
+    name = 'autotheme',
+    dev = true,
+    lazy = false,
+    priority = 1000,
+    dependencies = {
+      {
+        'themes',
+        name = 'themes',
+        dev = true,
+        lazy = false,
+        dependencies = {
+          {
+            'adibhanna/forest-night.nvim',
+            lazy = true,
+          },
+        },
+      },
+    },
+    config = function()
+      require('custom.autotheme').setup()
+    end,
+  },
+  {
+    'rktjmp/lush.nvim',
+    event = 'VeryLazy',
+    lazy = true,
+  },
+
+  -- Top line (buffers) + Bottom line (slimline)
+  {
+    'akinsho/bufferline.nvim',
+    event = 'VeryLazy',
+    lazy = true,
+    dependencies = {
+      { 'nvim-mini/mini.icons', opts = {}, lazy = true },
+      { 'sschleemilch/slimline.nvim', event = 'VeryLazy' },
+    },
+    config = function()
+      require('mini.icons').setup()
+      require('mini.icons').mock_nvim_web_devicons()
+      require 'plugins.config.uiline'
+    end,
+  },
+
+  -- Top + Bottom line
+  {
+    'nvim-lualine/lualine.nvim',
+    event = 'VeryLazy',
+    lazy = true,
+    enabled = false,
+    dependencies = {
+      { 'nvim-mini/mini.icons', opts = {}, lazy = true },
+      { 'folke/noice.nvim', lazy = true },
+      { 'sschleemilch/slimline.nvim', event = 'VeryLazy' },
+    },
+    config = function()
+      require('mini.icons').setup()
+      require('mini.icons').mock_nvim_web_devicons()
+      require 'plugins.config.lualine'
+    end,
+  },
+
+  -- Color preview
+  {
+    'uga-rosa/ccc.nvim',
+    event = 'VeryLazy',
+    lazy = true,
+    config = function()
+      local ccc = require 'ccc'
+      local opts = {
+        highlighter = { auto_enable = true },
+        highlight_mode = 'background',
+        alpha_show = 'show',
+        virtual_pos = 'eol',
+      }
+      ccc.setup(opts)
+    end,
+  },
+
+  -- Cursor line following the current mode
+  {
+    'mvllow/modes.nvim',
+    event = 'BufEnter',
+    opts = {},
+    lazy = true,
+    config = function()
+      local opts = {
+        line_opacity = 0.25,
+        set_cursor = true,
+        set_cursorline = true,
+        set_number = true,
+        set_signcolumn = false,
+      }
+      -- Initial setup
+      require('modes').setup(opts)
+      vim.o.cmdheight = 0
+
+      -- Autocommand on theme switch
+      vim.api.nvim_create_autocmd('OptionSet', {
+        pattern = 'background',
+        callback = function()
+          require('modes').setup(opts)
+        end,
+      })
+    end,
+  },
+}

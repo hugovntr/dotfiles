@@ -29,21 +29,6 @@ local theme = {
   },
 }
 
-local function ollama_status()
-  if package.loaded['ollama'] == nil then
-    return nil
-  end
-  if require('ollama').status() == nil then
-    return nil
-  end
-
-  if vim.g.ollama_started == nil or vim.g.ollama_started == false then
-    return '  Ollama'
-  else
-    return '  Ollama'
-  end
-end
-
 lualine.setup {
   options = {
     component_separators = { left = '', right = '' },
@@ -103,21 +88,6 @@ lualine.setup {
     lualine_b = { 'branch' },
     lualine_c = {
       'diagnostics',
-      -- function()
-      --   local entries = require('barbecue.ui.state').get_entries(vim.current.window)
-      --   local winbar = '%#BarbecueNormal# '
-      --   if entries == nil then
-      --     return 'Nothing'
-      --   end
-      --   for i, entry in ipairs(entries) do
-      --     winbar = winbar .. entry:to_string()
-      --     if i < #entries then
-      --       winbar = winbar .. '%#BarbecueNormal# %#BarbecueSeparator#' .. '%#BarbecueNormal# '
-      --     end
-      --   end
-      --   print(winbar)
-      --   return winbar
-      -- end,
     },
     lualine_d = { '%=' },
     lualine_x = {
@@ -152,13 +122,7 @@ lualine.setup {
         left_padding = 2,
       },
     },
-    lualine_z = {
-      {
-        ollama_status,
-        cond = nil,
-        color = { fg = 'Gray' },
-      },
-    },
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = { 'filename' },
@@ -169,7 +133,10 @@ lualine.setup {
     lualine_z = { 'location' },
   },
 }
-lualine.hide { unhide = false, place = { 'statusline' } }
+lualine.hide {
+  unhide = false,
+  place = { 'statusline' },
+}
 slimline.setup {
   bold = true, -- makes primary parts bold
 

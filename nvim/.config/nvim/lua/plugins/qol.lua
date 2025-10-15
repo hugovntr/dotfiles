@@ -17,14 +17,14 @@ return {
       },
     },
     config = function()
-      require 'custom.snacks'
+      require 'plugins.config.snacks'
     end,
   },
 
   -- File navigation
   {
     'stevearc/oil.nvim',
-    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
+    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
     opts = {},
     lazy = true,
     event = 'VeryLazy',
@@ -37,7 +37,7 @@ return {
           vim.opt_local.number = false
         end,
       })
-      require 'custom.oil'
+      require 'plugins.config.oil'
     end,
   },
 
@@ -53,6 +53,7 @@ return {
         end
         return vim.list_contains({ '<C-V>', 'V' }, ctx.mode)
       end,
+      preset = 'modern',
     },
   },
 
@@ -72,28 +73,11 @@ return {
         end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
-      { 'echasnovski/mini.icons', enabled = vim.g.have_nerd_font },
+      { 'nvim-mini/mini.icons', enabled = vim.g.have_nerd_font },
       { 'nvim-pack/nvim-spectre' },
     },
     config = function()
-      require 'custom.telescope'
-    end,
-  },
-
-  -- Top + Bottom line
-  {
-    'nvim-lualine/lualine.nvim',
-    lazy = true,
-    event = 'VeryLazy',
-    dependencies = {
-      { 'echasnovski/mini.icons', opts = {} },
-      'folke/noice.nvim',
-      { 'sschleemilch/slimline.nvim', event = 'VeryLazy' },
-    },
-    config = function()
-      require('mini.icons').setup()
-      require('mini.icons').mock_nvim_web_devicons()
-      require 'custom.lualine'
+      require 'plugins.config.telescope'
     end,
   },
 
