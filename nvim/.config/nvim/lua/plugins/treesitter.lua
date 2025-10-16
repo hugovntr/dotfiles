@@ -2,7 +2,8 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    branch = 'main',
+    branch = 'master',
+    lazy = false,
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -79,7 +80,7 @@ return {
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
       ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter').setup(opts)
+      require('nvim-treesitter.configs').setup(opts)
 
       -- folds
       vim.opt.foldmethod = 'expr'
