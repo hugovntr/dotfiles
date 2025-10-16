@@ -10,11 +10,9 @@ M.config = {
     treesitter = true,
     lsp = true,
     telescope = true,
-    nvimtree = false,
     blink = true,
     whichkey = true,
     gitsigns = true,
-    indent_blane = false,
     markdown = true,
     noice = true,
     trouble = true,
@@ -122,7 +120,6 @@ function M.base_init()
   require('forest-night.plugins.noice').apply(colors, config)
   require('forest-night.plugins.mason').apply(colors, config)
   require('forest-night.plugins.mini').apply(colors, config)
-  require('forest-night.plugins.telescope').apply(colors, config)
 
   local function hl(group, opts)
     vim.api.nvim_set_hl(0, group, opts)
