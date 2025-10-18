@@ -11,7 +11,7 @@ return {
         'themes',
         name = 'themes',
         dev = true,
-        lazy = false,
+        lazy = true,
         dependencies = {
           {
             'adibhanna/forest-night.nvim',

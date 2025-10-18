@@ -2,6 +2,7 @@ return {
   {
     'mrjones2014/smart-splits.nvim',
     event = 'VeryLazy',
+    lazy = true,
     dependencies = {
       {
         'aaronik/treewalker.nvim',
