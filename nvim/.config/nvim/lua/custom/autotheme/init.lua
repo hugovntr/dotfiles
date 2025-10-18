@@ -26,8 +26,9 @@ function M.get_system_theme()
   return 'dark'
 end
 
-function M.sync_with_system()
-  local system_theme = M.get_system_theme()
+---@param theme string|nil
+function M.sync_with_system(theme)
+  local system_theme = theme or M.get_system_theme()
   if system_theme ~= M.state then
     vim.o.background = system_theme
   end
@@ -44,10 +45,10 @@ function M.setup()
   })
 
   -- Sync with system theme on startup
-  M.sync_with_system()
+  --M.sync_with_system()
 
   -- Set initial theme
-  M.set_theme(vim.o.background)
+  --M.set_theme(vim.o.background)
 
   -- Register manual override command
   vim.keymap.set('n', '<leader>sa', function()
@@ -63,9 +64,9 @@ function M.setup()
 
   -- Read whenever a new notification comes in
   ---@diagnostic disable-next-line: param-type-mismatch
-  vim.uv.read_start(stdout, function()
+  vim.uv.read_start(stdout, function(_, chunk)
     vim.schedule(function()
-      M.sync_with_system()
+      M.sync_with_system(chunk:gsub('%s+', ''))
     end)
   end)
 
