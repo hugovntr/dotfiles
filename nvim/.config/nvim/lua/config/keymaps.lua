@@ -85,5 +85,12 @@ nnoremap('<M-l>', '<cmd>m .+1<cr>', { desc = 'Move line down (1)' })
 vnoremap('L', ":m '>+1<CR>gv=gv")
 vnoremap('K', ":m '<-2<CR>gv=gv")
 
+-- terminal navigation
+-- tnoremap('<Esc>', '<C-\\><C-n>') -- Back to normal mode on ESC
+tnoremap('<A-j>', '<C-\\><C-n><C-w>h') -- Exit left
+tnoremap('<A-m>', '<C-\\><C-n><C-w>l') -- Exit right
+tnoremap('<A-k>', '<C-\\><C-n><C-w>k') -- Exit top
+tnoremap('<A-l>', '<C-\\><C-n><C-w>j') -- Exit bottom
+
 -- Reload current file
 -- nnoremap('<C-r>', '<cmd>source %<cr>', { desc = '[R]eload current file' })
