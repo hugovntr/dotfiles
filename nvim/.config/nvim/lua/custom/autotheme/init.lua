@@ -65,9 +65,11 @@ function M.setup()
   -- Read whenever a new notification comes in
   ---@diagnostic disable-next-line: param-type-mismatch
   vim.uv.read_start(stdout, function(_, chunk)
-    vim.schedule(function()
-      M.sync_with_system(chunk:gsub('%s+', ''))
-    end)
+    if chunk then
+      vim.schedule(function()
+        M.sync_with_system(chunk:gsub('%s+', ''))
+      end)
+    end
   end)
 
   -- Kill the background process on exit
