@@ -75,6 +75,7 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.termguicolors = true
 vim.opt.hidden = false
+vim.opt.wrap = true
 
 -- Hide the CMD output so that lualine is always at the very bottom
 vim.opt.cmdheight = 0
