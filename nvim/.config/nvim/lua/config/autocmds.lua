@@ -12,3 +12,14 @@ vim.api.nvim_create_autocmd('BufEnter', {
     end
   end,
 })
+
+-- Open help in vertical split
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'help',
+  command = 'wincmd L',
+})
+
+-- Resize splits when vim gets resized
+vim.api.nvim_create_autocmd('VimResized', {
+  command = 'wincmd =',
+})
