@@ -17,6 +17,7 @@ return {
             'adibhanna/forest-night.nvim',
             lazy = true,
           },
+          { 'uhs-robert/oasis.nvim', lazy = true },
         },
       },
     },
