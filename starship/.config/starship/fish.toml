@@ -11,8 +11,8 @@ format = """\
 
 right_format="[ $container$username$localip$time ](bg:233)"
 
-[profiles]
-transient = """[$time](fg:white) $character"""
+# [profiles]
+# transient = """[$time](fg:white) $character"""
 
 [fill]
 symbol = "—"

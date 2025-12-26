@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/fish
+#!/usr/bin/env fish
 
 # --- Author: https://mansoorbarri.com/tmux-ghostty-startup/
 
