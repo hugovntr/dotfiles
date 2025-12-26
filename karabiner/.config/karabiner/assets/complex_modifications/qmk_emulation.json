@@ -82,8 +82,6 @@
 					"type": "basic",
 					"from": { "key_code": "s" },
 					"to": [{ "key_code": "left_shift" }],
-					"to_if_alone": [{ "key_code": "s" }],
-					"to_if_alone_threshold_milliseconds": 200
 				},
 				{
 					"description": "D -> Command (Hold) / D (Tap)",
