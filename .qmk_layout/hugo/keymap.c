@@ -46,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /** LEFT **/
 [_LOWER] = LAYOUT(
   QK_BOOT, EE_CLR, _______, _______, _______, S(RALT(KC_5)),                   _______, _______, _______,_______, S(RALT(KC_MINUS)), KC_DEL,
-  FR_0, FR_1, FR_2, FR_3, FR_4,  FR_5,                                   FR_6, FR_7, FR_8, FR_9, FR_0, FR_COMM,
-  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                          KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-  S(KC_PDOT), FR_6, FR_7, FR_8, FR_9, FR_COMM,           KC_PDOT, S(KC_PDOT),  XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+  FR_COMM, FR_1, FR_2, FR_3, FR_4,  FR_5,                                          FR_6, FR_7, FR_8, FR_9, FR_0, FR_COMM,
+  S(KC_PDOT), FR_6, FR_7, FR_8, FR_9, FR_0,                                  XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,     KC_PDOT, S(KC_PDOT),  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
                              _______, _______, _______, _______, _______,  _______, KC_DEL, _______
 ),
 
