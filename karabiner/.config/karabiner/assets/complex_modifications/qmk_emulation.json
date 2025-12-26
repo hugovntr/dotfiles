@@ -80,7 +80,7 @@
 				{
 					"description": "S -> Shift (Hold) / S (Tap)",
 					"type": "basic",
-					"from": { "key_code": "s", "modifiers": { "optional": ["any"] } },
+					"from": { "key_code": "s" },
 					"to": [{ "key_code": "left_shift" }],
 					"to_if_alone": [{ "key_code": "s" }],
 					"to_if_held_down_threshold_milliseconds": 200
@@ -115,22 +115,13 @@
 			"description": "QMK Raise Layer (Navigation)",
 			"manipulators": [
 				{
-					"description": "Raise Layer: H -> Left",
-					"conditions": [
-						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
-					],
-					"type": "basic",
-					"from": { "key_code": "h" },
-					"to": [{ "key_code": "left_arrow" }]
-				},
-				{
-					"description": "Raise Layer: J -> Down",
+					"description": "Raise Layer: J -> Left",
 					"conditions": [
 						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
 					],
 					"type": "basic",
 					"from": { "key_code": "j" },
-					"to": [{ "key_code": "down_arrow" }]
+					"to": [{ "key_code": "left_arrow" }]
 				},
 				{
 					"description": "Raise Layer: K -> Up",
@@ -142,12 +133,21 @@
 					"to": [{ "key_code": "up_arrow" }]
 				},
 				{
-					"description": "Raise Layer: L -> Right",
+					"description": "Raise Layer: L -> Down",
 					"conditions": [
 						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
 					],
 					"type": "basic",
 					"from": { "key_code": "l" },
+					"to": [{ "key_code": "down_arrow" }]
+				},
+				{
+					"description": "Raise Layer: M -> Right",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
+					],
+					"type": "basic",
+					"from": { "key_code": "semicolon" },
 					"to": [{ "key_code": "right_arrow" }]
 				}
 			]
