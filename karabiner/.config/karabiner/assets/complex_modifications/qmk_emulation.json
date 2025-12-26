@@ -1,0 +1,313 @@
+{
+	"title": "QMK Emulation",
+	"rules": [
+		{
+			"description": "QMK Emulation: Home Row Mods + Tri-Layer (Lower/Raise)",
+			"manipulators": [
+				{
+					"description": "Left Command -> Lower Layer (Variable)",
+					"type": "basic",
+					"from": {
+						"key_code": "left_command",
+						"modifiers": { "optional": ["any"] }
+					},
+					"to": [{ "set_variable": { "name": "layer_lower", "value": 1 } }],
+					"to_after_key_up": [
+						{ "set_variable": { "name": "layer_lower", "value": 0 } }
+					]
+				},
+				{
+					"description": "Right Command -> Raise Layer (Variable)",
+					"type": "basic",
+					"from": {
+						"key_code": "right_command",
+						"modifiers": { "optional": ["any"] }
+					},
+					"to": [{ "set_variable": { "name": "layer_raise", "value": 1 } }],
+					"to_after_key_up": [
+						{ "set_variable": { "name": "layer_raise", "value": 0 } }
+					]
+				},
+
+				{
+					"description": "Adjust Layer: Reset/Macros (Example)",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 },
+						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
+					],
+					"type": "basic",
+					"from": { "key_code": "delete_or_backspace" },
+					"to": [{ "key_code": "delete_forward" }]
+				},
+
+				{
+					"description": "Caps Lock -> Control (Hold) / Escape (Tap)",
+					"type": "basic",
+					"from": {
+						"key_code": "caps_lock",
+						"modifiers": { "optional": ["any"] }
+					},
+					"to": [{ "key_code": "left_control" }],
+					"to_if_alone": [{ "key_code": "escape" }]
+				},
+				{
+					"description": "S -> Shift (Hold) / S (Tap)",
+					"type": "basic",
+					"from": { "key_code": "s", "modifiers": { "optional": ["any"] } },
+					"to": [{ "key_code": "left_shift" }],
+					"to_if_alone": [{ "key_code": "s" }],
+					"to_if_held_down_threshold_milliseconds": 200
+				},
+				{
+					"description": "D -> Command (Hold) / D (Tap)",
+					"type": "basic",
+					"from": { "key_code": "d", "modifiers": { "optional": ["any"] } },
+					"to": [{ "key_code": "left_command" }],
+					"to_if_alone": [{ "key_code": "d" }],
+					"to_if_held_down_threshold_milliseconds": 200
+				},
+				{
+					"description": "H -> Right Option (Hold) / H (Tap)",
+					"type": "basic",
+					"from": { "key_code": "h", "modifiers": { "optional": ["any"] } },
+					"to": [{ "key_code": "right_option" }],
+					"to_if_alone": [{ "key_code": "h" }],
+					"to_if_held_down_threshold_milliseconds": 200
+				},
+				{
+					"description": "J -> Shift (Hold) / J (Tap)",
+					"type": "basic",
+					"from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
+					"to": [{ "key_code": "right_shift" }],
+					"to_if_alone": [{ "key_code": "j" }],
+					"to_if_held_down_threshold_milliseconds": 200
+				}
+			]
+		},
+		{
+			"description": "QMK Raise Layer (Navigation)",
+			"manipulators": [
+				{
+					"description": "Raise Layer: H -> Left",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
+					],
+					"type": "basic",
+					"from": { "key_code": "h" },
+					"to": [{ "key_code": "left_arrow" }]
+				},
+				{
+					"description": "Raise Layer: J -> Down",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
+					],
+					"type": "basic",
+					"from": { "key_code": "j" },
+					"to": [{ "key_code": "down_arrow" }]
+				},
+				{
+					"description": "Raise Layer: K -> Up",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
+					],
+					"type": "basic",
+					"from": { "key_code": "k" },
+					"to": [{ "key_code": "up_arrow" }]
+				},
+				{
+					"description": "Raise Layer: L -> Right",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_raise", "value": 1 }
+					],
+					"type": "basic",
+					"from": { "key_code": "l" },
+					"to": [{ "key_code": "right_arrow" }]
+				}
+			]
+		},
+		{
+			"description": "QMK Lower Layer (Numbers & Symbols) - Optimized for French Input",
+			"manipulators": [
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "q" },
+					"to": [{ "key_code": "0", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "w" },
+					"to": [{ "key_code": "1", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "e" },
+					"to": [{ "key_code": "2", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "r" },
+					"to": [{ "key_code": "3", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "t" },
+					"to": [{ "key_code": "4", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "y" },
+					"to": [{ "key_code": "5", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "u" },
+					"to": [{ "key_code": "6", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "i" },
+					"to": [{ "key_code": "7", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "o" },
+					"to": [{ "key_code": "8", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "p" },
+					"to": [{ "key_code": "9", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "open_bracket" },
+					"to": [{ "key_code": "0", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "close_bracket" },
+					"to": [{ "key_code": "m" }]
+				},
+
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "z" },
+					"to": [{ "key_code": "semicolon", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "x" },
+					"to": [{ "key_code": "6", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "c" },
+					"to": [{ "key_code": "7", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "v" },
+					"to": [{ "key_code": "8", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "b" },
+					"to": [{ "key_code": "9", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "n" },
+					"to": [{ "key_code": "comma" }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "m" },
+					"to": [{ "key_code": "semicolon", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "comma" },
+					"to": [{ "key_code": "8" }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "period" },
+					"to": [{ "key_code": "equal_sign", "modifiers": ["left_shift"] }]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{ "type": "variable_if", "name": "layer_lower", "value": 1 }
+					],
+					"from": { "key_code": "slash" },
+					"to": [
+						{ "key_code": "l", "modifiers": ["left_shift", "left_option"] }
+					]
+				}
+			]
+		}
+	]
+}
