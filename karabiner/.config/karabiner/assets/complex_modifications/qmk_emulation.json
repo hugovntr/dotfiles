@@ -107,16 +107,6 @@
 					"parameters": {
 						"basic.to_if_held_down_threshold_milliseconds": 200
 					}
-				},
-				{
-					"description": "J -> Shift (Hold) / J (Tap)",
-					"type": "basic",
-					"from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
-					"to": [{ "key_code": "right_shift" }],
-					"to_if_alone": [{ "key_code": "j" }],
-					"parameters": {
-						"basic.to_if_held_down_threshold_milliseconds": 200
-					}
 				}
 			]
 		},
