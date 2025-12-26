@@ -80,7 +80,7 @@
 				{
 					"description": "S -> Shift (Hold) / S (Tap)",
 					"type": "basic",
-					"from": { "key_code": "s" },
+					"from": { "key_code": "s", "modifiers": { "optional": ["any"] } },
 					"to_if_alone": [{ "key_code": "s" }],
 					"to_if_held_down": [{ "key_code": "left_shift" }],
 					"to_if_held_down_threshold_milliseconds": 200
