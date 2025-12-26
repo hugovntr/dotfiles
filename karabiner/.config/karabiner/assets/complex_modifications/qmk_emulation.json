@@ -29,6 +29,15 @@
 					]
 				},
 				{
+					"description": "Left Control -> Left Option",
+					"type": "basic",
+					"from": {
+						"key_code": "left_control",
+						"modifiers": { "optional": ["any"] }
+					},
+					"to": { "key_code": "left_option" }
+				},
+				{
 					"description": "Left Option -> Left Command",
 					"type": "basic",
 					"from": {
