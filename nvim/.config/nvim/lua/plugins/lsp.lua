@@ -4,6 +4,7 @@ return {
     opts = {
       ensure_installed = {
         -- Language Servers
+        'astro',
         'lua_ls',
         'html',
         'cssls',
