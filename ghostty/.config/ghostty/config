@@ -1,5 +1,5 @@
 shell-integration = fish
-command = ~/.config/ghostty/command.sh
+command = shell:~/.config/ghostty/command.sh
 confirm-close-surface = false
 title = "Ghostty"
 

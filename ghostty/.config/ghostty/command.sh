@@ -1,29 +1,22 @@
-#!/usr/bin/env fish
+#!/bin/sh
 
-# --- Author: https://mansoorbarri.com/tmux-ghostty-startup/
+# 1. Add Homebrew path (Apple Silicon) to the environment
+#    This ensures 'tmux' and 'fish' are found on M1/M2/M3 Macs.
+#    On Intel Macs, this line is harmless.
+export PATH="/opt/homebrew/bin:$PATH"
 
-# ZSH
-#SESSION_NAME="ghostty"
+SESSION_NAME="ghostty"
 
-# Fish
-set SESSION_NAME "ghostty"
+# 2. Check if the session exists
+tmux has-session -t "$SESSION_NAME" 2>/dev/null
 
-# Source .zshrc to initialize zsh properly
-#source ~/.zshrc
-source ~/.config/fish/config.fish
+# 3. Capture the result ($? is the exit code of the last command)
+if [ $? != 0 ]; then
+  # Session doesn't exist, so create it (detached)
+  tmux new-session -s "$SESSION_NAME" -d
+fi
 
-tmux has-session -t $SESSION_NAME 2>/dev/null
-
-# ZSH
-# if [ $? -eq 0 ]; then
-#   tmux attach-session -t $SESSION_NAME
-# else
-#   tmux new-session -s $SESSION_NAME -d
-#   tmux attach-session -t $SESSION_NAME
-# fi
-
-# Fish
-if count $argv -gt 0
-  tmux new-session -s $SESSION_NAME -d
-end
-tmux attach-session -t $SESSION_NAME
+# 4. Attach to the session
+#    (We use 'exec' so this script process is replaced by tmux,
+#    saving a tiny bit of resources)
+exec tmux attach-session -t "$SESSION_NAME"
