@@ -1,5 +1,5 @@
 return {
-  filetypes = { 'javascriptreact', 'typescriptreact', 'html', 'css', 'postcss', 'scss', 'less', 'mdx' },
+  filetypes = { 'javascriptreact', 'typescriptreact', 'html', 'css', 'postcss', 'scss', 'less', 'mdx', 'astro' },
   settings = {
     tailwindCSS = {
       validate = true,
