@@ -8,6 +8,7 @@ set -gx COLORTERM truecolor
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx FISH_CONFIG $XDG_CONFIG_HOME/fish
+set -gx DOTFILES $(path resolve (status --current-filename) | path dirname | path dirname | path dirname | path dirname) # This is ugly af
 set -gx EDITOR nvim
 
 # Homebrew
@@ -42,6 +43,11 @@ if test -d $XDG_DATA_HOME/fnm
             fish_add_path --append --path "$FNM_DIR"
         end
     end
+end
+
+# Golang
+if test -d $HOME/go
+    fish_add_path --append --path "$HOME/go/bin"
 end
 
 # Path
