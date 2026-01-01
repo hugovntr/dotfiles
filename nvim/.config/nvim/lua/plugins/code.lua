@@ -61,6 +61,7 @@ return {
       })
       require('formatter').setup {
         filetype = {
+          astro = { require('formatter.filetypes.typescript').biome },
           lua = { require('formatter.filetypes.lua').stylua },
           typescript = { require('formatter.filetypes.typescript').biome },
           typescriptreact = { require('formatter.filetypes.typescriptreact').biome },
