@@ -186,10 +186,14 @@ run = 'layout floating'
 if.app-id = 'com.apple.QuickTimePlayerX'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-name-regex-substring = "Simulator"
-run = 'layout floating'
+# [[on-window-detected]]
+# if.app-name-regex-substring = "Simulator"
+# run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = "LM Studio"
 run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.now.gg.BlueStacks'
+run = 'move-node-to-workspace 2'
