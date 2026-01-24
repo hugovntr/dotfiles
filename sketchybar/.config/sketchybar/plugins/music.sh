@@ -42,10 +42,21 @@ fi
 title=$(osascript -e 'tell application "Music" to get name of current track')
 artist=$(osascript -e 'tell application "Music" to get artist of current track')
 
+ARTWORK_LOCATION="$HOME/album_art.tiff"
 if [[ $STATE == "playing" ]]; then
-    osascript "$(pwd)/plugins/music.applescript"
+
+  CACHE_LOCATION="$HOME/Library/Caches/com.apple.Music/fsCachedData"
+  RAW_URL=$(find "$CACHE_LOCATION" -type f -mmin -128 -print0 | xargs -0 ls -t 2>/dev/null | head -n 1 | xargs -I {} cat "{}" | jq -r '.. | objects | select(has("artwork")) | .artwork.url' | head -n 1)
+
+  if [ -z "$RAW_URL" ] || [ "$RAW_URL" == "null" ]; then
+    # --- Do nothing
+    exit 0
+  fi
+  ARTWORK_SIZE=720
+  FINAL_URL=$(echo "$RAW_URL" | sed "s/{w}/$ARTWORK_SIZE/g; s/{h}/$ARTWORK_SIZE/g")
+  curl -s "$FINAL_URL" -o "$ARTWORK_LOCATION"
+
 fi
-ARTWORK_LOCATION="~/album_art.tiff"
 
 
 if [[ ${#title} -gt 25 ]]; then
@@ -77,8 +88,11 @@ music_artwork_args=(
   drawing=true
   label.drawing=false
   icon.drawing=false
+  background.corner_radius=0
   background.color="$TRANSPARENT"
-  background.image="$ARTWORK_LOCATION"
+  background.image.string="$ARTWORK_LOCATION"
+  background.image.corner_radius=4
+  background.image.y_offset=-2
 )
 
 sketchybar -m --set music "${music_args[@]}"
