@@ -8,9 +8,9 @@ notch_popup=(
   popup.topmost=false
   drawing=true
   label.drawing=false
-  popup.y_offset=-64
+  popup.y_offset=-68
   popup.drawing=true
-  popup.background.color=0xFF000000
+  popup.background.color=$BACKGROUND
   popup.background.drawing=true
   popup.horizontal=true
   popup.align=center
@@ -44,8 +44,8 @@ music_artwork=(
 )
 
 calendar=(
-  icon=" "
-  icon.y_offset=-1
+  icon="  "
+  icon.y_offset=0
   icon.font="$FONT_ICON:Bold:16.0"
   icon.color="$LABEL_INACTIVE"
   label.font="$FONT_SANS:Medium:13.0"
