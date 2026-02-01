@@ -7,8 +7,8 @@ snacks.setup {
   notifier = { enabled = true, style = 'compact', top_down = true },
   indent = {
     enabled = true,
-    scope = { enabled = true, only_current = false, priority = 200 },
-    chunk = { enabled = true, only_current = false, priority = 200, char = { arrow = '─' } },
+    scope = { enabled = true, only_current = true, priority = 200 },
+    chunk = { enabled = true, only_current = true, priority = 200, char = { arrow = '─' } },
   },
   gitbrowse = { enabled = false },
   statuscolumn = {
@@ -22,7 +22,7 @@ snacks.setup {
     -- git = {
     --   patterns = { 'GitSign', 'MiniDiffSign' },
     -- },
-    refresh = 50,
+    refresh = 200,
   },
   dashboard = {
     enabled = true,

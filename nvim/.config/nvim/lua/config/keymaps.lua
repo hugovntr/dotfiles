@@ -94,3 +94,6 @@ tnoremap('<A-l>', '<C-\\><C-n><C-w>j') -- Exit bottom
 
 -- Reload current file
 -- nnoremap('<C-r>', '<cmd>source %<cr>', { desc = '[R]eload current file' })
+
+-- Restart LSP (free the RAM gremlins)
+nnoremap('<leader>rl', '<cmd>LspRestart<cr>', { desc = '[R]estart [L]SP' })
