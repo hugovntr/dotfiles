@@ -25,7 +25,6 @@ return {
   {
     'stevearc/oil.nvim',
     dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
-    opts = {},
     lazy = true,
     event = 'VeryLazy',
     config = function()
