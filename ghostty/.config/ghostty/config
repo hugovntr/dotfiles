@@ -4,7 +4,8 @@ confirm-close-surface = false
 title = "Ghostty"
 
 # Theme
-theme = light:forest-light,dark:forest-night
+# theme = light:forest-light,dark:forest-night
+config-file = theme_selection
 
 # Window style
 alpha-blending = "native"
