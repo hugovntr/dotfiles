@@ -1,10 +1,22 @@
 return {
+  -- Unified Theme Manager
+  {
+    'unified',
+    name = 'unified',
+    dev = true,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('custom.unified').setup()
+    end,
+  },
   -- Automatically select light/dark theme
   {
     'autotheme',
     name = 'autotheme',
     dev = true,
     lazy = false,
+    enabled = false, -- Disabled in favor of unified
     priority = 1000,
     dependencies = {
       {
@@ -86,7 +98,6 @@ return {
   {
     'mvllow/modes.nvim',
     event = 'BufEnter',
-    opts = {},
     lazy = true,
     config = function()
       local opts = {
@@ -96,15 +107,21 @@ return {
         set_number = true,
         set_signcolumn = false,
       }
-      -- Initial setup
-      require('modes').setup(opts)
-      vim.o.cmdheight = 0
 
-      -- Autocommand on theme switch
-      vim.api.nvim_create_autocmd('OptionSet', {
-        pattern = 'background',
+      -- We defer the initial setup to ensure colorscheme is ready
+      vim.schedule(function()
+        require('modes').setup(opts)
+        vim.o.cmdheight = 0
+      end)
+
+      -- Reload when background OR colorscheme changes
+      vim.api.nvim_create_autocmd({ 'OptionSet' }, {
+        pattern = { 'background' },
         callback = function()
-          require('modes').setup(opts)
+          -- Defer re-setup to ensure highlight groups are fully registered
+          vim.schedule(function()
+            require('modes').setup(opts)
+          end)
         end,
       })
     end,
