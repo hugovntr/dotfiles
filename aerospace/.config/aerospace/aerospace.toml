@@ -196,4 +196,8 @@ run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'com.now.gg.BlueStacks'
-run = 'move-node-to-workspace 2'
+run = ['layout floating', 'move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = ['layout floating', 'move-node-to-workspace 2']
