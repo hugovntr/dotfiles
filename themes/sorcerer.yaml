@@ -1,0 +1,225 @@
+mode: dark # auto | dark | light
+
+dark:
+  background: "#0f111a"
+  foreground: "#c7c7c7"
+  cursor: "#ff9800"
+  selection_bg: "#2b2f40"
+  selection_fg: "#c7c7c7"
+  palette:
+    black: "#0f111a"
+    red: "#ff5370"
+    green: "#c3e88d"
+    yellow: "#ffcb6b"
+    blue: "#82aaff"
+    magenta: "#c792ea"
+    cyan: "#89ddff"
+    white: "#c7c7c7"
+    bright_black: "#546e7a"
+    bright_red: "#ff5370"
+    bright_green: "#c3e88d"
+    bright_yellow: "#ffcb6b"
+    bright_blue: "#82aaff"
+    bright_magenta: "#c792ea"
+    bright_cyan: "#89ddff"
+    bright_white: "#ffffff"
+
+light:
+  background: "#0f111a"
+  foreground: "#c7c7c7"
+  cursor: "#ff9800"
+  selection_bg: "#2b2f40"
+  selection_fg: "#c7c7c7"
+  palette:
+    black: "#0f111a"
+    red: "#ff5370"
+    green: "#c3e88d"
+    yellow: "#ffcb6b"
+    blue: "#82aaff"
+    magenta: "#c792ea"
+    cyan: "#89ddff"
+    white: "#c7c7c7"
+    bright_black: "#546e7a"
+    bright_red: "#ff5370"
+    bright_green: "#c3e88d"
+    bright_yellow: "#ffcb6b"
+    bright_blue: "#82aaff"
+    bright_magenta: "#c792ea"
+    bright_cyan: "#89ddff"
+    bright_white: "#ffffff"
+
+overrides:
+  dark:
+    ghostty:
+      # Ghostty Palette mappings
+      palette = 232: "#0f111a"
+      palette = 233: "#1a1c25"
+      palette = 234: "#2b2f40"
+      palette = 235: "#3b4050"
+      palette = 236: "#546e7a"
+      palette = 237: "#607c8b"
+      palette = 238: "#719cae"
+      palette = 239: "#c7c7c7"
+      palette = 240: "#ffffff"
+      palette = 241: "#89ddff"
+      palette = 242: "#82aaff"
+      palette = 243: "#c792ea"
+      palette = 244: "#ffcb6b"
+      palette = 245: "#c3e88d"
+      palette = 246: "#f78c6c"
+      palette = 247: "#ff5370"
+      palette = 248: "#ff5370"
+      # Syntax mapping
+      palette = 249: "#89ddff"
+      palette = 250: "#c792ea"
+      palette = 251: "#ffcb6b"
+      palette = 252: "#f78c6c"
+      palette = 253: "#c3e88d"
+      palette = 254: "#82aaff"
+      palette = 255: "#2b2f40"
+    neovim:
+      highlights:
+        # --- UI Elements ---
+        CursorLine: { bg: "#1a1c25" }
+        LineNr: { fg: "#546e7a" }
+        CursorLineNr: { fg: "#ff9800", bold: true }
+        Search: { fg: "#0f111a", bg: "#ffcb6b" }
+        IncSearch: { fg: "#0f111a", bg: "#f78c6c" }
+        Visual: { bg: "#2b2f40" }
+        Pmenu: { fg: "#c7c7c7", bg: "#1a1c25" }
+        PmenuSel: { fg: "#ffffff", bg: "#2b2f40" }
+        FloatBorder: { fg: "#546e7a", bg: "#0f111a" }
+        NormalFloat: { fg: "#c7c7c7", bg: "#0f111a" }
+        
+        # --- Syntax ---
+        Comment: { fg: "#546e7a", italic: true }
+        Constant: { fg: "#f78c6c" }
+        String: { fg: "#c3e88d" }
+        Identifier: { fg: "#c7c7c7" }
+        Function: { fg: "#82aaff" }
+        Statement: { fg: "#c792ea" }
+        Conditional: { fg: "#c792ea", bold: true }
+        Repeat: { fg: "#c792ea", bold: true }
+        Operator: { fg: "#89ddff" }
+        Keyword: { fg: "#c792ea" }
+        Type: { fg: "#ffcb6b" }
+        Structure: { fg: "#ffcb6b" }
+        Special: { fg: "#f78c6c" }
+        Delimiter: { fg: "#546e7a" }
+
+        # --- Plugins ---
+        # Snacks
+        SnacksIndent: { fg: "#3b4050" }
+        SnacksIndentScope: { fg: "#82aaff" }
+        SnacksDashboardHeader: { fg: "#c792ea", bold: true }
+        SnacksDashboardIcon: { fg: "#c792ea" }
+        SnacksDashboardTitle: { fg: "#c792ea", bold: true }
+        SnacksPickerMatch: { fg: "#ffcb6b", bold: true }
+        SnacksPickerDir: { fg: "#546e7a" }
+
+        # Blink CMP
+        BlinkCmpMenu: { fg: "#c7c7c7", bg: "#1a1c25" }
+        BlinkCmpMenuBorder: { fg: "#546e7a" }
+        BlinkCmpMenuSelection: { fg: "#ffffff", bg: "#2b2f40" }
+        BlinkCmpLabel: { fg: "#c7c7c7" }
+        BlinkCmpLabelMatch: { fg: "#ffcb6b", bold: true }
+        BlinkCmpKind: { fg: "#82aaff" }
+
+        # Mini
+        MiniCursorword: { bg: "#2b2f40" }
+        MiniCursorwordCurrent: { bg: "#2b2f40" }
+        MiniStatuslineModeNormal: { fg: "#0f111a", bg: "#82aaff", bold: true }
+        MiniStatuslineModeInsert: { fg: "#0f111a", bg: "#c3e88d", bold: true }
+        MiniStatuslineModeVisual: { fg: "#0f111a", bg: "#c792ea", bold: true }
+
+        # Telescope
+        TelescopeBorder: { fg: "#546e7a" }
+        TelescopePromptBorder: { fg: "#546e7a" }
+        TelescopeTitle: { fg: "#c792ea" }
+
+        # Modes (modes.nvim)
+        ModesCopy: { bg: "#ffcb6b" }
+        ModesDelete: { bg: "#ff5370" }
+        ModesInsert: { bg: "#c3e88d" }
+        ModesVisual: { bg: "#c792ea" }
+
+  light: # Fallback to dark
+    ghostty:
+       # Same as dark to enforce dark mode
+      palette = 232: "#0f111a"
+      palette = 233: "#1a1c25"
+      palette = 234: "#2b2f40"
+      palette = 235: "#3b4050"
+      palette = 236: "#546e7a"
+      palette = 237: "#607c8b"
+      palette = 238: "#719cae"
+      palette = 239: "#c7c7c7"
+      palette = 240: "#ffffff"
+      palette = 241: "#89ddff"
+      palette = 242: "#82aaff"
+      palette = 243: "#c792ea"
+      palette = 244: "#ffcb6b"
+      palette = 245: "#c3e88d"
+      palette = 246: "#f78c6c"
+      palette = 247: "#ff5370"
+      palette = 248: "#ff5370"
+      # Syntax mapping
+      palette = 249: "#89ddff"
+      palette = 250: "#c792ea"
+      palette = 251: "#ffcb6b"
+      palette = 252: "#f78c6c"
+      palette = 253: "#c3e88d"
+      palette = 254: "#82aaff"
+      palette = 255: "#2b2f40"
+    neovim:
+      highlights:
+        # Copy of dark highlights to enforce consistency
+        CursorLine: { bg: "#1a1c25" }
+        LineNr: { fg: "#546e7a" }
+        CursorLineNr: { fg: "#ff9800", bold: true }
+        Search: { fg: "#0f111a", bg: "#ffcb6b" }
+        IncSearch: { fg: "#0f111a", bg: "#f78c6c" }
+        Visual: { bg: "#2b2f40" }
+        Pmenu: { fg: "#c7c7c7", bg: "#1a1c25" }
+        PmenuSel: { fg: "#ffffff", bg: "#2b2f40" }
+        FloatBorder: { fg: "#546e7a", bg: "#0f111a" }
+        NormalFloat: { fg: "#c7c7c7", bg: "#0f111a" }
+        Comment: { fg: "#546e7a", italic: true }
+        Constant: { fg: "#f78c6c" }
+        String: { fg: "#c3e88d" }
+        Identifier: { fg: "#c7c7c7" }
+        Function: { fg: "#82aaff" }
+        Statement: { fg: "#c792ea" }
+        Conditional: { fg: "#c792ea", bold: true }
+        Repeat: { fg: "#c792ea", bold: true }
+        Operator: { fg: "#89ddff" }
+        Keyword: { fg: "#c792ea" }
+        Type: { fg: "#ffcb6b" }
+        Structure: { fg: "#ffcb6b" }
+        Special: { fg: "#f78c6c" }
+        Delimiter: { fg: "#546e7a" }
+        SnacksIndent: { fg: "#3b4050" }
+        SnacksIndentScope: { fg: "#82aaff" }
+        SnacksDashboardHeader: { fg: "#c792ea", bold: true }
+        SnacksDashboardIcon: { fg: "#c792ea" }
+        SnacksDashboardTitle: { fg: "#c792ea", bold: true }
+        SnacksPickerMatch: { fg: "#ffcb6b", bold: true }
+        SnacksPickerDir: { fg: "#546e7a" }
+        BlinkCmpMenu: { fg: "#c7c7c7", bg: "#1a1c25" }
+        BlinkCmpMenuBorder: { fg: "#546e7a" }
+        BlinkCmpMenuSelection: { fg: "#ffffff", bg: "#2b2f40" }
+        BlinkCmpLabel: { fg: "#c7c7c7" }
+        BlinkCmpLabelMatch: { fg: "#ffcb6b", bold: true }
+        BlinkCmpKind: { fg: "#82aaff" }
+        MiniCursorword: { bg: "#2b2f40" }
+        MiniCursorwordCurrent: { bg: "#2b2f40" }
+        MiniStatuslineModeNormal: { fg: "#0f111a", bg: "#82aaff", bold: true }
+        MiniStatuslineModeInsert: { fg: "#0f111a", bg: "#c3e88d", bold: true }
+        MiniStatuslineModeVisual: { fg: "#0f111a", bg: "#c792ea", bold: true }
+        TelescopeBorder: { fg: "#546e7a" }
+        TelescopePromptBorder: { fg: "#546e7a" }
+        TelescopeTitle: { fg: "#c792ea" }
+        ModesCopy: { bg: "#ffcb6b" }
+        ModesDelete: { bg: "#ff5370" }
+        ModesInsert: { bg: "#c3e88d" }
+        ModesVisual: { bg: "#c792ea" }
