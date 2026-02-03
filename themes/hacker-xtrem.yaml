@@ -1,0 +1,224 @@
+mode: dark # auto | dark | light
+
+dark:
+  background: "#000000"
+  foreground: "#47c232"
+  cursor: "#d700ff"
+  selection_bg: "#1a1a1a"
+  selection_fg: "#47c232"
+  palette:
+    black: "#000000"
+    red: "#ff3333"
+    green: "#33ff00"
+    yellow: "#ffff00"
+    blue: "#bd00ff"
+    magenta: "#ff00ff"
+    cyan: "#00ffff"
+    white: "#e0e0e0"
+    bright_black: "#333333"
+    bright_red: "#ff6666"
+    bright_green: "#66ff66"
+    bright_yellow: "#ffff66"
+    bright_blue: "#d580ff"
+    bright_magenta: "#ff66ff"
+    bright_cyan: "#80ffff"
+    bright_white: "#ffffff"
+
+light:
+  # 90s Hackers don't use light mode.
+  # Fallback to dark just in case.
+  background: "#000000"
+  foreground: "#47c232"
+  cursor: "#d700ff"
+  selection_bg: "#1a1a1a"
+  selection_fg: "#47c232"
+  palette:
+    black: "#000000"
+    red: "#ff3333"
+    green: "#33ff00"
+    yellow: "#ffff00"
+    blue: "#bd00ff"
+    magenta: "#ff00ff"
+    cyan: "#00ffff"
+    white: "#e0e0e0"
+    bright_black: "#333333"
+    bright_red: "#ff6666"
+    bright_green: "#66ff66"
+    bright_yellow: "#ffff66"
+    bright_blue: "#d580ff"
+    bright_magenta: "#ff66ff"
+    bright_cyan: "#80ffff"
+    bright_white: "#ffffff"
+
+overrides:
+  dark:
+    ghostty:
+      # Ghostty Palette mappings
+      palette = 232: "#000000" # BG
+      palette = 233: "#0d0d0d"
+      palette = 234: "#1a1a1a"
+      palette = 235: "#262626"
+      palette = 236: "#333333"
+      palette = 237: "#404040"
+      palette = 238: "#4d4d4d"
+      palette = 239: "#47c232" # FG
+      palette = 240: "#ffffff"
+      palette = 241: "#00ffff" # Cyan
+      palette = 242: "#bd00ff" # Blue (Purple)
+      palette = 243: "#ff00ff" # Magenta
+      palette = 244: "#ffff00" # Yellow
+      palette = 245: "#33ff00" # Green
+      palette = 246: "#d580ff"
+      palette = 247: "#d700ff" # Cursor
+      palette = 248: "#ff3333" # Red
+      # Syntax mapping
+      palette = 249: "#00ffff"
+      palette = 250: "#ff00ff"
+      palette = 251: "#ffff00"
+      palette = 252: "#d580ff"
+      palette = 253: "#33ff00"
+      palette = 254: "#bd00ff"
+      palette = 255: "#1a1a1a"
+    neovim:
+      highlights:
+        # --- UI Elements ---
+        CursorLine: { bg: "#0d0d0d" }
+        LineNr: { fg: "#006600" }
+        CursorLineNr: { fg: "#d700ff", bold: true } # Purple active line
+        Search: { fg: "#000000", bg: "#ffff00" }
+        IncSearch: { fg: "#000000", bg: "#33ff00" }
+        Visual: { bg: "#262626" }
+        Pmenu: { fg: "#47c232", bg: "#0d0d0d" }
+        PmenuSel: { fg: "#000000", bg: "#47c232" }
+        FloatBorder: { fg: "#33ff00", bg: "#000000" }
+        NormalFloat: { fg: "#47c232", bg: "#000000" }
+        
+        # --- Syntax ---
+        Comment: { fg: "#006600", italic: true } # Dark matrix green
+        Constant: { fg: "#d700ff" } # Purple
+        String: { fg: "#33ff00" }   # Bright Green
+        Identifier: { fg: "#ffffff" }
+        Function: { fg: "#00ffff" } # Cyan
+        Statement: { fg: "#bd00ff" } # Purple
+        Conditional: { fg: "#bd00ff", bold: true }
+        Repeat: { fg: "#bd00ff", bold: true }
+        Operator: { fg: "#ffff00" } # Yellow
+        Keyword: { fg: "#ff00ff" }  # Magenta
+        Type: { fg: "#00ffff" }     # Cyan
+        Structure: { fg: "#00ffff" }
+        Special: { fg: "#ffff00" }
+        Delimiter: { fg: "#006600" }
+
+        # --- Plugins ---
+        # Snacks
+        SnacksIndent: { fg: "#1a1a1a" }
+        SnacksIndentScope: { fg: "#33ff00" }
+        SnacksDashboardHeader: { fg: "#33ff00", bold: true }
+        SnacksDashboardIcon: { fg: "#d700ff" }
+        SnacksDashboardTitle: { fg: "#33ff00", bold: true }
+        SnacksPickerMatch: { fg: "#ffff00", bold: true }
+        SnacksPickerDir: { fg: "#006600" }
+
+        # Blink CMP
+        BlinkCmpMenu: { fg: "#47c232", bg: "#0d0d0d" }
+        BlinkCmpMenuBorder: { fg: "#33ff00" }
+        BlinkCmpMenuSelection: { fg: "#000000", bg: "#47c232" }
+        BlinkCmpLabel: { fg: "#47c232" }
+        BlinkCmpLabelMatch: { fg: "#d700ff", bold: true }
+        BlinkCmpKind: { fg: "#00ffff" }
+
+        # Mini
+        MiniCursorword: { bg: "#1a1a1a" }
+        MiniCursorwordCurrent: { bg: "#1a1a1a" }
+        MiniStatuslineModeNormal: { fg: "#000000", bg: "#33ff00", bold: true }
+        MiniStatuslineModeInsert: { fg: "#000000", bg: "#d700ff", bold: true } # Purple insert
+        MiniStatuslineModeVisual: { fg: "#000000", bg: "#ffff00", bold: true }
+
+        # Telescope
+        TelescopeBorder: { fg: "#33ff00" }
+        TelescopePromptBorder: { fg: "#d700ff" }
+        TelescopeTitle: { fg: "#000000", bg: "#33ff00" }
+
+        # Modes
+        ModesCopy: { bg: "#ffff00" }
+        ModesDelete: { bg: "#ff3333" }
+        ModesInsert: { bg: "#d700ff" }
+        ModesVisual: { bg: "#00ffff" }
+
+  light: # Same as dark
+    ghostty:
+      palette = 232: "#000000"
+      palette = 233: "#0d0d0d"
+      palette = 234: "#1a1a1a"
+      palette = 235: "#262626"
+      palette = 236: "#333333"
+      palette = 237: "#404040"
+      palette = 238: "#4d4d4d"
+      palette = 239: "#47c232"
+      palette = 240: "#ffffff"
+      palette = 241: "#00ffff"
+      palette = 242: "#bd00ff"
+      palette = 243: "#ff00ff"
+      palette = 244: "#ffff00"
+      palette = 245: "#33ff00"
+      palette = 246: "#d580ff"
+      palette = 247: "#d700ff"
+      palette = 248: "#ff3333"
+      palette = 249: "#00ffff"
+      palette = 250: "#ff00ff"
+      palette = 251: "#ffff00"
+      palette = 252: "#d580ff"
+      palette = 253: "#33ff00"
+      palette = 254: "#bd00ff"
+      palette = 255: "#1a1a1a"
+    neovim:
+      highlights:
+        CursorLine: { bg: "#0d0d0d" }
+        LineNr: { fg: "#006600" }
+        CursorLineNr: { fg: "#d700ff", bold: true }
+        Search: { fg: "#000000", bg: "#ffff00" }
+        IncSearch: { fg: "#000000", bg: "#33ff00" }
+        Visual: { bg: "#262626" }
+        Pmenu: { fg: "#47c232", bg: "#0d0d0d" }
+        PmenuSel: { fg: "#000000", bg: "#47c232" }
+        FloatBorder: { fg: "#33ff00", bg: "#000000" }
+        NormalFloat: { fg: "#47c232", bg: "#000000" }
+        Comment: { fg: "#006600", italic: true }
+        Constant: { fg: "#d700ff" }
+        String: { fg: "#33ff00" }
+        Identifier: { fg: "#ffffff" }
+        Function: { fg: "#00ffff" }
+        Statement: { fg: "#bd00ff" }
+        Conditional: { fg: "#bd00ff", bold: true }
+        Repeat: { fg: "#bd00ff", bold: true }
+        Operator: { fg: "#ffff00" }
+        Keyword: { fg: "#ff00ff" }
+        Type: { fg: "#00ffff" }
+        Structure: { fg: "#00ffff" }
+        Special: { fg: "#ffff00" }
+        Delimiter: { fg: "#006600" }
+        SnacksIndent: { fg: "#1a1a1a" }
+        SnacksIndentScope: { fg: "#33ff00" }
+        SnacksDashboardHeader: { fg: "#33ff00", bold: true }
+        SnacksDashboardIcon: { fg: "#d700ff" }
+        SnacksDashboardTitle: { fg: "#33ff00", bold: true }
+        SnacksPickerMatch: { fg: "#ffff00", bold: true }
+        SnacksPickerDir: { fg: "#006600" }
+        BlinkCmpMenu: { fg: "#47c232", bg: "#0d0d0d" }
+        BlinkCmpMenuBorder: { fg: "#33ff00" }
+        BlinkCmpMenuSelection: { fg: "#000000", bg: "#47c232" }
+        BlinkCmpLabel: { fg: "#47c232" }
+        BlinkCmpLabelMatch: { fg: "#d700ff", bold: true }
+        BlinkCmpKind: { fg: "#00ffff" }
+        MiniCursorword: { bg: "#1a1a1a" }
+        MiniCursorwordCurrent: { bg: "#1a1a1a" }
+        MiniStatuslineModeNormal: { fg: "#000000", bg: "#33ff00", bold: true }
+        MiniStatuslineModeInsert: { fg: "#000000", bg: "#d700ff", bold: true }
+        MiniStatuslineModeVisual: { fg: "#000000", bg: "#ffff00", bold: true }
+        TelescopeBorder: { fg: "#33ff00" }
+        TelescopePromptBorder: { fg: "#d700ff" }
+        TelescopeTitle: { fg: "#000000", bg: "#33ff00" }
+        ModesCopy: { bg: "#ffff00" }
+        ModesDelete: { bg: "#ff3333" }
+        ModesInsert: { bg: "#d700ff" }
+        ModesVisual: { bg: "#00ffff" }
