@@ -192,7 +192,7 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = "LM Studio"
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace 3']
 
 [[on-window-detected]]
 if.app-id = 'com.now.gg.BlueStacks'
