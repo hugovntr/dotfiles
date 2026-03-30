@@ -148,11 +148,14 @@ semicolon = [ 'move right', 'mode main', 'exec-and-forget sketchybar --trigger m
 # Resize
 [mode.resize.binding]
 esc = ["mode main", 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+u = ['resize smart -50']
+p = ['resize smart +50']
 j = ['resize smart -200']
 semicolon = ['resize smart +200']
 r = ['balance-sizes', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 f = ['fullscreen', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
-t = ['layout tiles horizontal vertical','mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+t = ['layout floating tiling','mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+# t = ['layout tiles horizontal vertical','mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 q = ['layout accordion horizontal vertical', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 
 # ---
@@ -193,10 +196,6 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-name-regex-substring = "LM Studio"
 run = ['move-node-to-workspace 3']
-
-[[on-window-detected]]
-if.app-id = 'com.now.gg.BlueStacks'
-run = ['layout floating', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
