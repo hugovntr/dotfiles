@@ -30,7 +30,7 @@ return {
       preferences = {
         preferTypeOnlyAutoImports = true,
         importModuleSpecifier = 'non-relative',
-        autoImportFileExcludePatterns = { 'lucide-react', 'motion/react-m', 'next/dist', 'motion/react' },
+        autoImportFileExcludePatterns = { 'lucide-react', 'motion/react-m', 'next/dist', 'motion/react', '@base-ui/react' },
       },
       tsserver = {
         useSeparateSyntaxServer = true,
