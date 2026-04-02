@@ -11,14 +11,13 @@ local function bind(op, outer_opts)
   end
 end
 
-local map = bind ''
 local nvnoremap = bind { 'n', 'v' }
 local ninoremap = bind { 'n', 'i' }
 local nnoremap = bind 'n'
 local vnoremap = bind 'v'
-local xnoremap = bind 'x'
 local inoremap = bind 'i'
 local tnoremap = bind 't'
+local nxonoremap = bind { 'n', 'x', 'o' }
 
 -- Clear highlights when pressing <Esc>
 nnoremap('<esc><esc>', '<cmd>nohlsearch<cr>')
@@ -97,3 +96,20 @@ tnoremap('<A-l>', '<C-\\><C-n><C-w>j') -- Exit bottom
 
 -- Restart LSP (free the RAM gremlins)
 nnoremap('<leader>rl', '<cmd>LspRestart<cr>', { desc = '[R]estart [L]SP' })
+
+-- Incremental Selection
+nxonoremap('<C-d>', function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require('vim.treesitter._select').select_parent(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
+end, { desc = 'Select parent treesitter node or outer incremental lsp selection' })
+
+vnoremap('-', function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require('vim.treesitter._select').select_child(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
+end, { desc = 'Select parent treesitter node or outer incremental lsp selection' })

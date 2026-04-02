@@ -2,11 +2,11 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    branch = 'master',
+    branch = 'main',
     lazy = false,
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+      { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
     opts = {
@@ -34,15 +34,6 @@ return {
         -- additional_vim_regex_highlighting = false,
       },
       indent = { enable = true, disable = { 'ruby' } },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<C-d>',
-          node_incremental = '<C-d>',
-          scope_incremental = false,
-          node_decremental = '-',
-        },
-      },
       textobjects = {
         select = {
           enable = true,
@@ -76,31 +67,6 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup(opts)
-
-      -- folds
-      -- vim.opt.foldmethod = 'expr'
-      vim.opt.foldmethod = 'manual'
-      vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      -- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-      vim.opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
-      vim.opt.foldlevel = 2
-      vim.opt.foldlevelstart = 99
-      vim.opt.foldnestmax = 4
-      -- vim.cmd [[ set nofoldenable ]]
-
-      -- Languages aliases
-      vim.treesitter.language.register('markdown', 'mdx')
-      vim.filetype.add {
-        extension = {
-          mdx = 'markdown',
-        },
-      }
-    end,
   },
   {
     'MeanderingProgrammer/markdown.nvim',
