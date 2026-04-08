@@ -64,6 +64,7 @@ blink.setup {
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 500,
+      window = { border = 'none' },
     },
 
     trigger = {
@@ -89,7 +90,7 @@ blink.setup {
     menu = {
       min_width = 40,
       scrollbar = false,
-      border = 'single',
+      border = 'none',
       draw = {
         padding = 1,
         gap = 2,
