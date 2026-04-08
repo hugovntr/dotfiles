@@ -4,11 +4,9 @@ return {
     'saghen/blink.cmp',
     dependencies = {
       'rafamadriz/friendly-snippets',
-      'onsails/lspkind.nvim',
       { 'xzbdmw/colorful-menu.nvim' },
-      { 'L3MON4D3/LuaSnip', version = 'v2.*' },
     },
-    version = '*',
+    version = '1.*',
     event = 'InsertEnter',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
