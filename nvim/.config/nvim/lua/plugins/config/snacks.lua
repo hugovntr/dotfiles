@@ -4,7 +4,7 @@ local ascii = require 'ascii'
 snacks.setup {
   image = { enabled = true },
   bigfile = { enabled = true },
-  notifier = { enabled = true, style = 'compact', top_down = true },
+  notifier = { enabled = true, style = 'minimal', top_down = true },
   indent = {
     enabled = true,
     scope = { enabled = true, only_current = true, priority = 200 },
