@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('init-lsp-attach', { clear = true }),
   callback = function(event)
     local map = function(keys, func, desc)
-      vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+      vim.keymap.set('n', keys, func, { buffer = event.buf, noremap = true, desc = 'LSP: ' .. desc })
     end
 
     map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
@@ -14,7 +14,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
     map('ss', vim.lsp.buf.code_action, 'Code Action (alias <leader>ca)')
-    map('K', vim.lsp.buf.hover, 'Hover Documentation')
+    map('K', function()
+      vim.lsp.buf.hover {
+        border = 'double',
+      }
+    end, 'Hover Documentation')
     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
     map('<leader>i', function()
