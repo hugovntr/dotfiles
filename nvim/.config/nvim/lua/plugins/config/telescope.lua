@@ -35,7 +35,7 @@ local custom_actions = {
 telescope.setup {
   defaults = vim.tbl_extend(
     'force',
-    themes.get_cursor {
+    themes.get_ivy {
       layout_config = {
         width = function(_, max_columns, _)
           return math.min(max_columns, 180)
@@ -67,7 +67,8 @@ telescope.setup {
   },
   extensions = {
     ['ui-select'] = {
-      themes.get_ivy(),
+      themes.get_cursor(),
+      --themes.get_ivy(),
     },
     fzf = {
       fuzzy = true,
