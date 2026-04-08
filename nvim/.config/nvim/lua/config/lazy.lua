@@ -16,8 +16,19 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   spec = {
-    { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
+    {
+      'LazyVim/LazyVim',
+      import = 'lazyvim.plugins',
+      opts = {
+        defaults = {
+          keymaps = false,
+        },
+      },
+    },
     { import = 'plugins' },
+    -- Disable some default plugins
+    { 'nvim-neo-tree/neo-tree.nvim', enabled = false },
+    { 'folke/flash.nvim', enabled = false },
   },
   -- defaults = { lazy = true },
   dev = {
