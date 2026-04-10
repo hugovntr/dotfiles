@@ -15,6 +15,7 @@ return {
         'c',
         'html',
         'lua',
+        'go',
         'markdown',
         'markdown_inline',
         'vim',
@@ -26,6 +27,8 @@ return {
         'json',
         'dockerfile',
         'htmldjango',
+        'yaml',
+        'json',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
