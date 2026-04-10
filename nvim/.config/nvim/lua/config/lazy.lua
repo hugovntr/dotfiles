@@ -19,11 +19,6 @@ require('lazy').setup({
     {
       'LazyVim/LazyVim',
       import = 'lazyvim.plugins',
-      opts = {
-        defaults = {
-          keymaps = false,
-        },
-      },
     },
     { import = 'plugins' },
     -- Disable some default plugins
