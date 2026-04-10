@@ -16,6 +16,7 @@ return {
         'ltex',
         'emmet_language_server',
         'rust_analyzer',
+        'yamlls',
         -- Tools
         'stylua',
         'biome',
