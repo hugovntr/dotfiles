@@ -13,7 +13,7 @@ oil.setup {
     cursorcolumn = false,
     list = false,
     spell = false,
-    signcolumn = 'no',
+    signcolumn = 'yes',
   },
   delete_to_trash = true,
   view_options = {
@@ -96,15 +96,15 @@ local function toggle_oil()
     local col = math.floor((vim.o.columns - width) / 2)
 
     -- Store config for later title updates
-    oil_float_config = { row = row, col = col, width = width, height = height, title_pos = 'left' }
+    oil_float_config = { row = row, col = col, width = width, height = height, title_pos = 'center' }
 
     -- Open float with the blank buffer
     local win = vim.api.nvim_open_win(buf, true, {
       relative = 'editor',
-      row = row,
-      col = col,
-      width = width,
-      height = height,
+      row = oil_float_config.row,
+      col = oil_float_config.col,
+      width = oil_float_config.width,
+      height = oil_float_config.height,
       style = 'minimal',
       border = 'rounded',
       title = ' ' .. vim.fn.fnamemodify(dir, ':~') .. ' ',
@@ -147,6 +147,6 @@ vim.keymap.set('n', '<Esc>', function()
   if is_oil() then
     oil.close()
     oil_float_win = nil
-    oil_float_config = nil
+    --oil_float_config = nil
   end
 end)
