@@ -11,10 +11,10 @@ config-file = theme_selection
 alpha-blending = "native"
 window-padding-x = 8,2
 window-padding-y = 0
-window-padding-balance = "true"
+window-padding-balance = true
 window-vsync = true
 #window-padding-color = "extend-always"
-window-padding-color = "extend"
+window-padding-color = "extend-always"
 window-colorspace = "display-p3"
 
 # MacOS window style
