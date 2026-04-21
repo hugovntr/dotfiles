@@ -1,16 +1,18 @@
 #!/bin/bash
 
 space_manager=(
+  drawing=false
   script="$PLUGIN_DIR/space_manager.sh"
   icon.font="$FONT_ICON:Bold:16.0"
   label.drawing=on
-  icon.drawing=off
+  icon.drawing=true
   icon.width=30
   icon=$YABAI_GRID
   associated_display=active
 )
 
 front_app=(
+  drawing=false
   script="$PLUGIN_DIR/front_app.sh"
   label.font="$FONT_SANS:Bold:12.0"
   icon.font="sketchybar-app-font:Regular:16:0"
