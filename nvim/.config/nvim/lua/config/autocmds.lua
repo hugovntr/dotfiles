@@ -1,6 +1,6 @@
-local function augroup(name)
-  return vim.api.nvim_create_augroup(name, { clear = true })
-end
+-- local function augroup(name)
+--   return vim.api.nvim_create_augroup(name, { clear = true })
+-- end
 
 -- Insert mode when entering terminal
 -- vim.api.nvim_create_autocmd('BufEnter', {
@@ -22,4 +22,10 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Resize splits when vim gets resized
 vim.api.nvim_create_autocmd('VimResized', {
   command = 'wincmd =',
+})
+
+-- Disable automatic comment insertion on new line
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = '*',
+  command = 'set formatoptions-=o',
 })
