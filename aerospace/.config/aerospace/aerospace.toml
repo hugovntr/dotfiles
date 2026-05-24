@@ -136,9 +136,9 @@ alt-shift-l = ['join-with right', 'mode main', 'exec-and-forget sketchybar --tri
 # Move
 [mode.move.binding]
 esc = ['mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
-1 = ['move-node-to-workspace 1', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
-2 = ['move-node-to-workspace 2', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
-3 = ['move-node-to-workspace 3', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+1 = ['move-node-to-workspace 1', 'layout floating tiling', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+2 = ['move-node-to-workspace 2', 'layout floating', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
+3 = ['move-node-to-workspace 3', 'layout floating tiling', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default']
 j = [ 'move left', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default' ]
 k = [ 'move up', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default' ]
 l = [ 'move down', 'mode main', 'exec-and-forget sketchybar --trigger mode_changed MODE=default' ]
@@ -202,4 +202,10 @@ run = ['layout floating', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'com.now.gg.BlueStacks'
-run = ['layout floating tiling']
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-name-regex-substring = '.*'
+check-further-callbacks = true
+if.workspace = '2'
+run = ['layout floating']
