@@ -126,6 +126,7 @@ return {
     event = 'VeryLazy',
     config = function()
       require 'plugins.config.spectre'
+      vim.keymap.set('n', '<leader>sp', '<cmd>Spectre<cr>', { desc = '[Sp]ectre', silent = true })
     end,
   },
 
