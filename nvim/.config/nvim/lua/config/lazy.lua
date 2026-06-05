@@ -24,8 +24,10 @@ require('lazy').setup({
     -- Disable some default plugins
     { 'nvim-neo-tree/neo-tree.nvim', enabled = false },
     { 'folke/flash.nvim', enabled = false },
+    { 'nvim-lualine/lualine.nvim', enabled = false },
   },
   -- defaults = { lazy = true },
+  ---@diagnostic disable-next-line: assign-type-mismatch
   dev = {
     path = '~/.config/nvim/lua/custom/',
   },

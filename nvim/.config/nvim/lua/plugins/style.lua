@@ -60,22 +60,22 @@ return {
   },
 
   -- Top + Bottom line
-  {
-    'nvim-lualine/lualine.nvim',
-    event = 'VeryLazy',
-    lazy = true,
-    enabled = false,
-    dependencies = {
-      { 'nvim-mini/mini.icons', opts = {}, lazy = true },
-      { 'folke/noice.nvim', lazy = true },
-      { 'sschleemilch/slimline.nvim', event = 'VeryLazy' },
-    },
-    config = function()
-      require('mini.icons').setup()
-      require('mini.icons').mock_nvim_web_devicons()
-      require 'plugins.config.lualine'
-    end,
-  },
+  -- {
+  --   'nvim-lualine/lualine.nvim',
+  --   event = 'VeryLazy',
+  --   lazy = true,
+  --   enabled = false,
+  --   dependencies = {
+  --     { 'nvim-mini/mini.icons', opts = {}, lazy = true },
+  --     { 'folke/noice.nvim', lazy = true },
+  --     { 'sschleemilch/slimline.nvim', event = 'VeryLazy' },
+  --   },
+  --   config = function()
+  --     require('mini.icons').setup()
+  --     require('mini.icons').mock_nvim_web_devicons()
+  --     require 'plugins.config.lualine'
+  --   end,
+  -- },
 
   -- Color preview
   {

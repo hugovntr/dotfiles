@@ -29,6 +29,9 @@ M.config = function()
     },
   }
 
+  vim.keymap.set('n', '<leader>bp', '<cmd>BufferLineMovePrev<cr>', { desc = 'Move [B]uffer [P]rev', noremap = true })
+  vim.keymap.set('n', '<leader>bn', '<cmd>BufferLineMoveNext<cr>', { desc = 'Move [B]uffer [N]ext', noremap = true })
+
   --
   -- BOTTOM LINE
   --
@@ -128,8 +131,8 @@ M.config = function()
     -- Seperator configuartion
     sep = {
       hide = {
-        first = false, -- hides the first separator of the line
-        last = false, -- hides the last separator of the line
+        first = true, -- hides the first separator of the line
+        last = true, -- hides the last separator of the line
       },
       left = '', -- left separator of components
       right = '', -- right separator of components
