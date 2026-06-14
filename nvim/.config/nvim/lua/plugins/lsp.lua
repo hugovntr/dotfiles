@@ -13,7 +13,7 @@ return {
         'clangd',
         'gopls',
         'ruff',
-        'ltex',
+        'ltex_plus',
         'emmet_language_server',
         'rust_analyzer',
         'yamlls',
@@ -26,6 +26,7 @@ return {
     event = 'VeryLazy',
     dependencies = {
       'mason-org/mason.nvim',
+      'jhofscheier/ltex-utils.nvim', -- LaTeX LSP method implementations
     },
     config = function()
       require 'plugins.config.lsp'
