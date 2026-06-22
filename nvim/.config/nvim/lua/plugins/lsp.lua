@@ -17,6 +17,7 @@ return {
         'emmet_language_server',
         'rust_analyzer',
         'yamlls',
+        'marksman',
         -- Tools
         'stylua',
         'biome',
