@@ -29,6 +29,8 @@ M.config = function()
     },
   }
 
+  vim.keymap.set('n', '<C-n>', '<cmd>BufferLineCycleNext<cr>', { noremap = true })
+  vim.keymap.set('n', '<C-p>', '<cmd>BufferLineCyclePrev<cr>', { noremap = true })
   vim.keymap.set('n', '<leader>bp', '<cmd>BufferLineMovePrev<cr>', { desc = 'Move [B]uffer [P]rev', noremap = true })
   vim.keymap.set('n', '<leader>bn', '<cmd>BufferLineMoveNext<cr>', { desc = 'Move [B]uffer [N]ext', noremap = true })
   for i = 1, 9 do

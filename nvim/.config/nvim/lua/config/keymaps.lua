@@ -58,8 +58,8 @@ nvnoremap('dd', '"_dd')
 nnoremap('cw', '"_ciw') -- Change inside word without copy
 
 -- Buffer management
-nnoremap('<C-p>', '<cmd>bprev<cr>', { desc = 'Previous buffer' })
-nnoremap('<C-n>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+-- nnoremap('<C-p>', '<cmd>bprev<cr>', { desc = 'Previous buffer' })
+-- nnoremap('<C-n>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
 nnoremap('<leader>qp', '<cmd>close<cr>', { silent = false, desc = '[C]lose current [p]ane but keep the buffer open', remap = true })
 -- nnoremap('qq', '<cmd>bd<cr>', { silent = true, desc = 'Close current buffer' })
 
