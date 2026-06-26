@@ -23,13 +23,15 @@ macos-window-shadow = false
 macos-icon = "holographic"
 
 # Font
-font-family = "Geist Mono"
-font-feature = "calt, liga, zero, cv12, ss20, cv10, cv16, cv18"
+font-family = "BerkleyMonoVariable Nerd Font Mono"
+#font-family = "Geist Mono"
+#font-feature = "calt, liga, zero, cv12, ss20, cv10, cv16, cv18"
 font-thicken = false
 font-size = 12
-adjust-cell-height = "75%"
-adjust-cell-width = "-7%"
-adjust-cursor-height = "75%"
+adjust-cell-height = 10
+#adjust-cell-height = "75%"
+adjust-cell-width = 0
+#adjust-cursor-height = "75%"
 
 # Keybind
 macos-option-as-alt = left
