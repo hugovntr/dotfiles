@@ -1,0 +1,143 @@
+mode: dark # auto | dark | light
+
+dark:
+  background: '#0b0c0c'
+  foreground: '#f3f2f1'
+  cursor: '#f3f2f1'
+  selection_bg: '#35311b'
+  selection_fg: '#fff4c2'
+  palette:
+    black: '#0b0c0c'
+    red: '#d4351c'
+    green: '#00703c'
+    yellow: '#ffdd00'
+    blue: '#1d70b8'
+    magenta: '#4c2c92'
+    cyan: '#28a197'
+    white: '#ffffff'
+    bright_black: '#505a5f'
+    bright_red: '#e28f84'
+    bright_green: '#85994b'
+    bright_yellow: '#fff4c2'
+    bright_blue: '#5694ca'
+    bright_magenta: '#912b88'
+    bright_cyan: '#5694ca'
+    bright_white: '#f3f2f1'
+
+overrides:
+  dark:
+    ghostty:
+      background-opacity: 0.94
+      background-blur: 24
+      palette = 232: '#0b0b0c'
+      palette = 233: '#1a1c25'
+      palette = 234: '#2b2f40'
+      palette = 235: '#3b4050'
+      palette = 236: '#1d1d1f'
+      palette = 237: '#607c8b'
+      palette = 238: '#719cae'
+      palette = 239: '#ffffff'
+      palette = 240: '#ffffff'
+      palette = 241: '#28a197'
+      palette = 242: '#1d70b8'
+      palette = 243: '#4c2c92'
+      palette = 244: '#ffdd00'
+      palette = 245: '#00703c'
+      palette = 246: '#f78c6c'
+      palette = 247: '#d4351c'
+      palette = 248: '#d4351c'
+      palette = 249: '#28a197'
+      palette = 250: '#4c2c92'
+      palette = 251: '#ffdd00'
+      palette = 252: '#f78c6c'
+      palette = 253: '#505a5f' # Session background
+      palette = 254: '#1d70b8'
+      palette = 255: '#2b2f40'
+    neovim:
+      highlights:
+        Normal: { bg: 'none' }
+        # --- UI Elements ---
+        CursorLine: { bg: '#1d1f1f' }
+        LineNr: { fg: '#505a5f' }
+        CursorLineNr: { fg: '#ffdd00' }
+        Search: { fg: '#1d1f1f', bg: '#35311b' }
+        IncSearch: { fg: '#1d1f1f', bg: '#35311b' }
+        Visual: { bg: '#35311b' }
+        Pmenu: { fg: '#f3f2f1', bg: '#0b0c0c' }
+        PmenuSel: { link: 'CursorLine' }
+        FloatBorder: { fg: '#2a2c2e' }
+        NormalFloat: { bg: 'none' }
+        StatusLine: { bg: '' }
+        TabLineFill: { bg: '' }
+
+        # --- Syntax ---
+        Boolean: { fg: '#4c2c92' }
+        Builtin: { fg: '#1d70b8' }
+        Comment: { fg: '#505a5f', italic: true }
+        Constant: { fg: '#6f72af' }
+        Decorator: { fg: '#2a2c2e' }
+        Delimiter: { fg: '#505a5f' }
+        Function: { fg: '#5694ca' }
+        Key: { fg: '#5694ca' }
+        Keyword: { fg: '#d53880', italic: true }
+        Number: { fg: '#6f72af' }
+        Float: { link: 'Number' }
+        Path: { fg: '#00703c' }
+        Property: { fg: '#b1b4b6' }
+        Punctuation: { fg: '#2a2c2e' }
+        Regexp: { fg: '#b58840' }
+        String: { fg: '#85994b' }
+        Tag: { fg: '#1d70b8' }
+        Identifier: { fg: '#f3f2f1' }
+        Statement: { fg: '#d53880' }
+        Conditional: { link: 'Keyword' }
+        Repeat: { fg: '#d53880', italic: true }
+        Operator: { fg: '#912b88' }
+        Type: { fg: '#28a197' }
+        Structure: { fg: '#28a197' }
+        Special: { fg: '#1d70b8' }
+        '@event': { link: 'Identifier' }
+        '@interface': { link: 'Identifier' }
+        '@modifier': { link: 'Identifier' }
+        '@tag.attribute': { link: 'Property' }
+        '@keyword.return': { fg: '#912b88' }
+        '@tag.delimiter': { link: 'Delimiter' }
+        '@text.reference': { link: 'String' }
+        '@string.regexp': { link: 'Regexp' }
+        '@string.special.path': { link: 'Path' }
+        '@type.builtin': { link: 'Builtin' }
+        '@type.qualifier': { link: 'Tag' }
+        '@constant.builtin': { link: 'Builtin' }
+        '@punctuation.delimiter': { link: 'Delimiter' }
+        '@variable': { link: 'Identifier' }
+        '@variable.builtin': { link: 'Special' }
+        '@variable.member': { link: 'Property' }
+
+        # --- Plugins ---
+        # Snacks
+        SnacksIndent: { fg: '#505a5f' }
+        SnacksIndentScope: { fg: '#1d70b8' }
+        SnacksDashboardHeader: { fg: '#4c2c92', bold: true }
+        SnacksDashboardIcon: { fg: '#4c2c92' }
+        SnacksDashboardTitle: { fg: '#4c2c92', bold: true }
+        SnacksPickerMatch: { fg: '#ffdd00', bold: true }
+        SnacksPickerDir: { fg: '#1d1f1f' }
+
+        # Blink CMP
+        BlinkCmpMenu: { fg: '#ffffff', bg: 'none' }
+        BlinkCmpMenuBorder: { link: 'FloatBorder' }
+        BlinkCmpMenuSelection: { fg: '#ffffff', bg: '#2a2c2e' }
+        BlinkCmpLabel: { fg: '#ffffff' }
+        BlinkCmpLabelMatch: { fg: '#ffdd00', bold: true }
+        BlinkCmpKind: { fg: '#1d70b8' }
+
+        # Telescope
+        TelescopeBorder: { fg: '#1d1f1f' }
+        TelescopePromptBorder: { fg: '#1d1f1f' }
+        TelescopeTitle: { fg: '#4c2c92' }
+
+        # Modes (modes.nvim)
+        ModesCopy: { bg: '#ffdd00' }
+        ModesDelete: { bg: '#d4351c' }
+        ModesInsert: { bg: '#00703c' }
+        ModesVisual: { bg: '#d53880' }
