@@ -1,233 +1,206 @@
-mode: dark # auto | dark | light
+mode: dark
 
 dark:
-  background: '#0f111a'
-  foreground: '#c7c7c7'
-  cursor: '#ff9800'
-  selection_bg: '#2b2f40'
-  selection_fg: '#c7c7c7'
+  background: '#0e141a'
+  foreground: '#ffffff'
+  cursor: '#f3f2f1'
+  selection_bg: '#35311b'
+  selection_fg: '#fff4c2'
   palette:
-    black: '#0f111a'
-    red: '#ff5370'
-    green: '#c3e88d'
-    yellow: '#ffcb6b'
-    blue: '#82aaff'
-    magenta: '#c792ea'
-    cyan: '#89ddff'
-    white: '#c7c7c7'
-    bright_black: '#546e7a'
-    bright_red: '#ff5370'
-    bright_green: '#c3e88d'
-    bright_yellow: '#ffcb6b'
-    bright_blue: '#82aaff'
-    bright_magenta: '#c792ea'
-    bright_cyan: '#89ddff'
-    bright_white: '#ffffff'
-
-light:
-  background: '#0f111a'
-  foreground: '#c7c7c7'
-  cursor: '#ff9800'
-  selection_bg: '#2b2f40'
-  selection_fg: '#c7c7c7'
-  palette:
-    black: '#0f111a'
-    red: '#ff5370'
-    green: '#c3e88d'
-    yellow: '#ffcb6b'
-    blue: '#82aaff'
-    magenta: '#c792ea'
-    cyan: '#89ddff'
-    white: '#c7c7c7'
-    bright_black: '#546e7a'
-    bright_red: '#ff5370'
-    bright_green: '#c3e88d'
-    bright_yellow: '#ffcb6b'
-    bright_blue: '#82aaff'
-    bright_magenta: '#c792ea'
-    bright_cyan: '#89ddff'
+    black: '#0a1016'
+    red: '#ff3365'
+    green: '#aaed36'
+    yellow: '#f5af19'
+    blue: '#44dfff'
+    magenta: '#ff4d93'
+    cyan: '#44dfff'
+    white: '#dddddd'
+    bright_black: '#5a6986'
+    bright_red: '#ff4d93'
+    bright_green: '#c3ff62'
+    bright_yellow: '#ffd35a'
+    bright_blue: '#74ecff'
+    bright_magenta: '#ff7db2'
+    bright_cyan: '#9af6ff'
     bright_white: '#ffffff'
 
 overrides:
   dark:
     ghostty:
-      background-opacity: 0.8
-      background-blur: macos-glass-clear
-      # Ghostty Palette mappings
-      palette = 232: '#0f111a'
-      palette = 233: '#1a1c25'
-      palette = 234: '#2b2f40'
-      palette = 235: '#3b4050'
-      palette = 236: '#546e7a'
-      palette = 237: '#607c8b'
-      palette = 238: '#719cae'
-      palette = 239: '#c7c7c7'
-      palette = 240: '#ffffff'
-      palette = 241: '#89ddff'
-      palette = 242: '#82aaff'
-      palette = 243: '#c792ea'
-      palette = 244: '#ffcb6b'
-      palette = 245: '#c3e88d'
-      palette = 246: '#f78c6c'
-      palette = 247: '#ff5370'
-      palette = 248: '#ff5370'
-      # Syntax mapping
-      palette = 249: '#89ddff'
-      palette = 250: '#c792ea'
-      palette = 251: '#ffcb6b'
-      palette = 252: '#f78c6c'
-      palette = 253: '#c3e88d'
-      palette = 254: '#82aaff'
-      palette = 255: '#2b2f40'
+      background-opacity: 0.94
+      background-blur: 24
+      palette = 232: '#060c12' # Activity Bar
+      palette = 233: '#0a1016' # Sidebar
+      palette = 234: '#0c1116' # Input
+      palette = 235: '#2c2f3f' # Borders
+      palette = 236: '#5a6986' # Comments
+      palette = 237: '#6e7d9a' # Muted text
+      palette = 238: '#ffffff'
+      palette = 239: '#ffffff'
+      palette = 240: '#44dfff'
+      palette = 241: '#aaed36'
+      palette = 242: '#ff3365'
+      palette = 243: '#f5af19'
+      palette = 244: '#ffffff' # Selection
+      palette = 245: '#ffffff' # Borders
+      palette = 246: '#f5af19' # Normal Mode
+      palette = 247: '#ff3365' # Focus
+      palette = 248: '#ff3365'
+      palette = 249: '#44dfff'
+      palette = 250: '#aaed36'
+      palette = 251: '#f5af19'
+      palette = 252: '#5a6986'
+      palette = 253: '#6e7d9a'
+      palette = 254: '#ffffff'
+      palette = 255: '#0e141a'
     neovim:
       highlights:
         Normal: { bg: 'none' }
         # --- UI Elements ---
-        CursorLine: { bg: '#1a1c25' }
-        LineNr: { fg: '#546e7a' }
-        CursorLineNr: { fg: '#ff9800', bold: true }
-        Search: { fg: '#0f111a', bg: '#ffcb6b' }
-        IncSearch: { fg: '#0f111a', bg: '#f78c6c' }
-        Visual: { bg: '#2b2f40' }
-        Pmenu: { fg: '#c7c7c7', bg: '#1a1c25' }
-        PmenuSel: { fg: '#ffffff', bg: '#2b2f40' }
-        FloatBorder: { fg: '#546e7a', bg: '' }
-        NormalFloat: { fg: '#c7c7c7', bg: '' }
+        CursorLine: { bg: '#1d1f1f' }
+        LineNr: { fg: '#505a5f' }
+        CursorLineNr: { fg: '#ffdd00' }
+        Search: { fg: '#1d1f1f', bg: '#35311b' }
+        IncSearch: { fg: '#ffffff', bg: '#35311b' }
+        Visual: { bg: '#35311b' }
+        Pmenu: { fg: '#f3f2f1', bg: '#0b0c0c' }
+        PmenuSel: { link: 'CursorLine' }
+        FloatBorder: { fg: '#2a2c2e' }
+        NormalFloat: { bg: 'none' }
         StatusLine: { bg: '' }
         TabLineFill: { bg: '' }
 
         # --- Syntax ---
-        Comment: { fg: '#546e7a', italic: true }
-        Constant: { fg: '#f78c6c' }
-        String: { fg: '#c3e88d' }
-        Identifier: { fg: '#c7c7c7' }
-        Function: { fg: '#82aaff' }
-        Statement: { fg: '#c792ea' }
-        Conditional: { fg: '#c792ea', bold: true }
-        Repeat: { fg: '#c792ea', bold: true }
-        Operator: { fg: '#89ddff' }
-        Keyword: { fg: '#c792ea' }
-        Type: { fg: '#ffcb6b' }
-        Structure: { fg: '#ffcb6b' }
-        Special: { fg: '#f78c6c' }
-        Delimiter: { fg: '#546e7a' }
+        Decorator: { fg: '#2a2c2e' }
+        Punctuation: { fg: '#2a2c2e' }
+        Comment: { fg: '#5a6986', italic: true }
+        Function: { fg: '#6e7d9a' }
+        Delimiter: { fg: '#6e7d9a' }
+        '@type.qualifier': { fg: '#6e7d9a' }
+        '@module': { fg: '#c4ccd8' }
+        '@namespace': { link: '@module' }
+        '@field': { link: '@module' }
+        Keyword: { fg: '#6e7d9a' }
+        Statement: { link: 'Keyword' }
+        '@punctuation.bracket': { fg: '#6e7d9a' }
+        '@punctuation.delimiter': { fg: '#6e7d9a' }
+        '@tag.delimiter': { fg: '#6e7d9a' }
+        '@markup.quote': { fg: '#6e7d9a', italic: true }
+        Operator: { fg: '#77839b' }
+        Property: { fg: '#c4ccd8' }
+        '@property': { link: 'Operator' }
+        '@variable.member': { link: 'Operator' } # obj.property
+        '@keyword': { fg: '#c4ccd8' }
+        '@keyword.operator': { link: '@keyword' }
+        '@keyword.repeat': { link: '@keyword' }
+        '@keyword.conditional': { link: '@keyword' }
+        '@keyword.return': { link: 'Property' }
+
+        # -- Normal
+        Number: { fg: '#ffffff' }
+        Constant: { fg: '#ffffff' }
+        '@constant': { fg: '#ffffff' }
+        '@variable': { fg: '#ffffff' }
+        '@variable.parameter': { link: '@variable' } # parameters
+
+        # -- Accents
+        String: { fg: '#aaed36' }
+        Character: { link: 'String' }
+        Regexp: { fg: '#aaed36' }
+        '@character': { fg: '#aaed36' }
+        '@string.regexp': { fg: '#aaed36' }
+        Type: { fg: '#aaed36' }
+        '@type': { link: 'Type' }
+        '@type.definition': { link: 'Type' }
+        '@lsp.type.class': { link: '@type' }
+        '@lsp.type.enum': { link: '@type' }
+        '@lsp.type.interface': { link: '@type' }
+        '@lsp.type.struct': { link: '@type' }
+        '@lsp.type.typeAlias': { link: '@type' }
+
+        Builtin: { fg: '#44dfff' }
+        Identifier: { fg: '#44dfff' }
+        '@function.builtin': { fg: '#44dfff' }
+        '@type.builtin': { fg: '#44dfff' }
+        '@constant.builtin': { fg: '#44dfff' }
+        '@markup.link': { fg: '#44dfff', underline: true }
+        '@markup.link.label': { fg: '#44dfff' }
+        '@lsp.mod.defaultLibrary': { fg: '#44dfff' }
+        Boolean: { fg: '#44dfff' }
+
+        Tag: { fg: '#ff3365' }
+        '@variable.builtin': { fg: '#ff3365' } # self, this, super
+        '@function': { fg: '#ff3365', bold: true }
+        '@constructor': { fg: '#ff3365', bold: true }
+        '@function.method': { fg: '#ff3365', bold: true }
+        '@function.call': { fg: '#ff3365', bold: true }
+        '@keyword.function': { fg: '#ff3365' }
+        '@punctuation.special': { fg: '#ff3365' }
+        '@markup.heading': { fg: '#ff3365', bold: true }
+        '@markup.list': { fg: '#ff3365' }
+        '@tag': { fg: '#ff3365' }
+
+        Special: { fg: '#f5af19' }
+        '@function.macro': { fg: '#f5af19' }
+        '@constant.macro': { fg: '#f5af19' }
+        '@lsp.type.decorator': { fg: '#f5af19' }
+        '@attribute': { fg: '#f5af19' }
+        '@keyword.type': { fg: '#f5af19' }
+
+        # Edge cases
+        '@property.yaml': { fg: '#ffffff' }
+
+        Key: { fg: '#5694ca' }
+        Float: { link: 'Number' }
+        Path: { fg: '#00703c' }
+        Conditional: { link: 'Keyword' }
+        Repeat: { fg: '#d53880', italic: true }
+        Structure: { fg: '#28a197' }
+        '@markup.raw': { fg: '#dddddd' }
+        '@tag.attribute': { fg: '#ffffff' }
+        '@markup.italic': { italic: true }
+        '@markup.strong': { bold: true }
+        '@lsp.type.parameter': { link: '@variable.parameter' }
+        '@lsp.type.property': { link: 'Property' }
+        '@lsp.type.variable': { link: '@variable' }
+        '@lsp.type.method': { link: '@function.method' }
+        '@lsp.type.function': { link: '@function' }
+        '@lsp.type.namespace': { link: '@module' }
+        '@lsp.mod.readonly': { italic: true }
+
+        '@event': { link: 'Identifier' }
+        '@interface': { link: 'Identifier' }
+        '@modifier': { link: 'Identifier' }
+        '@text.reference': { link: 'String' }
+        '@string.special.path': { link: 'Path' }
 
         # --- Plugins ---
         # Snacks
-        SnacksIndent: { fg: '#3b4050' }
-        SnacksIndentScope: { fg: '#82aaff' }
-        SnacksDashboardHeader: { fg: '#c792ea', bold: true }
-        SnacksDashboardIcon: { fg: '#c792ea' }
-        SnacksDashboardTitle: { fg: '#c792ea', bold: true }
-        SnacksPickerMatch: { fg: '#ffcb6b', bold: true }
-        SnacksPickerDir: { fg: '#546e7a' }
+        SnacksIndent: { fg: '#2a2c2e' }
+        SnacksIndentScope: { fg: '#1d70b8' }
+        SnacksDashboardHeader: { fg: '#2a2c2e', bold: true }
+        SnacksDashboardIcon: { fg: '#f5af19' }
+        SnacksDashboardTitle: { fg: '#ff3365', bold: true }
+        SnacksDashboardDesc: { fg: '#c4ccd8' }
+        SnacksPickerMatch: { fg: '#c4ccd8', bold: true }
+        SnacksPickerDir: { fg: '#1d1f1f' }
 
         # Blink CMP
-        BlinkCmpMenu: { fg: '#c7c7c7', bg: '#1a1c25' }
-        BlinkCmpMenuBorder: { fg: '#546e7a' }
-        BlinkCmpMenuSelection: { fg: '#ffffff', bg: '#2b2f40' }
-        BlinkCmpLabel: { fg: '#c7c7c7' }
-        BlinkCmpLabelMatch: { fg: '#ffcb6b', bold: true }
-        BlinkCmpKind: { fg: '#82aaff' }
-
-        # Mini
-        MiniCursorword: { bg: '#2b2f40' }
-        MiniCursorwordCurrent: { bg: '#2b2f40' }
-        MiniStatuslineModeNormal: { fg: '#0f111a', bg: '#82aaff', bold: true }
-        MiniStatuslineModeInsert: { fg: '#0f111a', bg: '#c3e88d', bold: true }
-        MiniStatuslineModeVisual: { fg: '#0f111a', bg: '#c792ea', bold: true }
+        BlinkCmpMenu: { fg: '#ffffff', bg: 'none' }
+        BlinkCmpMenuBorder: { link: 'FloatBorder' }
+        BlinkCmpMenuSelection: { fg: '#ffffff', bg: '#2a2c2e' }
+        BlinkCmpLabel: { fg: '#ffffff' }
+        BlinkCmpLabelMatch: { fg: '#f5af19', bold: true }
+        BlinkCmpKind: { fg: '#44dfff' }
 
         # Telescope
-        TelescopeBorder: { fg: '#546e7a' }
-        TelescopePromptBorder: { fg: '#546e7a' }
-        TelescopeTitle: { fg: '#c792ea' }
+        TelescopeBorder: { fg: '#1d1f1f' }
+        TelescopePromptBorder: { fg: '#1d1f1f' }
+        TelescopeTitle: { fg: '#44dfff' }
 
         # Modes (modes.nvim)
-        ModesCopy: { bg: '#ffcb6b' }
-        ModesDelete: { bg: '#ff5370' }
-        ModesInsert: { bg: '#c3e88d' }
-        ModesVisual: { bg: '#c792ea' }
-
-  light: # Fallback to dark
-    ghostty:
-      background-opacity: 0.8
-      background-blur: macos-glass-clear
-      # Same as dark to enforce dark mode
-      palette = 232: '#0f111a'
-      palette = 233: '#1a1c25'
-      palette = 234: '#2b2f40'
-      palette = 235: '#3b4050'
-      palette = 236: '#546e7a'
-      palette = 237: '#607c8b'
-      palette = 238: '#719cae'
-      palette = 239: '#c7c7c7'
-      palette = 240: '#ffffff'
-      palette = 241: '#89ddff'
-      palette = 242: '#82aaff'
-      palette = 243: '#c792ea'
-      palette = 244: '#ffcb6b'
-      palette = 245: '#c3e88d'
-      palette = 246: '#f78c6c'
-      palette = 247: '#ff5370'
-      palette = 248: '#ff5370'
-      # Syntax mapping
-      palette = 249: '#89ddff'
-      palette = 250: '#c792ea'
-      palette = 251: '#ffcb6b'
-      palette = 252: '#f78c6c'
-      palette = 253: '#c3e88d'
-      palette = 254: '#82aaff'
-      palette = 255: '#2b2f40'
-    neovim:
-      highlights:
-        Normal: { bg: 'none' }
-        # Copy of dark highlights to enforce consistency
-        CursorLine: { bg: '#1a1c25' }
-        LineNr: { fg: '#546e7a' }
-        CursorLineNr: { fg: '#ff9800', bold: true }
-        Search: { fg: '#0f111a', bg: '#ffcb6b' }
-        IncSearch: { fg: '#0f111a', bg: '#f78c6c' }
-        Visual: { bg: '#2b2f40' }
-        Pmenu: { fg: '#c7c7c7', bg: '#1a1c25' }
-        PmenuSel: { fg: '#ffffff', bg: '#2b2f40' }
-        FloatBorder: { fg: '#546e7a', bg: '#0f111a' }
-        NormalFloat: { fg: '#c7c7c7', bg: '#0f111a' }
-        Comment: { fg: '#546e7a', italic: true }
-        Constant: { fg: '#f78c6c' }
-        String: { fg: '#c3e88d' }
-        Identifier: { fg: '#c7c7c7' }
-        Function: { fg: '#82aaff' }
-        Statement: { fg: '#c792ea' }
-        Conditional: { fg: '#c792ea', bold: true }
-        Repeat: { fg: '#c792ea', bold: true }
-        Operator: { fg: '#89ddff' }
-        Keyword: { fg: '#c792ea' }
-        Type: { fg: '#ffcb6b' }
-        Structure: { fg: '#ffcb6b' }
-        Special: { fg: '#f78c6c' }
-        Delimiter: { fg: '#546e7a' }
-        SnacksIndent: { fg: '#3b4050' }
-        SnacksIndentScope: { fg: '#82aaff' }
-        SnacksDashboardHeader: { fg: '#c792ea', bold: true }
-        SnacksDashboardIcon: { fg: '#c792ea' }
-        SnacksDashboardTitle: { fg: '#c792ea', bold: true }
-        SnacksPickerMatch: { fg: '#ffcb6b', bold: true }
-        SnacksPickerDir: { fg: '#546e7a' }
-        BlinkCmpMenu: { fg: '#c7c7c7', bg: '#1a1c25' }
-        BlinkCmpMenuBorder: { fg: '#546e7a' }
-        BlinkCmpMenuSelection: { fg: '#ffffff', bg: '#2b2f40' }
-        BlinkCmpLabel: { fg: '#c7c7c7' }
-        BlinkCmpLabelMatch: { fg: '#ffcb6b', bold: true }
-        BlinkCmpKind: { fg: '#82aaff' }
-        MiniCursorword: { bg: '#2b2f40' }
-        MiniCursorwordCurrent: { bg: '#2b2f40' }
-        MiniStatuslineModeNormal: { fg: '#0f111a', bg: '#82aaff', bold: true }
-        MiniStatuslineModeInsert: { fg: '#0f111a', bg: '#c3e88d', bold: true }
-        MiniStatuslineModeVisual: { fg: '#0f111a', bg: '#c792ea', bold: true }
-        TelescopeBorder: { fg: '#546e7a' }
-        TelescopePromptBorder: { fg: '#546e7a' }
-        TelescopeTitle: { fg: '#c792ea' }
-        ModesCopy: { bg: '#ffcb6b' }
-        ModesDelete: { bg: '#ff5370' }
-        ModesInsert: { bg: '#c3e88d' }
-        ModesVisual: { bg: '#c792ea' }
+        ModeNormal: { bg: '#ffdd00' }
+        ModesCopy: { bg: '#ffdd00' }
+        ModesDelete: { bg: '#d4351c' }
+        ModesInsert: { bg: '#aaed36' }
+        ModesVisual: { bg: '#ff3365' }
