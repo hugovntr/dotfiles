@@ -18,13 +18,12 @@ main() {
   text_muted="color237"
   session_background="color253"
 
-
   # Status bar
   set status "on"
   set status-position "top"
   set status-justify "left"
   set status-style "fg=$gray_muted,bg=$background"
-  set status-left "#[fg=$gray_dark,bg=#{?copy_cursor_line,3,$session_background},bold]   #S  #[default] "
+  set status-left "#[fg=#{?copy_cursor_line,$gray_dark,$gray_light},bg=#{?copy_cursor_line,3,$session_background},bold]   #S  #[default] "
   setw status-left-length "120"
 
   # Windows
