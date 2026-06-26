@@ -14,7 +14,7 @@ local theme = {
   normal = {
     a = { fg = 'Gray', gui = 'bold' },
     b = { fg = colors.violet },
-    c = { fg = 'Cyan' },
+    c = { fg = 'Cyan', bg = '' },
     x = { fg = 'LightGray' },
     y = { fg = colors.red },
   },
@@ -47,7 +47,7 @@ lualine.setup {
         filetype_names = { oil = 'File Explorer' },
         buffers_color = {
           inactive = { fg = '#777777', bg = '' },
-          active = { fg = 'Foreground', gui = 'bold' },
+          active = { fg = 'Foreground', bg = '', gui = 'bold' },
         },
         fmt = function(bufname, ctx)
           if ctx.file:match '.*/app.*/page.tsx' then
@@ -141,7 +141,7 @@ slimline.setup {
   bold = true, -- makes primary parts bold
 
   -- Global style. Can be overwritten using `configs.<component>.style`
-  style = 'fg', -- or "fg"
+  style = 'fg',
 
   -- Component placement
   components = {
