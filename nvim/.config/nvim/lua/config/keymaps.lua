@@ -22,6 +22,9 @@ local nxonoremap = bind { 'n', 'x', 'o' }
 -- Clear highlights when pressing <Esc>
 nnoremap('<esc><esc>', '<cmd>nohlsearch<cr>')
 
+-- Inspect Treesitter
+nnoremap('<leader>I', '<cmd>Inspect<cr>', { desc = '[I]nspect Treesitter' })
+
 -- Diagnostics Keymaps
 nnoremap('<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 

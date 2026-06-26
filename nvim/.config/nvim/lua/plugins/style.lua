@@ -101,11 +101,12 @@ return {
     lazy = true,
     config = function()
       local opts = {
-        line_opacity = 0.25,
+        line_opacity = 0.15,
         set_cursor = true,
         set_cursorline = true,
         set_number = true,
-        set_signcolumn = false,
+        set_signcolumn = true,
+        ignore = { 'NvimTree', 'TelescopePrompt', '!minifiles' },
       }
 
       -- We defer the initial setup to ensure colorscheme is ready
@@ -121,6 +122,7 @@ return {
           -- Defer re-setup to ensure highlight groups are fully registered
           vim.schedule(function()
             require('modes').setup(opts)
+            vim.o.cmdheight = 0
           end)
         end,
       })
