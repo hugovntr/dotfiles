@@ -29,22 +29,22 @@ overrides:
     ghostty:
       background-opacity: 0.94
       background-blur: 24
-      palette = 232: '#060c12' # Activity Bar
-      palette = 233: '#0a1016' # Sidebar
-      palette = 234: '#0c1116' # Input
-      palette = 235: '#2c2f3f' # Borders
-      palette = 236: '#5a6986' # Comments
-      palette = 237: '#6e7d9a' # Muted text
+      palette = 232: '#060c12'
+      palette = 233: '#0a1016'
+      palette = 234: '#0c1116'
+      palette = 235: '#2c2f3f'
+      palette = 236: '#5a6986'
+      palette = 237: '#6e7d9a'
       palette = 238: '#ffffff'
       palette = 239: '#ffffff'
       palette = 240: '#44dfff'
       palette = 241: '#aaed36'
       palette = 242: '#ff3365'
       palette = 243: '#f5af19'
-      palette = 244: '#ffffff' # Selection
-      palette = 245: '#ffffff' # Borders
-      palette = 246: '#f5af19' # Normal Mode
-      palette = 247: '#ff3365' # Focus
+      palette = 244: '#ffffff'
+      palette = 245: '#ffffff'
+      palette = 246: '#f5af19'
+      palette = 247: '#ff3365'
       palette = 248: '#ff3365'
       palette = 249: '#44dfff'
       palette = 250: '#aaed36'
@@ -177,8 +177,8 @@ overrides:
         # --- Plugins ---
         # Snacks
         SnacksIndent: { fg: '#2a2c2e' }
-        SnacksIndentScope: { fg: '#1d70b8' }
-        SnacksDashboardHeader: { fg: '#2a2c2e', bold: true }
+        SnacksIndentScope: { fg: '#5a6986' }
+        SnacksDashboardHeader: { fg: '#2a2c2e', bold: false }
         SnacksDashboardIcon: { fg: '#f5af19' }
         SnacksDashboardTitle: { fg: '#ff3365', bold: true }
         SnacksDashboardDesc: { fg: '#c4ccd8' }
