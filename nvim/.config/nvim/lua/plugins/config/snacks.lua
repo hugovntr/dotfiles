@@ -2,7 +2,13 @@ local snacks = require 'snacks'
 local ascii = require 'ascii'
 
 snacks.setup {
-  image = { enabled = true },
+  image = {
+    enabled = true,
+    doc = {
+      enabled = true,
+      inline = true,
+    },
+  },
   bigfile = { enabled = true },
   notifier = { enabled = true, style = 'minimal', top_down = true },
   indent = {
