@@ -2,6 +2,9 @@ shell-integration = fish
 command = shell:~/.config/ghostty/command.sh
 confirm-close-surface = false
 title = "Ghostty"
+mouse-hide-while-typing = true
+link-url = true
+faint-opacity = 1
 
 # Theme
 # theme = light:forest-light,dark:forest-night
@@ -44,5 +47,6 @@ keybind = cmd+k=text:\x07
 keybind = ctrl+m=text:\x08
 
 # Custom Shader
-#custom-shader = ~/.config/ghostty/shaders/in-game-crt.glsl
+#custom-shader = ~/.config/ghostty/shaders/starfield.glsl
+#custom-shader = ~/.config/ghostty/shaders/mnoise.glsl
 #custom-shader-animation = "always"
