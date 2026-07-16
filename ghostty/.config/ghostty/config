@@ -4,7 +4,6 @@ confirm-close-surface = false
 title = "Ghostty"
 mouse-hide-while-typing = true
 link-url = true
-faint-opacity = 1
 
 # Theme
 # theme = light:forest-light,dark:forest-night
