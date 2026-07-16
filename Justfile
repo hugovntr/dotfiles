@@ -1,4 +1,7 @@
 # Run the theme manager script
 [group("scripts")]
 theme name='forest':
-  bun run ./scripts/set-theme.ts {{name}}
+  bun run ./bin/themes/set-theme.ts {{name}}
+
+fixaudio:
+  ./bin/fixaudio/script.sh

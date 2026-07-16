@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DOTFILES_DIR = path.resolve(__dirname, "..");
+const DOTFILES_DIR = path.resolve(__dirname, "../..");
 const THEMES_DIR = path.join(DOTFILES_DIR, "themes");
 
 // Output paths
