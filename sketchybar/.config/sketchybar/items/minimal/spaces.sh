@@ -7,9 +7,8 @@ SPACE_ICONS=("1" "2" "3")
 
 sid=0
 spaces=()
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
+for i in "${!SPACE_ICONS[@]}"; do
+  sid=$(($i + 1))
 
   space=(
     associated_space=$sid
@@ -38,9 +37,9 @@ do
     background.y_offset=12
   )
 
-  sketchybar --add space space.$sid left    \
-             --set space.$sid "${space[@]}" \
-             --subscribe space.$sid mouse.clicked
+  sketchybar --add space space.$sid left \
+    --set space.$sid "${space[@]}" \
+    --subscribe space.$sid mouse.clicked
 done
 
 spaces=(
@@ -62,7 +61,7 @@ separator=(
 )
 
 sketchybar --add bracket spaces '/space\..*/' \
-           --set spaces "${spaces[@]}"        \
-                                              \
-           --add item separator left          \
-           --set separator "${separator[@]}"  \
+  --set spaces "${spaces[@]}" \
+  \
+  --add item separator left \
+  --set separator "${separator[@]}"

@@ -15,8 +15,8 @@ bar=(
   height=56
   position=top
   color=0x00171717
-  sticky=on
-  shadow=off
+  sticky=true
+  shadow=false
   blur_radius=0
   padding_left=24
   padding_right=24
@@ -59,4 +59,3 @@ source "$ITEM_DIR/notch.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
-
