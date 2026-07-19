@@ -5,3 +5,6 @@ theme name='forest':
 
 fixaudio:
   ./bin/fixaudio/script.sh
+
+qmk:
+  qmk flash -kb lily58 -km hugo -e CONVERT_TO=promicro_rp2040

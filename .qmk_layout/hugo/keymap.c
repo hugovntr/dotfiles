@@ -45,20 +45,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /** LEFT **/
 [_LOWER] = LAYOUT(
-  QK_BOOT, EE_CLR, _______, _______, _______, S(RALT(KC_5)),                   _______, _______, _______,_______, S(RALT(KC_MINUS)), KC_DEL,
-  FR_COMM, FR_1, FR_2, FR_3, FR_4,  FR_5,                                          FR_6, FR_7, FR_8, FR_9, FR_0, FR_COMM,
-  S(KC_PDOT), FR_6, FR_7, FR_8, FR_9, FR_0,                                  XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,     KC_PDOT, S(KC_PDOT),  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-                             _______, _______, _______, _______, _______,  _______, KC_DEL, _______
+  QK_BOOT, EE_CLR, _______, _______, _______, S(RALT(KC_5)),                   _______, _______, _______, _______, S(RALT(KC_MINUS)), KC_DEL,
+  FR_COMM, FR_1,   FR_2,    FR_3,    FR_4,    FR_5,                            FR_6,    FR_7,    FR_8,    FR_9,    FR_0,              FR_COMM,
+  FR_DOT,  FR_6,   FR_7,    FR_8,    FR_9,    FR_0,                            XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR,           KC_PIPE,
+  KC_F1,   KC_F2,  KC_F3,   KC_F4,   KC_F5,   KC_F6,         FR_COMM, FR_DOT,  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,            KC_F12,
+                             _______, _______, _______,      _______, _______, _______, KC_DEL, _______
 ),
 
 /** RIGHT **/
 [_RAISE] = LAYOUT(
-  _______, _______, _______, _______, _______, RALT(KC_5),                                              QK_BOOT, EE_CLR, RALT(KC_8), RALT(KC_9), RALT(KC_MINUS), RALT(KC_EQL),
-  S(RALT(KC_5)), S(RALT(KC_MINUS)), KC_5, S(RALT(KC_5)), S(RALT(KC_MINUS)), RALT(KC_5),                         KC_DOT, KC_COMM, FR_SLSH, S(RALT(KC_L)), RALT(KC_MINUS), KC_LBRC,
-  KC_F1,  KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_5,                                                   KC_RALT, KC_LEFT, KC_UP, KC_DOWN,   KC_RGHT, FR_GRV,
-  KC_LSFT,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,                         KC_PDOT, S(KC_PDOT),   S(KC_PDOT), RALT(FR_N), FR_EQL,  RALT(FR_SLSH), FR_RBRC, RALT(FR_SLSH),
-                                                    _______, _______, _______,  _______, _______,  _______, KC_DEL, _______
+  _______,       _______,           _______, _______,       _______,           RALT(KC_5),                   QK_BOOT,    EE_CLR,     RALT(KC_8), RALT(KC_9),    RALT(KC_MINUS), RALT(KC_EQL),
+  S(RALT(KC_5)), S(RALT(KC_MINUS)), KC_5,    S(RALT(KC_5)), S(RALT(KC_MINUS)), RALT(KC_5),                   KC_DOT,     KC_COMM,    FR_SLSH,    S(RALT(KC_L)), RALT(KC_MINUS), KC_LBRC,
+  KC_F1,         KC_F2,             KC_F3,   KC_F4,         KC_F5,             KC_5,                         KC_RALT,    KC_LEFT,    KC_UP,      KC_DOWN,       KC_RGHT,        FR_GRV,
+  KC_LSFT,       KC_F8,             KC_F9,   KC_F10,        KC_F11,            KC_F12,     FR_COMM, FR_DOT,  S(KC_PDOT), RALT(FR_N), FR_EQL,     RALT(FR_SLSH), FR_RBRC,        RALT(FR_SLSH),
+                                             _______,       _______,           _______,    _______, _______, _______,    KC_DEL,     _______
 ),
 [_FN] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, KC_MCTL, XXXXXXX, XXXXXXX,
