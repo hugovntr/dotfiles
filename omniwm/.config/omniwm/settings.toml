@@ -27,7 +27,7 @@ maxTotalBytes = 67108864
 [dwindle]
 defaultSplitRatio = 1.0
 moveToRootStable = true
-singleWindowAspectRatio = "1920x1080"
+singleWindowFit = "2640x1280"
 smartSplit = true
 splitWidthMultiplier = 1.0
 useGlobalGaps = true
@@ -87,7 +87,7 @@ columnWidthPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
 defaultColumnWidth = 0.5
 infiniteLoop = false
 maxVisibleColumns = 2
-singleWindowAspectRatio = "1920x1080"
+singleWindowFit = "1920x1080"
 
 [quakeTerminal]
 animationDuration = 0.2
