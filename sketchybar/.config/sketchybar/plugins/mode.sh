@@ -1,6 +1,13 @@
 source "$CONFIG_DIR/constants.sh"
 
 mode_changed() {
+
+  local is_omni=$(omniwmctl query active-workspace 2>/dev/null)
+  if [ "${is_omni}" ]; then
+    sketchybar --set modes drawing=false
+    return
+  fi
+
   case "$MODE" in
   "service")
     args=(

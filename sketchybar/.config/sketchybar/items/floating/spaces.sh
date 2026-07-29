@@ -10,8 +10,8 @@ for i in "${!SPACE_ICONS[@]}"; do
     associated_display=1
     associated_space=$sid
     script="$PLUGIN_DIR/space.sh"
-    padding_left=0
-    padding_right=8
+    padding_left=4
+    padding_right=4
 
     # Space Icon
     icon=${SPACE_ICONS[$i]}
@@ -28,12 +28,12 @@ for i in "${!SPACE_ICONS[@]}"; do
     icon.font="$FONT_ICON:Semibold:22:0"
 
     # Applications
-    label.padding_left=4
+    label.padding_left=2
     label.padding_right=4
     label.font="sketchybar-app-font:Regular:13:0"
     label.background.height=20
     label.background.drawing=false
-    # label.background.color=0x44190501
+    #label.background.color=0x44190501
     label.background.color=0x00FF00FF
     label.background.corner_radius=6
     label.y_offset=0
@@ -69,14 +69,14 @@ sketchybar --add event window_focus \
   windows_on_spaces \
   space_windows_change
 
-# spaces=(
-#   background.height=26
-#   background.corner_radius=8
-#   background.color=$BACKGROUND
-#   background.border_color=$BACKGROUND
-#   background.border_width=0
-#   background.drawing=false
-# )
-#
-# sketchybar --add bracket spaces '/space\..*/' \
-#   --set spaces "${spaces[@]}"
+spaces=(
+  background.height=26
+  background.corner_radius=8
+  background.color=$BACKGROUND_SUBTLE
+  background.border_color=$BACKGROUND
+  background.border_width=0
+  background.drawing=true
+)
+
+sketchybar --add bracket spaces '/space\..*/' \
+  --set spaces "${spaces[@]}"
