@@ -314,6 +314,14 @@
                         "vendor_id": 1133
                     },
                     "ignore_vendor_events": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 60205,
+                        "vendor_id": 1240
+                    },
+                    "ignore_vendor_events": true
                 }
             ],
             "name": "Default profile",
