@@ -14,9 +14,9 @@ width = 2.0
 
 [borders.color]
 alpha = 1.0
-red = 1.0
-green = 0.6549
 blue = 0.49804
+green = 0.6549
+red = 1.0
 
 [clipboard]
 historyEnabled = false
@@ -84,10 +84,41 @@ margin = 1
 alwaysCenterSingleColumn = false
 centerFocusedColumn = "never"
 columnWidthPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
+containerPrimarySpanPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
 defaultColumnWidth = 0.5
 infiniteLoop = false
 maxVisibleColumns = 2
 singleWindowFit = "1920x1080"
+visibleContainerCount = 2
+
+[overview]
+zoom = 1.0
+
+[overview.backdrop]
+alpha = 1.0
+blue = 0.08
+green = 0.05
+red = 0.05
+
+[overview.windowBorders]
+
+[overview.windowBorders.hovered]
+alpha = 1.0
+blue = 1.0
+green = 0.6
+red = 0.4
+
+[overview.windowBorders.normal]
+alpha = 0.5
+blue = 0.35
+green = 0.3
+red = 0.3
+
+[overview.windowBorders.selected]
+alpha = 1.0
+blue = 0.4
+green = 0.8
+red = 0.3
 
 [quakeTerminal]
 animationDuration = 0.2
@@ -111,6 +142,7 @@ useWorkspaceId = false
 backgroundOpacity = 0.1
 deduplicateAppIcons = false
 enabled = false
+excludedBundleIDs = []
 height = 24.0
 hideEmptyWorkspaces = false
 notchActiveZoneWidth = 180.0
@@ -125,6 +157,8 @@ systemStatsButton = false
 windowLevel = "normal"
 xOffset = 300.0
 yOffset = 0.0
+
+[workspaceBar.iconOverrides]
 
 [[appRules]]
 bundleId = "com.openai.codex"
@@ -206,10 +240,12 @@ minWidth = 660.0
 
 [[appRules]]
 bundleId = "com.apple.Finder"
+id = "AB543845-7A1A-41CC-B2C4-9C27ED4A37E0"
 layout = "float"
 
 [[appRules]]
 bundleId = "com.apple.Preview"
+id = "17FDFCCD-DD0F-439F-B754-0A96AC7450A8"
 layout = "float"
 
 [[appRules]]
@@ -493,6 +529,14 @@ id = "moveColumn.right"
 
 [[hotkeys]]
 binding = "Unassigned"
+id = "moveColumn.up"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveColumn.down"
+
+[[hotkeys]]
+binding = "Unassigned"
 id = "moveColumnToFirst"
 
 [[hotkeys]]
@@ -620,64 +664,64 @@ binding = "Unassigned"
 id = "moveColumnToIndex.9"
 
 [[hotkeys]]
-binding = "Unassigned"
-id = "cycleColumnWidthForward"
+binding = "Option+Period"
+id = "cycleSizeForward"
+
+[[hotkeys]]
+binding = "Option+Comma"
+id = "cycleSizeBackward"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "cycleColumnWidthBackward"
+id = "cycleWindowPrimarySpanForward"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "cycleWindowWidthForward"
+id = "cycleWindowPrimarySpanBackward"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "cycleWindowWidthBackward"
+id = "cycleWindowSecondarySpanForward"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "cycleWindowHeightForward"
+id = "cycleWindowSecondarySpanBackward"
+
+[[hotkeys]]
+binding = "Option+Shift+F"
+id = "toggleContainerFullPrimarySpan"
+
+[[hotkeys]]
+binding = "Control+Option+F"
+id = "expandContainerToAvailablePrimarySpan"
+
+[[hotkeys]]
+binding = "Control+Option+R"
+id = "resetWindowSecondarySpan"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "cycleWindowHeightBackward"
+id = "setContainerPrimarySpan.decrease10Percent"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "toggleColumnFullWidth"
+id = "setContainerPrimarySpan.increase10Percent"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "expandColumnToAvailableWidth"
+id = "setWindowPrimarySpan.decrease10Percent"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resetWindowHeight"
+id = "setWindowPrimarySpan.increase10Percent"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "setColumnWidth.decrease10Percent"
+id = "setWindowSecondarySpan.decrease10Percent"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "setColumnWidth.increase10Percent"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "setWindowWidth.decrease10Percent"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "setWindowWidth.increase10Percent"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "setWindowHeight.decrease10Percent"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "setWindowHeight.increase10Percent"
+id = "setWindowSecondarySpan.increase10Percent"
 
 [[hotkeys]]
 binding = "Control+Command+B"
