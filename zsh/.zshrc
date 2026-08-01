@@ -86,3 +86,5 @@ done
 if [[ -f "$XDG_CONFIG_HOME/colors/colors.sh" ]] then
   source "$XDG_CONFIG_HOME/colors/colors.sh"
 fi
+
+. "$HOME/.local/share/../bin/env"
