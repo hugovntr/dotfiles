@@ -28,8 +28,8 @@ maxTotalBytes = 67108864
 defaultSplitRatio = 1.0
 moveToRootStable = true
 singleWindowFit = "2640x1280"
-smartSplit = true
-splitWidthMultiplier = 1.0
+smartSplit = false
+splitWidthMultiplier = 1.1
 useGlobalGaps = true
 
 [focus]
@@ -53,6 +53,7 @@ top = 54.0
 animationsEnabled = true
 defaultLayoutType = "dwindle"
 hotkeysEnabled = true
+hyperKeyModifiers = "Control+Option+Shift+Command"
 ipcEnabled = true
 preventSleepEnabled = false
 systemHyperTrigger = "None"
@@ -61,6 +62,7 @@ updateChecksEnabled = true
 [gestures]
 fingerCount = 3
 invertDirection = true
+mouseMoveModifierKey = "option"
 mouseResizeModifierKey = "option"
 scrollEnabled = false
 scrollModifierKey = "optionShift"
@@ -123,6 +125,8 @@ red = 0.3
 [quakeTerminal]
 animationDuration = 0.2
 autoHide = false
+backgroundBlurRadius = 0
+backgroundEffect = "standardBlur"
 enabled = false
 heightPercent = 50.0
 monitorMode = "focusedWindow"
@@ -485,14 +489,6 @@ id = "moveWindowUpOrToWorkspaceUp"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "consumeOrExpelWindowLeft"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "consumeOrExpelWindowRight"
-
-[[hotkeys]]
-binding = "Unassigned"
 id = "consumeWindowIntoColumn"
 
 [[hotkeys]]
@@ -510,6 +506,38 @@ id = "focusMonitorPrevious"
 [[hotkeys]]
 binding = "Unassigned"
 id = "focusMonitorLast"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWorkspaceToMonitor.left"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWorkspaceToMonitor.right"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWorkspaceToMonitor.up"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWorkspaceToMonitor.down"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWindowToMonitor.left"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWindowToMonitor.right"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWindowToMonitor.up"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "moveWindowToMonitor.down"
 
 [[hotkeys]]
 binding = "Option+Return"
@@ -688,15 +716,15 @@ binding = "Unassigned"
 id = "cycleWindowSecondarySpanBackward"
 
 [[hotkeys]]
-binding = "Option+Shift+F"
+binding = "Unassigned"
 id = "toggleContainerFullPrimarySpan"
 
 [[hotkeys]]
-binding = "Control+Option+F"
+binding = "Unassigned"
 id = "expandContainerToAvailablePrimarySpan"
 
 [[hotkeys]]
-binding = "Control+Option+R"
+binding = "Unassigned"
 id = "resetWindowSecondarySpan"
 
 [[hotkeys]]
@@ -741,35 +769,19 @@ id = "swapSplit"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resizeGrow.left"
+id = "resizeGrow.horizontal"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resizeGrow.right"
+id = "resizeGrow.vertical"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resizeGrow.up"
+id = "resizeShrink.horizontal"
 
 [[hotkeys]]
 binding = "Unassigned"
-id = "resizeGrow.down"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "resizeShrink.left"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "resizeShrink.right"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "resizeShrink.up"
-
-[[hotkeys]]
-binding = "Unassigned"
-id = "resizeShrink.down"
+id = "resizeShrink.vertical"
 
 [[hotkeys]]
 binding = "Control+Command+Semicolon"
