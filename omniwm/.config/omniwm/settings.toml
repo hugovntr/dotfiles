@@ -39,8 +39,10 @@ followsWindowToMonitor = false
 lockModifier = "off"
 moveCrossesMonitorAtEdge = false
 moveMouseToFocusedWindow = false
+raiseOnMouseFocus = false
 
 [gaps]
+fullscreenUsesOuterGaps = false
 size = 16.0
 
 [gaps.outer]
@@ -85,12 +87,10 @@ margin = 1
 [niri]
 alwaysCenterSingleColumn = false
 centerFocusedColumn = "never"
-columnWidthPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
 containerPrimarySpanPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
-defaultColumnWidth = 0.5
+defaultContainerPrimarySpan = 0.5
 infiniteLoop = false
-maxVisibleColumns = 2
-singleWindowFit = "1920x1080"
+singleWindowFit = "fill"
 visibleContainerCount = 2
 
 [overview]
@@ -155,11 +155,11 @@ position = "overlappingMenuBar"
 reserveLayoutSpace = false
 revealHoldMilliseconds = 200.0
 revealModifier = "off"
-showFloatingWindows = true
+showFloatingWindows = false
 showLabels = true
 systemStatsButton = false
-windowLevel = "normal"
-xOffset = 300.0
+windowLevel = "popup"
+xOffset = 0.0
 yOffset = 0.0
 
 [workspaceBar.iconOverrides]
@@ -241,23 +241,6 @@ bundleId = "com.apple.MobileSMS"
 id = "552FB77D-BF0E-4737-90A6-B5BC6986C579"
 minHeight = 320.0
 minWidth = 660.0
-
-[[appRules]]
-bundleId = "com.apple.Finder"
-id = "AB543845-7A1A-41CC-B2C4-9C27ED4A37E0"
-layout = "float"
-
-[[appRules]]
-bundleId = "com.apple.Preview"
-id = "17FDFCCD-DD0F-439F-B754-0A96AC7450A8"
-layout = "float"
-
-[[appRules]]
-appNameSubstring = "BlueStacks"
-assignToWorkspace = "2"
-bundleId = ""
-id = "7B3EF01A-68EB-4A33-923F-80C6F5974FF7"
-layout = "float"
 
 [[hotkeys]]
 binding = "Control+1"
