@@ -30,13 +30,13 @@ for i in "${!SPACE_ICONS[@]}"; do
     # Applications
     label.padding_left=2
     label.padding_right=4
-    label.font="sketchybar-app-font:Regular:13:0"
-    label.background.height=20
-    label.background.drawing=false
+    label.font="sketchybar-app-font:Regular:14:0"
+    #label.background.height=20
+    #label.background.drawing=false
     #label.background.color=0x44190501
-    label.background.color=0x00FF00FF
-    label.background.corner_radius=6
-    label.y_offset=0
+    #label.background.color=0x00000000
+    #label.background.corner_radius=6
+    #label.y_offset=0
     label.color=$BRAND100
     label.drawing=false
 

@@ -10,15 +10,14 @@ front_app=(
   label.y_offset=1
   label.padding_left=6
   label.padding_right=0
+  label.color=$LABEL_ACTIVE
   icon.drawing=false
-  icon.color=$BRAND200
+  icon.color=$BRAND500
   icon.width=16
   icon.height=16
   icon.padding_left=0
-  icon.padding_right=0
   icon.background.drawing=false
-  icon.background.color=0x00FFFFFF
-  icon.background.height=0
+  icon.background.height=24
   icon.background.corner_radius=4
 )
 
