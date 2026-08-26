@@ -242,6 +242,23 @@ id = "552FB77D-BF0E-4737-90A6-B5BC6986C579"
 minHeight = 320.0
 minWidth = 660.0
 
+[[appRules]]
+bundleId = "com.apple.Finder"
+id = "AB543845-7A1A-41CC-B2C4-9C27ED4A37E0"
+layout = "float"
+
+[[appRules]]
+bundleId = "com.apple.Preview"
+id = "17FDFCCD-DD0F-439F-B754-0A96AC7450A8"
+layout = "float"
+
+[[appRules]]
+appNameSubstring = "BlueStacks"
+assignToWorkspace = "2"
+bundleId = ""
+id = "7B3EF01A-68EB-4A33-923F-80C6F5974FF7"
+layout = "float"
+
 [[hotkeys]]
 binding = "Control+1"
 id = "switchWorkspace.0"
