@@ -48,4 +48,6 @@ keybind = ctrl+m=text:\x08
 # Custom Shader
 #custom-shader = ~/.config/ghostty/shaders/starfield.glsl
 #custom-shader = ~/.config/ghostty/shaders/mnoise.glsl
+custom-shader = ~/.config/ghostty/shaders/cursor_glide.glsl
+cursor-opacity = 0
 #custom-shader-animation = "always"
