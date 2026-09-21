@@ -29,3 +29,16 @@ vim.api.nvim_create_autocmd('BufEnter', {
   pattern = '*',
   command = 'set formatoptions-=o',
 })
+
+-- Disable Neovim's built-in markdown markup conceal.
+-- The bundled syntax/mkd.vim forces 'conceallevel = 2' for markdown files,
+-- which hides the markup around emphasis (e.g. '**bold**' renders as bold
+-- text with the asterisks hidden). This causes the line width to shift as
+-- the cursor moves over the line. Turn it off only for markdown filetypes.
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    -- 'opt_local' so this only affects markdown buffers, not other filetypes.
+    vim.opt_local.conceallevel = 0
+  end,
+})
