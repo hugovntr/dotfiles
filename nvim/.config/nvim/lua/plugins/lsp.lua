@@ -26,7 +26,15 @@ return {
     },
     event = 'VeryLazy',
     dependencies = {
-      'mason-org/mason.nvim',
+      {
+        'mason-org/mason.nvim',
+        opts = {
+          registries = {
+            'github:mason-org/mason-registry',
+            'github:Crashdummyy/mason-registry',
+          },
+        },
+      },
     },
     config = function()
       require 'plugins.config.lsp'
@@ -44,6 +52,15 @@ return {
         vim_cmd_output = false,
       },
       backend = 'ltex_plus',
+    },
+  },
+  {
+    'seblyng/roslyn.nvim',
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
+    opts = {
+      -- your configuration comes here; leave empty for default settings
+      filewatching = 'roslyn',
     },
   },
 }
