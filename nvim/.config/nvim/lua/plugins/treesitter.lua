@@ -61,23 +61,29 @@ return {
           enable = true,
           swap_next = {
             ['<leader>na'] = '@parameter.inner', -- swap parameter/argument with next
-            ['<leader>nm'] = '@function.outer', -- swap function with next
+            ['<leader>nm'] = '@function.outer',  -- swap function with next
           },
           swap_previous = {
             ['<leader>pa'] = '@parameter.inner', -- swap parameter/argument with previous
-            ['<leader>pm'] = '@function.inner', -- swap function with previous
+            ['<leader>pm'] = '@function.inner',  -- swap function with previous
           },
         },
       },
     },
   },
+  -- {
+  --   'MeanderingProgrammer/markdown.nvim',
+  --   event = 'BufEnter *.md(x)?',
+  --   opts = {
+  --     file_types = { 'markdown', 'mdx', 'Avante' },
+  --   },
+  --   ft = { 'markdown', 'mdx', 'Avante' },
+  -- },
   {
-    'MeanderingProgrammer/markdown.nvim',
+    'noisesfromspace/touchup.nvim',
     event = 'BufEnter *.md(x)?',
-    opts = {
-      file_types = { 'markdown', 'mdx', 'Avante' },
-    },
-    ft = { 'markdown', 'mdx', 'Avante' },
+    ft = { 'markdown', 'mdx' },
+    opts = {},
   },
   {
     'davidmh/mdx.nvim',

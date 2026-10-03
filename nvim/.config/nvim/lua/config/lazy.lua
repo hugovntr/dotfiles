@@ -23,6 +23,7 @@ require('lazy').setup({
     { import = 'plugins' },
     -- Disable some default plugins
     { 'nvim-neo-tree/neo-tree.nvim', enabled = false },
+    { 'stevearc/conform.nvim', enabled = false },
     { 'folke/flash.nvim', enabled = false },
     { 'nvim-lualine/lualine.nvim', enabled = false },
   },

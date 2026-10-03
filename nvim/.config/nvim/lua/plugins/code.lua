@@ -59,6 +59,7 @@ return {
       })
       require('formatter').setup {
         filetype = {
+          markdown = { require('formatter.filetypes.markdown').mdformat },
           astro = { require('formatter.filetypes.typescript').biome },
           lua = { require('formatter.filetypes.lua').stylua },
           typescript = { require('formatter.filetypes.typescript').biome },
