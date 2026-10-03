@@ -88,3 +88,8 @@ if [[ -f "$XDG_CONFIG_HOME/colors/colors.sh" ]] then
 fi
 
 . "$HOME/.local/share/../bin/env"
+
+# Unity CLI
+if [[ -f "$HOME/.unity/env" ]]; then
+  . "$HOME/.unity/env"
+fi
