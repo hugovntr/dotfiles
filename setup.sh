@@ -50,4 +50,4 @@ done
 # Stow the .config files
 echo -n "Cleanup previous .config files... (skipped)"
 failure
-ensure_stow nvim starship tmux karabiner sketchybar aerospace yazi qmk ghostty zsh wezterm
+ensure_stow nvim tmux ghostty zsh fish starship sketchybar aerospace borders colors karabiner yazi omniwm

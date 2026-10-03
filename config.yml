@@ -4,7 +4,6 @@ homebrew:
     - "nikitabobko/tap"
     - "qmk/qmk"
   casks:
-    - "wezterm"
     - "ghostty"
     - "shortcat"
     - "vlc"
