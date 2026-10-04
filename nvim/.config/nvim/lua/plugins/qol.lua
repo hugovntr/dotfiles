@@ -26,6 +26,7 @@ return {
     'stevearc/oil.nvim',
     dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
     lazy = true,
+    cmd = { 'Oil', 'OilAdd' },
     event = 'VeryLazy',
     config = function()
       vim.api.nvim_create_autocmd('FileType', {
