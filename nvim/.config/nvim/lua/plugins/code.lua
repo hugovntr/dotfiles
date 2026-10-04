@@ -52,10 +52,26 @@ return {
     'mhartington/formatter.nvim',
     event = 'VeryLazy',
     config = function()
+      local formatter_filetypes = {
+        markdown = true,
+        astro = true,
+        lua = true,
+        typescript = true,
+        typescriptreact = true,
+        javascript = true,
+        javascriptreact = true,
+        json = true,
+        rust = true,
+        python = true,
+      }
       vim.api.nvim_create_augroup('__formatter__', { clear = true })
       vim.api.nvim_create_autocmd('BufWritePost', {
         group = '__formatter__',
-        command = ':FormatWrite',
+        callback = function()
+          if formatter_filetypes[vim.b.filetype] then
+            vim.cmd 'FormatWrite'
+          end
+        end,
       })
       require('formatter').setup {
         filetype = {
