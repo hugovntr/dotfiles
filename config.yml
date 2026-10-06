@@ -1,16 +1,14 @@
 homebrew:
   taps:
     - "felixkratz/formulae"
-    - "nikitabobko/tap"
     - "qmk/qmk"
   casks:
     - "ghostty"
     - "shortcat"
     - "vlc"
-    - "nikitabobko/tap/aerospace"
+    - "omniwm"
   packages:
     # Essentials
-    - "zsh"
     - "fish"
     - "bash"
     - "neovim"
@@ -22,7 +20,6 @@ homebrew:
     - "gnupg"
     - "tmux"
     - "felixkratz/formulae/sketchybar"
-    - "felixkratz/formulae/borders"
     - "watch"
     - "qmk/qmk/qmk"
     - "uv"

@@ -3,8 +3,20 @@
 ensure_homebrew() {
   if [ ! -f "/opt/homebrew/bin/brew" ]; then
     echo -n "Homebrew is missing, installing..."
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh &> /dev/null
-    success
+    # The installer requires manual user input, so it must run interactively.
+    # Download it to a temp file and execute it (previously the script was
+    # downloaded and discarded, never executed).
+    local installer
+    installer="$(mktemp)"
+    if curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "${installer}" \
+      && /bin/bash "${installer}"; then
+      rm -f "${installer}"
+      success
+    else
+      rm -f "${installer}"
+      failure
+      exit 1
+    fi
   fi
 
   echo -n "Self-updating Homebrew..."
@@ -18,6 +30,7 @@ ensure_homebrew() {
 
 ensure_packages() {
   local pkgs=("$@")
+  local failed=()
 
   for pkg in "${pkgs[@]}"; do
     echo -n "Installing ${pkg}..."
@@ -25,9 +38,15 @@ ensure_packages() {
       success
     else
       failure
-      exit 1
+      failed+=("${pkg}")
     fi
   done
+
+  # Report every failure at once instead of aborting on the first one
+  if [ "${#failed[@]}" -gt 0 ]; then
+    echo "Failed to install: ${failed[*]}"
+    return 1
+  fi
 }
 
 ensure_taps() {
@@ -77,4 +96,7 @@ success() {
 }
 failure() {
   echo -e "\033[0;31m ✕ \033[0m"
+}
+info() {
+  echo -e "\033[0;33m – \033[0m"
 }
