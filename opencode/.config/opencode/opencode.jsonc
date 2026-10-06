@@ -4,6 +4,20 @@
 
   // Provider specific configurations
   "provider": {
+
+    "local": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "The Beast",
+      "options": {
+        "baseURL": "http://the-beast:8081/v1"
+      },
+      "models": {
+        "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF": {
+          "name": "Qwen3.8 Flash Next"
+        }
+      }
+    },
+
     "openrouter": {
       "models": {
         "moonshotai/kimi-k2-0905": {
