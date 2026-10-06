@@ -8,7 +8,7 @@ set -gx COLORTERM truecolor
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx FISH_CONFIG $XDG_CONFIG_HOME/fish
-set -gx DOTFILES $(path resolve (status --current-filename) | path dirname | path dirname | path dirname | path dirname) # This is ugly af
+set -gx DOTFILES $HOME/.dotfiles
 set -gx EDITOR nvim
 
 # Homebrew
@@ -16,42 +16,33 @@ if test -f /opt/homebrew/bin/brew
     set -gx HOMEBREW_PREFIX /opt/homebrew
     set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
     set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX"
-    fish_add_path "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"
+    contains -- "$HOMEBREW_PREFIX/bin" $PATH; or set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH
 else if test -d /home/linuxbrew/.linuxbrew
-    set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+    set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
     set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
     set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
-    fish_add_path "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"
+    contains -- "$HOMEBREW_PREFIX/bin" $PATH; or set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH
 else if test -f /usr/local/bin/brew
     set -gx HOMEBREW_PREFIX /usr/local
     set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
     set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX"
-    fish_add_path "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"
+    contains -- "$HOMEBREW_PREFIX/bin" $PATH; or set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH
 end
 
-# Bun
-if test -d $HOME/.bun
-    fish_add_path --append --path $HOME/.bun/bin
+# User paths (bun, go, local) — one loop, all builtins
+for p in $HOME/.bun/bin $HOME/go/bin $HOME/bin $HOME/.local/bin
+    test -d $p; and not contains -- $p $PATH; and set -gx PATH $PATH $p
 end
 
 # FNM
 if test -d $XDG_DATA_HOME/fnm
-    fish_add_path --append --path "$XDG_DATA_HOME/fnm"
-    if not command -v node >/dev/null 2>&1
-        set -gx FNM_DIR "$XDG_DATA_HOME/fnm/aliases/default/bin"
-        if not contains "$FNM_DIR" $PATH
-            fish_add_path --append --path "$FNM_DIR"
-        end
+    contains -- "$XDG_DATA_HOME/fnm" $PATH; or set -gx PATH $PATH "$XDG_DATA_HOME/fnm"
+    # `type -q` is a builtin: no process spawn, unlike `command -v node`
+    set -gx FNM_DIR "$XDG_DATA_HOME/fnm/aliases/default/bin"
+    if not type -q node
+        contains -- "$FNM_DIR" $PATH; or set -gx PATH $PATH "$FNM_DIR"
     end
 end
-
-# Golang
-if test -d $HOME/go
-    fish_add_path --append --path "$HOME/go/bin"
-end
-
-# Path
-fish_add_path --append --path $HOME/bin $HOME/.local/bin
 
 # Source colors
 if test -f $XDG_CONFIG_HOME/colors/colors.sh
@@ -60,5 +51,5 @@ end
 
 # CUDA
 if test -d /usr/local/cuda
-    fish_add_path --append --path /usr/local/cuda/bin
+    contains -- /usr/local/cuda/bin $PATH; or set -gx PATH $PATH /usr/local/cuda/bin
 end
