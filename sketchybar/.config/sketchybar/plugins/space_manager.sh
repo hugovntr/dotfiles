@@ -37,24 +37,29 @@ windows_on_spaces() {
     done <<<"$CURRENT_SPACES"
 
   elif [ "$is_omni" ]; then
-    WORKSPACES=$(omniwmctl query workspaces | jq '.result.payload.workspaces.[].number' | tr '\n' ' ')
-    while read -r line; do
-      for space in $line; do
-        icon_strip=""
-        space_args=(--set space.$space)
-        apps=$(omniwmctl query windows --workspace $space | jq -r '.result.payload.windows.[].app.name')
-        if [ -n "$apps" ]; then
-          while IFS= read -r app; do
-            __icon_map "${app}"
-            icon_strip+="${icon_result}"
-          done <<<"$apps"
-          space_args+=(label="$icon_strip" label.drawing=true)
-        else
-          space_args+=(label.drawing=false)
-        fi
-        args+=("${space_args[@]}")
-      done
-    done <<<"$WORKSPACES"
+    # One query for every window, grouped locally by workspace number
+    pairs=$(omniwmctl query windows 2>/dev/null | jq -r '.result.payload.windows[] | "\(.workspace.number)\t\(.app.name)"')
+    WORKSPACES=$(omniwmctl query workspaces 2>/dev/null | jq -r '.result.payload.workspaces[].number' | tr '\n' ' ')
+
+    for space in $WORKSPACES; do
+      icon_strip=""
+      space_args=(--set space.$space)
+      apps=""
+      while IFS=$'\t' read -r w app; do
+        [ "$w" = "$space" ] && apps+="${app}"$'\n'
+      done <<< "$pairs"
+      if [ -n "$apps" ]; then
+        while IFS= read -r app; do
+          [ -z "$app" ] && continue
+          __icon_map "${app}"
+          icon_strip+="${icon_result}"
+        done <<<"$apps"
+        space_args+=(label="$icon_strip" label.drawing=true)
+      else
+        space_args+=(label.drawing=false)
+      fi
+      args+=("${space_args[@]}")
+    done
 
   fi
 

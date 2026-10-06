@@ -4,7 +4,6 @@ update() {
   WIDTH="dynamic"
 
   local is_aerospace=$(aerospace list-workspaces --all 2>/dev/null)
-  local is_omni=$(omniwmctl query active-workspace 2>/dev/null)
 
   if [ "${is_aerospace}" ]; then
     if [[ $SID == $(aerospace list-workspaces --focused) ]]; then
@@ -12,9 +11,12 @@ update() {
     else
       SELECTED="false"
     fi
-  elif [ "${is_omni}" ]; then
-    # Get the actual workspace number
-    if [[ $SID == $(omniwmctl query workspaces --current --fields number | jq '.result.payload.workspaces[0].number') ]]; then
+  else
+    # Query fresh on every event: a cache would show stale highlights,
+    # since all space items refresh on the same event burst.
+    num=$(omniwmctl query active-workspace 2>/dev/null | jq -r '.result.payload.workspace.number' 2>/dev/null)
+    [ "$num" = "null" ] && num=""
+    if [ -n "$num" ] && [[ $SID == "$num" ]]; then
       SELECTED="true"
     else
       SELECTED="false"
