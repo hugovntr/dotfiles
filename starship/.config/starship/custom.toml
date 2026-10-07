@@ -5,7 +5,7 @@ add_newline = true
 
 
 format = """\
-[┌─](fg:242) $directory$git_branch$git_status$git_state$git_metrics$fill $all\
+[┌─](fg:242) $directory$git_branch$git_status$git_state$fill $all\
 [└─](fg:242) $jobs$character"""
 
 right_format="[ $container$username$localip$time ](bg:233)"
@@ -43,8 +43,15 @@ symbol = " "
 style = "bold fg:213"
 format = "[|](fg:242)[ $symbol$branch(:$remote_branch)]($style) "
 
+# git_metrics shells out to `git diff` on every prompt (~9ms) and is
+# empty in clean trees; git_commit (pulled in by $all) shells out to
+# `git rev-parse` (~9ms) and only renders on detached HEAD.
+# Both disabled to keep the prompt under ~10ms. Re-enable if missed.
 [git_metrics]
-disabled = false
+disabled = true
+
+[git_commit]
+disabled = true
 
 [php]
 symbol = " "
