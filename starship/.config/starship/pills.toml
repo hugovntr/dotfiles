@@ -1,0 +1,138 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# "pills" — sketchybar floating chips as the prompt.
+# Each chip is capped with the powerline rounded separators U+E0B6 ()
+# and U+E0B4 () painted in the chip background color, fusing with the
+# content rectangle into a rounded capsule.
+# No fill: the chips themselves define the prompt line.
+#
+# Try it:   ln -sfn starship/pills.toml starship/.config/starship.toml
+# Rollback: ln -sfn starship/custom.toml starship/.config/starship.toml
+
+add_newline = false
+
+format = """\
+$directory$git_branch${custom.gitclean}$git_status$git_metrics$git_state$cmd_duration$env_var$hostname$all\
+$jobs$character"""
+
+right_format = "$container$username$localip$time"
+
+[profiles]
+transient = """[$time](fg:white) $character"""
+
+[line_break]
+disabled = false
+
+[character]
+format = '$symbol '
+success_symbol = "[I ](bold #a6e22e)"
+error_symbol = "[I](bold #a6e22e) [](bold #ff4f00)"
+vimcmd_symbol = "[N ](bold #8be9fd)"
+vimcmd_visual_symbol = "[V ](bold #ff5fd7)"
+
+# ── chips: ( = bg #232a2f, brackets #444c52, content per module ──
+[jobs]
+format = '[  $number ](fg:#ff834c bold)'
+
+[directory]
+truncate_to_repo = true
+style = "bg:#232a2f fg:#10a084"
+repo_root_style = "bg:#232a2f fg:#10a084 bold"
+format = '[](fg:#232a2f)[   $path ]($style)[](fg:#232a2f) '
+repo_root_format = '[](fg:#232a2f)[   $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)[](fg:#232a2f) '
+
+[git_branch]
+format = '[](fg:#232a2f)[ ⎇ $branch(:$remote_branch) ](bg:#232a2f fg:#ff5fd7 bold)'
+
+[git_status]
+format = "[ $all_status$ahead_behind](bg:#1b2024 fg:#ff834c bold)"
+modified = "●${count}"
+staged = "+${count}"
+untracked = "?${count}"
+deleted = "✘${count}"
+conflicted = "!${count}"
+stashed = "${count}"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇡${ahead_count}⇣${behind_count}"
+
+[custom.gitclean]
+description = "clean git tree"
+when = "test -z \"$(git status --porcelain)\""
+require_repo = true
+shell = ["sh", "-c"]
+use_stdin = false
+format = '[  ](bg:#1b2024 fg:#a6e22e bold)'
+
+[cmd_duration]
+min_time = 2000
+format = '[](fg:#232a2f)[ 󰔛 $duration ](bg:#232a2f fg:#e5c07b)[](fg:#232a2f) '
+
+# Lights up only inside tmux (ghostty->tmux bootstrap = always)
+[env_var.TMUX]
+variable = "TMUX"
+format = '[](fg:#232a2f)[  tmux ](bg:#232a2f fg:#8be9fd bold)[](fg:#232a2f) '
+
+[time]
+disabled = false
+format = '[](fg:#232a2f)[ $time](bg:#232a2f)[](fg:#232a2f) '
+time_format = "%H:%M"
+style = 'none'
+use_12hr = false
+utc_time_offset = "local"
+
+# Kept disabled: both shell out ~9ms per prompt, render almost never
+[git_metrics]
+disabled = false
+format = "[( +$added)](bg:#1b2024 fg:#a6e22e bold)[( -$deleted)](bg:#1b2024 fg:#ff5555 bold)[](fg:#1b2024) "
+
+[git_commit]
+disabled = true
+
+# ── language badges (via $all) ─────────────────────────
+[php]
+symbol = " "
+
+[nodejs]
+format = '[](fg:#232a2f)[$symbol($version)](bg:#232a2f fg:#f8f8f2)[](fg:#232a2f) '
+version_format = "${major}.${minor}"
+
+[python]
+format = '[](fg:#232a2f)[$symbol($version)](bg:#232a2f fg:#f8f8f2)( \($virtualenv\))[](fg:#232a2f) '
+version_format = "${major}.${minor}"
+symbol = ' '
+
+[golang]
+format = '[](fg:#232a2f)[$symbol($version)](bg:#232a2f fg:#57d4e6)[](fg:#232a2f) '
+version_format = "${major}.${minor}"
+symbol = ' '
+
+[package]
+format = '[](fg:#232a2f)[$symbol($version)](bg:#232a2f fg:#f8f8f2)[](fg:#232a2f) '
+symbol = ' '
+
+[lua]
+format = '[](fg:#232a2f)[$symbol($version)](bg:#232a2f fg:#56a1f4)[](fg:#232a2f) '
+symbol = ' '
+
+[docker_context]
+disabled = true
+
+[localip]
+disabled = false
+ssh_only = true
+format = '[](fg:#232a2f)[ $address ](bg:#232a2f fg:yellow bold)[](fg:#232a2f) '
+
+[hostname]
+disabled = false
+ssh_only = true
+format = '[](fg:#232a2f)[  $hostname ](bg:#232a2f fg:#bd93f9 bold)[](fg:#232a2f) '
+
+[username]
+style_root = "bg:#232a2f fg:red bold"
+style_user = "bg:#232a2f fg:yellow bold"
+format = '[](fg:#232a2f)[$user]($style)[](fg:#232a2f) '
+
+[container]
+style = "bg:#232a2f fg:red bold dimmed"
+format = '[](fg:#232a2f)[$symbol]($style)[](fg:#232a2f) '

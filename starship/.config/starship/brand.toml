@@ -1,0 +1,116 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# "brand" — house-style prompt in the dotfiles palette:
+#   frame  = brand orange #ff834c  (same accent as borders / sketchybar)
+#   path   = teal #10a084          (ALT500 from colors.sh)
+#   branch = magenta fg:213        (unchanged house color)
+# New vs custom.toml: rounded frame + cmd_duration (command runtime).
+# Roll back:  ln -sfn starship/custom.toml starship/.config/starship.toml
+
+add_newline = false
+
+format = """\
+[╭─](fg:#ff834c) $directory$git_branch$git_status$git_state$cmd_duration$fill $all\
+[╰─](fg:#ff834c) $jobs$character"""
+
+right_format = "[ $container$username$localip$time ](bg:236)"
+
+[profiles]
+transient = """[$time](fg:white) $character"""
+
+[fill]
+symbol = "—"
+style = "fg:238"
+
+[line_break]
+disabled = false
+
+[character]
+format = '$symbol '
+success_symbol = "[I ](bold green)"
+error_symbol = "[I](bold green) [](bold red)"
+vimcmd_symbol = "[N ](bold fg:246)"
+vimcmd_visual_symbol = "[V ](bold fg:244)"
+
+[jobs]
+symbol = ""
+style = "bold fg:#ff834c"
+
+# New: how long the last command took (only when >= 2s)
+[cmd_duration]
+min_time = 2000
+format = '[󰔛 $duration](fg:#e5c07b) '
+
+[time]
+disabled = false
+format = "[  $time]($style)"
+time_format = "%l:%M %p"
+style = "none"
+use_12hr = true
+utc_time_offset = "local"
+
+[directory]
+truncate_to_repo = true
+repo_root_style = "bold #10a084"
+style = "bold #10a084 dimmed"
+format = "  [$path ]($style)"
+repo_root_format = '  [$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+
+[git_branch]
+symbol = " "
+style = "bold fg:213"
+format = "[│](fg:238)[ $symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+style = "bold fg:#ff4f00"
+
+# Kept disabled: both shell out on every prompt (~9ms each) and
+# render almost never. Re-enable if missed.
+[git_metrics]
+disabled = true
+
+[git_commit]
+disabled = true
+
+[php]
+symbol = " "
+
+[nodejs]
+format = '[$symbol($version)]($style) '
+version_format = "${major}.${minor}"
+
+[python]
+format = '[$symbol($version)]($style)( \($virtualenv\)) '
+version_format = "${major}.${minor}"
+symbol = ' '
+
+[golang]
+format = '[$symbol($version)]($style) '
+version_format = "${major}.${minor}"
+symbol = ' '
+
+[package]
+format = '[$symbol($version)]($style) '
+symbol = ' '
+
+[lua]
+format = '[$symbol($version)]($style)'
+symbol = ' '
+
+[docker_context]
+disabled = true
+
+[localip]
+disabled = false
+ssh_only = true
+style = "bold fg:yellow bg:236"
+
+[hostname]
+disabled = true
+
+[username]
+style_root = "bold fg:red bg:236"
+style_user = "bold fg:yellow bg:236"
+
+[container]
+style = "bold dimmed fg:red bg:236"

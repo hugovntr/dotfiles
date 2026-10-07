@@ -2,9 +2,9 @@ if status is-interactive
     # Initialize starship
 
     if set -q XDG_CONFIG_HOME
-        set -gx STARSHIP_CONFIG "$XDG_CONFIG_HOME/starship/fish.toml"
+        set -gx STARSHIP_CONFIG "$XDG_CONFIG_HOME/starship.toml"
     else
-        set -gx STARSHIP_CONFIG "$HOME/.config/starship/fish.toml"
+        set -gx STARSHIP_CONFIG "$HOME/.config/starship.toml"
     end
 
     function starship_transient_prompt_func
