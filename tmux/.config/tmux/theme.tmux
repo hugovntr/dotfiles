@@ -45,10 +45,12 @@ main() {
   setw window-status-format " (#I) #W "                      # Window format
 
   # Pane border
+  # set pane-border-style "fg=$border"
+  # set pane-active-border-style "fg=$text_muted"
   set pane-border-style "fg=$border"
-  set pane-active-border-style "fg=$text_muted"
-  set window-active-style "fg=$background,bg=$background"
-  set window-style "fg=$text_muted,bg=$background"
+  set pane-active-border-style "fg=$border"
+  set window-active-style "fg=$background,bg=default"
+  set window-style "fg=$text_muted,bg=default"
 
   # Display messages
   set message-style "bg=$session_background,fg=0,bold"
