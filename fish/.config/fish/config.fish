@@ -53,3 +53,6 @@ end
 if test -d /usr/local/cuda
     contains -- /usr/local/cuda/bin $PATH; or set -gx PATH $PATH /usr/local/cuda/bin
 end
+
+# Hermes Agent command
+fish_add_path "$HOME/.local/bin"
