@@ -122,6 +122,7 @@ containerPrimarySpanPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
 defaultContainerPrimarySpan = 0.5
 edgeGaps = true
 infiniteLoop = false
+resizeStepPercent = 5
 singleWindowFit = "container_primary_span"
 visibleContainerCount = 2
 
@@ -306,6 +307,11 @@ appNameSubstring = "BlueStacks"
 assignToWorkspace = "2"
 bundleId = ""
 id = "7B3EF01A-68EB-4A33-923F-80C6F5974FF7"
+layout = "float"
+
+[[appRules]]
+bundleId = "ru.keepcoder.Telegram"
+id = "CB6591DA-74E4-41CA-B410-9B963BFE3B01"
 layout = "float"
 
 [[hotkeys]]
