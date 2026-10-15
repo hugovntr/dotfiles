@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { out, 'WarningMsg' },
+      { out,                            'WarningMsg' },
       { '\nPress any key to exit...' },
     }, true, {})
     vim.fn.getchar()
@@ -23,9 +23,8 @@ require('lazy').setup({
     { import = 'plugins' },
     -- Disable some default plugins
     { 'nvim-neo-tree/neo-tree.nvim', enabled = false },
-    { 'stevearc/conform.nvim', enabled = false },
-    { 'folke/flash.nvim', enabled = false },
-    { 'nvim-lualine/lualine.nvim', enabled = false },
+    { 'folke/flash.nvim',            enabled = false },
+    { 'nvim-lualine/lualine.nvim',   enabled = false },
   },
   -- defaults = { lazy = true },
   ---@diagnostic disable-next-line: assign-type-mismatch

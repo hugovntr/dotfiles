@@ -49,45 +49,24 @@ return {
 
   -- Code formatter
   {
-    'mhartington/formatter.nvim',
-    event = 'VeryLazy',
-    config = function()
-      local formatter_filetypes = {
-        markdown = true,
-        astro = true,
-        lua = true,
-        typescript = true,
-        typescriptreact = true,
-        javascript = true,
-        javascriptreact = true,
-        json = true,
-        rust = true,
-        python = true,
-      }
-      vim.api.nvim_create_augroup('__formatter__', { clear = true })
-      vim.api.nvim_create_autocmd('BufWritePost', {
-        group = '__formatter__',
-        callback = function()
-          if formatter_filetypes[vim.b.filetype] then
-            vim.cmd 'FormatWrite'
-          end
-        end,
-      })
-      require('formatter').setup {
-        filetype = {
-          markdown = { require('formatter.filetypes.markdown').mdformat },
-          astro = { require('formatter.filetypes.typescript').biome },
-          lua = { require('formatter.filetypes.lua').stylua },
-          typescript = { require('formatter.filetypes.typescript').biome },
-          typescriptreact = { require('formatter.filetypes.typescriptreact').biome },
-          javascript = { require('formatter.filetypes.javascript').biome },
-          javascriptreact = { require('formatter.filetypes.javascriptreact').biome },
-          json = { require('formatter.filetypes.json').biome },
-          rust = { require('formatter.filetypes.rust').rustfmt },
-          python = { require('formatter.filetypes.python').ruff },
-        },
-      }
-    end,
+    'stevearc/conform.nvim',
+    event = { 'BufWritePre' },
+    cmd = { 'ConformInfo' },
+    ---@module "conform"
+    ---@type conform.setupOpts
+    opts = {
+      formatters_by_ft = {
+        astro = { 'biome' },
+        typescript = { 'biome' },
+        typescriptreact = { 'biome' },
+        javascript = { 'biome' },
+        javascriptreact = { 'biome' },
+        json = { 'biome' },
+        markdown = { 'mdformat' },
+        lua = { 'stylua' },
+        python = { 'ruff' },
+      },
+    },
   },
 
   -- Code linter
