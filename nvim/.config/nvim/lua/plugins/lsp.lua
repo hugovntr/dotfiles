@@ -17,6 +17,7 @@ return {
         'emmet_language_server',
         'rust_analyzer',
         'yamlls',
+        'jsonls',
         'marksman',
         -- Tools
         'stylua',
@@ -34,6 +35,10 @@ return {
             'github:Crashdummyy/mason-registry',
           },
         },
+      },
+      {
+        'b0o/schemastore.nvim',
+        lazy = true,
       },
     },
     config = function()

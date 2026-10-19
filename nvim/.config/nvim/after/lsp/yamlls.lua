@@ -11,9 +11,10 @@ return {
       completion = true,
       validate = true,
       schemaStore = {
-        enable = true,
-        url = 'https://www.schemastore.org/json',
+        enable = false,
+        url = '',
       },
+      schemas = require('schemastore').yaml.schemas(),
     },
   },
 }
