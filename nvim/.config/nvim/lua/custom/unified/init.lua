@@ -35,6 +35,7 @@ function M.apply_palette(theme_data)
   hl(0, 'LineNr', { fg = c.bright_black })
   hl(0, 'CursorLine', { bg = c.black })
   hl(0, 'CursorLineNr', { fg = c.yellow, bold = true })
+  hl(0, 'WinSeparator', { fg = c.bright_black })
 
   -- Common Groups
   hl(0, 'Comment', { fg = c.bright_black, italic = true })
