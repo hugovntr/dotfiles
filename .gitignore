@@ -2,3 +2,4 @@
 *.log
 *.pre-v4
 *_ltex.json
+node_modules/
