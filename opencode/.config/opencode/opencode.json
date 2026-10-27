@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+
+  // Provider specific configurations
+  "providers": {
+
+    "local": {
+      "name": "The Beast",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://the-beast:8081/v1"
+      },
+      "models": {
+        "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF": {
+          "name": "Qwen3.8 Flash Next",
+          "capabilities": {
+            "tools": true,
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        }
+      }
+    }
+  }
+}
