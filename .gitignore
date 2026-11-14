@@ -1,5 +1,6 @@
 .env
 *.log
-*.pre-v4
+*.pre-v[0-9]
 *_ltex.json
 node_modules/
+
