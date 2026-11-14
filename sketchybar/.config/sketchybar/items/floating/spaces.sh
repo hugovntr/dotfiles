@@ -20,7 +20,7 @@ for i in "${!SPACE_ICONS[@]}"; do
     icon.color=$LABEL_ACTIVE
     icon.highlight_color=$BRAND300
     icon.background.height=20
-    icon.background.color=$BACKGROUND
+    icon.background.color=$BACKGROUND_SUBTLE
     icon.background.corner_radius=5
     icon.background.border_width=2
     icon.padding_left=3
